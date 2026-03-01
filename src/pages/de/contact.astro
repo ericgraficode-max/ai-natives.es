@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<Layout
+  lang="de"
+  title="Kontakt | AI‑Native.es"
+  description="Zwei Senior-Partner in jedem Call, keine Account-Manager. Sagen Sie uns, wo Sie hin wollen – wir sagen Ihnen, was es wirklich braucht."
+>
+  <section class="px-6 pb-20 pt-16 md:pt-24">
+    <div class="mx-auto max-w-3xl text-center" data-animation="fade-up">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
+        Kontakt
+      </p>
+      <h1 class="mb-4 text-3xl font-bold md:text-5xl">Lassen Sie uns über Ihr Produkt sprechen</h1>
+      <p class="mx-auto max-w-2xl text-zinc-400">
+        Ob Sie in der Discovery-Phase sind, skalieren oder gerade Brände löschen – wir geben Ihnen eine ehrliche 
+        Einschätzung, wo wir helfen können und wo jemand anderes vielleicht besser passt.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-10 md:grid-cols-[1.4fr,1fr]">
+      <div data-animation="fade-up">
+        <ContactForm />
+      </div>
+
+      <aside
+        class="space-y-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-sm text-zinc-300"
+        data-animation="fade-up"
+      >
+        <div>
+          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Was wir brauchen</h2>
+          <p class="text-xs text-zinc-400">
+            Ein paar Stichpunkte reichen: Was bauen Sie gerade, wo stehen Sie heute und wie sieht ein "Win" in 12 Monaten aus?
+          </p>
+        </div>
+
+        <div class="border-t border-zinc-800 pt-4">
+          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Direkter Kontakt</h2>
+          <p class="text-xs text-zinc-400">
+            Lieber per E-Mail? Schreiben Sie uns an{' '}
+            <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">
+              hola@ai-native.es
+            </a>
+            .
+          </p>
+        </div>
+
+        <div class="border-t border-zinc-800 pt-4">
+          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Typische Kunden</h2>
+          <ul class="space-y-1 text-xs text-zinc-300">
+            <li>• Spanische Unternehmen, die europaweit expandieren</li>
+            <li>• Europäische Teams, die einen Senior-Partner vor Ort suchen</li>
+            <li>• Gründer, die von Tag eins an professionell aufbauen wollen</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>

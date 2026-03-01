@@ -1,0 +1,291 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { ChevronRight } from '../../components/FeatherIcons.ts';
+---
+
+<Layout
+  title="European Pricing Compliance & Omnibus UX | AI‑Native.es"
+  description="Align your e-commerce pricing and promotions with the EU Price Indication Directive (PID) and Omnibus rules without killing your conversion rates."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+
+    <div class="mx-auto max-w-5xl text-center" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        Legal-Ready UX
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+        Compliance that doesn't <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">kill conversion.</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
+        The EU Price Indication Directive (PID) and the Omnibus rules have changed the game for discounts. 
+        We help Spanish e-commerce teams implement the '30-day rule' and pricing transparency through 
+        high-performing UX patterns.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Book a Pricing UX Audit
+        </a>
+        <a
+          href="#requirements"
+          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
+        >
+          See Requirements
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">Pricing transparency is the new trust signal</h2>
+          <p class="mb-6 text-zinc-400">
+            Consumer protection laws across the EU are tightening. Misleading discounts or missing unit prices 
+            are no longer just "bad UX"—they are high-risk legal liabilities. We bridge the gap between 
+            your legal team's requirements and your growth team's KPIs.
+          </p>
+          <ul class="space-y-4">
+            {[
+              "Automated 'Lowest price in 30 days' display",
+              "Compliant unit pricing (per kg/L) implementation",
+              "Transparent discount & promotion UX patterns",
+              "Protection against 'Unfair Commercial Practice' claims"
+            ].map(item => (
+              <li class="flex items-center gap-3 text-zinc-300">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 text-xs">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:p-12" data-animation="scale">
+           <div class="space-y-4">
+              <div class="flex justify-between items-center text-xs text-zinc-500 uppercase tracking-widest">
+                 <span>PDP // COMPLIANCE_VIEW</span>
+                 <span class="text-green-400">PASSED</span>
+              </div>
+              <div class="p-6 rounded-xl bg-zinc-950 border border-zinc-800">
+                 <p class="text-sm text-zinc-400 line-through">99,99 €</p>
+                 <div class="flex items-baseline gap-3">
+                    <p class="text-3xl font-bold text-zinc-100">79,99 €</p>
+                    <span class="px-2 py-0.5 rounded bg-red-500/10 text-red-500 text-[10px] font-bold">-20%</span>
+                 </div>
+                 <p class="mt-2 text-[10px] text-zinc-500 italic">
+                    Lowest price in the last 30 days: 79,99 €
+                 </p>
+                 <div class="mt-4 pt-4 border-t border-zinc-900 text-[10px] text-zinc-500">
+                    Price per kg: 15,99 €
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="requirements" class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-5xl">The Compliance Workflow</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">
+          We translate complex EU directives into concrete UI components and data requirements 
+          for your engineering and trading teams.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "01",
+            title: "Audit",
+            desc: "Mapping your current pricing display against PID and Omnibus requirements.",
+            icon: "⚖️"
+          },
+          {
+            step: "02",
+            title: "Redesign",
+            desc: "Designing UI variations that satisfy legal while maintaining 'urgency' and CR.",
+            icon: "📐"
+          },
+          {
+            step: "03",
+            title: "Implement",
+            desc: "Technical guidance on 30-day price logging and dynamic unit price calculation.",
+            icon: "💻"
+          },
+          {
+            step: "04",
+            title: "Document",
+            desc: "Clear internal guidelines for trading teams to ensure future promos stay legal.",
+            icon: "📂"
+          }
+        ].map(item => (
+          <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
+            <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
+            <div class="mb-6 text-3xl">{item.icon}</div>
+            <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Middle Section: The Conversion vs. Compliance Balance -->
+  <section class="bg-gradient-to-b from-zinc-950 to-zinc-900 px-6 py-24 overflow-hidden">
+    <div class="mx-auto max-w-6xl">
+      <div class="rounded-3xl border border-violet-400/20 bg-violet-950/5 p-8 md:p-16 lg:flex items-center gap-16" data-animation="fade-up">
+        <div class="lg:w-1/2">
+          <div class="mb-6 inline-flex rounded-full bg-violet-400/10 px-4 py-1 text-xs font-semibold text-violet-300">
+            Strategic Pricing UX
+          </div>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">Solve the 'Omnibus' design problem.</h2>
+          <p class="mb-8 text-zinc-400">
+            Most legal memos are impossible to implement without ruining your product pages. 
+            We've spent years inside large European retailers solving exactly this: how to display 
+            mandatory regulatory info (like the 30-day lowest price) in a way that feels like 
+            part of the brand, not a warning label.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="h-1 w-12 mt-3 bg-violet-400 shrink-0"></div>
+              <p class="text-sm text-zinc-300"><strong class="text-zinc-100">Smart Hierarchy:</strong> Placing mandatory info where it satisfies the law without distracting from the CTA.</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="h-1 w-12 mt-3 bg-violet-400 shrink-0"></div>
+              <p class="text-sm text-zinc-300"><strong class="text-zinc-100">Mobile Optimization:</strong> Ensuring multi-price displays remain readable on small screens.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-0 lg:w-1/2 relative flex justify-center">
+           <div class="w-full max-w-xs aspect-[9/16] rounded-3xl border-[6px] border-zinc-800 bg-zinc-950 overflow-hidden shadow-2xl p-4">
+              <div class="h-1 w-12 bg-zinc-800 rounded-full mx-auto mb-6"></div>
+              <div class="h-40 w-full bg-zinc-900 rounded-xl mb-6"></div>
+              <div class="space-y-4">
+                 <div class="h-6 w-3/4 bg-zinc-900 rounded"></div>
+                 <div class="space-y-2">
+                    <div class="h-3 w-1/4 bg-zinc-800 rounded"></div>
+                    <div class="flex gap-2">
+                       <div class="h-8 w-1/2 bg-zinc-800 rounded"></div>
+                       <div class="h-8 w-12 bg-violet-500/20 rounded"></div>
+                    </div>
+                    <div class="h-2 w-2/3 bg-zinc-900 rounded"></div>
+                 </div>
+                 <div class="h-12 w-full bg-cyan-400 rounded-xl mt-12"></div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Focus Areas -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold">Specialized Pricing Services</h2>
+        <p class="text-zinc-400">Deep expertise in European consumer protection law and digital commerce.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {[
+          {
+            title: "The '30-Day Rule' Implementation",
+            desc: "Redesigning your discount logic to display the lowest price from the last 30 days as required by Article 6a PID.",
+            icon: "📅"
+          },
+          {
+            title: "Unit Pricing (Price per kg/L)",
+            desc: "Ensuring mandatory unit prices are visible and calculated correctly across all PLPs and search results.",
+            icon: "⚖️"
+          },
+          {
+            title: "Promotion & Coupon UX",
+            desc: "Redesigning how vouchers and 'strike-through' prices interact to ensure total transparency.",
+            icon: "🎟️"
+          },
+          {
+            title: "Omnibus Legal-UX Audit",
+            desc: "A full sweep of your platform to identify 'Dark Patterns' that might violate the new Unfair Commercial Practices rules.",
+            icon: "🔍"
+          }
+        ].map(service => (
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
+            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div>
+              <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
+              <p class="text-sm text-zinc-400">{service.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t border-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl" data-animation="fade-up">Pricing Compliance FAQ</h2>
+      <div class="space-y-6" data-animation="fade-up">
+        {[
+          {
+            q: "What is the '30-day rule' in simple terms?",
+            a: "When you announce a price reduction (e.g., 'Save 20%'), the 'prior' price you compare it to must be the lowest price you charged for that item in the last 30 days. You cannot artificially inflate the price just before a sale."
+          },
+          {
+            q: "Does this apply to all products?",
+            a: "Generally, yes. There are exceptions for perishable goods (like food) and products that have been on the market for less than 30 days, but for most e-commerce categories, it is mandatory."
+          },
+          {
+            q: "Will displaying the 'lowest 30-day price' hurt our sales?",
+            a: "It can, if not handled correctly. We focus on UX patterns that highlight value and transparency, turning compliance into a trust signal that can actually improve long-term loyalty."
+          },
+          {
+            q: "Can we just use a small tooltip for the 30-day info?",
+            a: "The law requires that the information is 'clear and prominent'. A tiny tooltip hidden away might not satisfy a regulator. We design patterns that are both prominent and aesthetically pleasing."
+          }
+        ].map(item => (
+          <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="mb-3 font-semibold text-zinc-200">{item.q}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 p-12 md:p-24 border border-zinc-800" data-animation="scale">
+      <h2 class="mb-6 text-3xl font-bold md:text-5xl tracking-tight">Ready to audit your pricing UX?</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Talk to our senior partners about your current promotion setup. We’ll help you bridge the gap between legal and growth.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Discuss Pricing Compliance
+        </a>
+        <a
+          href="mailto:hola@ai-native.es"
+          class="rounded-lg border border-zinc-700 bg-zinc-950 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50"
+        >
+          Email Us Directly
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,16 +1,105 @@
 ---
 import '../styles/global.css';
+import Animations from '../components/Animations.astro';
+import { ChevronRight, ChevronDown } from '../components/FeatherIcons.ts';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: 'en' | 'es' | 'de';
 }
 
-const { title = 'AI Native | Digital Agency', description = 'We craft digital experiences that connect brands with people.' } = Astro.props;
+const {
+  title = 'AI‑Native.es | Digital Agency',
+  description = 'A senior product, design, and growth team bringing international experience back to the Spanish market.',
+  lang = 'en',
+} = Astro.props;
+
+const localePrefix = lang === 'en' ? '' : `/${lang}`;
+const homeHref = localePrefix || '/';
+const teamHref = `${localePrefix}/team`;
+const servicesHref = `${localePrefix}/services`;
+const contactHref = `${localePrefix}/contact`;
+
+// Translations
+const t = {
+  en: {
+    home: 'Home',
+    services: 'Services',
+    team: 'Team',
+    contact: 'Contact',
+    bookCall: 'Book a call',
+    footer: 'Built by a senior product, growth, and engineering team in Spain and Europe.',
+    serviceNames: {
+      cro: 'Conversion Optimization',
+      photo: 'Digital Photoshoots Video',
+      access: 'European Accessibility Compliance',
+      pricing: 'European Pricing Compliance',
+      sea: 'SEA Performance Marketing',
+      uiux: 'User Interface User Research'
+    }
+  },
+  es: {
+    home: 'Inicio',
+    services: 'Servicios',
+    team: 'Equipo',
+    contact: 'Contacto',
+    bookCall: 'Reservar llamada',
+    footer: 'Creado por un equipo senior de producto, crecimiento e ingeniería en España y Europa.',
+    serviceNames: {
+      cro: 'Optimización de Conversión',
+      photo: 'Sesiones de Fotos y Vídeo',
+      access: 'Cumplimiento de Accesibilidad',
+      pricing: 'Cumplimiento de Precios',
+      sea: 'SEA Marketing de Rendimiento',
+      uiux: 'Interfaz e Investigación'
+    }
+  },
+  de: {
+    home: 'Home',
+    services: 'Leistungen',
+    team: 'Team',
+    contact: 'Kontakt',
+    bookCall: 'Call buchen',
+    footer: 'Entwickelt von einem Senior-Team für Produkt, Wachstum und Engineering in Spanien und Europa.',
+    serviceNames: {
+      cro: 'Conversion-Optimierung',
+      photo: 'Fotoshootings & Video',
+      access: 'Barrierefreiheits-Audits',
+      pricing: 'Preis-Compliance & Omnibus',
+      sea: 'SEA & Performance Marketing',
+      uiux: 'User Interface & Research'
+    }
+  }
+};
+
+const services = [
+  { name: t[lang].serviceNames.cro, href: `${localePrefix}/services/conversion-optimization` },
+  { name: t[lang].serviceNames.photo, href: `${localePrefix}/services/digital-photoshoots-video` },
+  { name: t[lang].serviceNames.access, href: `${localePrefix}/services/european-accessibility-compliance` },
+  { name: t[lang].serviceNames.pricing, href: `${localePrefix}/services/european-pricing-compliance` },
+  { name: t[lang].serviceNames.sea, href: `${localePrefix}/services/sea-performance-marketing` },
+  { name: t[lang].serviceNames.uiux, href: `${localePrefix}/services/user-interface-user-research` },
+];
+
+// Current path logic for language switcher
+const currentPath = Astro.url.pathname;
+const getLangPath = (targetLang: 'en' | 'es' | 'de') => {
+  let path = currentPath;
+  // Remove existing lang prefix if present
+  if (path.startsWith('/es/') || path === '/es') {
+    path = path.replace('/es', '') || '/';
+  } else if (path.startsWith('/de/') || path === '/de') {
+    path = path.replace('/de', '') || '/';
+  }
+  
+  if (targetLang === 'en') return path || '/';
+  return `/${targetLang}${path === '/' ? '' : path}`;
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,10 +107,106 @@ const { title = 'AI Native | Digital Agency', description = 'We craft digital ex
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <title>{title}</title>
   </head>
   <body class="bg-zinc-950 text-zinc-100 antialiased">
-    <slot />
+    <Animations />
+
+    <header class="fixed inset-x-0 top-0 z-40 border-b border-zinc-900/80 bg-black/70 backdrop-blur-md">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
+        <a href={homeHref} class="inline-flex items-center gap-3">
+          <span
+            class="inline-flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-cyan-300 via-sky-400 to-violet-400 text-xs font-semibold text-zinc-950 shadow-lg shadow-sky-500/30"
+          >
+            AI
+          </span>
+          <span class="text-xs font-semibold uppercase tracking-[0.28em] text-zinc-300">
+            AI‑Native<span class="text-cyan-300">.es</span>
+          </span>
+        </a>
+
+        <div class="flex items-center gap-4">
+          <nav class="hidden items-center gap-6 text-sm text-zinc-400 md:flex">
+            <a href={homeHref} class="transition-colors hover:text-cyan-300">{t[lang].home}</a>
+            <details class="relative group">
+              <summary class="transition-colors hover:text-cyan-300 cursor-pointer flex items-center gap-2">
+                {t[lang].services}
+                <span class="transition-transform duration-200 group-open:rotate-90" style="display:inline-block;">
+                  <span set:html={ChevronRight}></span>
+                </span>
+              </summary>
+              <ul class="absolute left-0 top-full mt-2 w-56 rounded-md bg-zinc-800 shadow-lg opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-200 group-hover:pointer-events-auto group-focus-within:pointer-events-auto pointer-events-auto overflow-hidden">
+                {services.map((service) => (
+                  <li>
+                    <a href={service.href} class="block px-4 py-2 text-sm text-zinc-200 hover:bg-zinc-700 hover:text-cyan-300">
+                      {service.name}
+                    </a>
+                  </li>
+                ))}
+                <li>
+                  <a href={servicesHref} class="block border-t border-zinc-700 px-4 py-2 text-xs font-bold text-cyan-300 hover:bg-zinc-700">
+                    View all
+                  </a>
+                </li>
+              </ul>
+            </details>
+            <a href={teamHref} class="transition-colors hover:text-cyan-300">{t[lang].team}</a>
+            <a href={contactHref} class="transition-colors hover:text-cyan-300">{t[lang].contact}</a>
+          </nav>
+
+          <div class="hidden items-center gap-1 rounded-full border border-zinc-800 bg-zinc-900/70 px-2 py-1 text-[10px] font-medium text-zinc-400 md:flex">
+            <a
+              href={getLangPath('en')}
+              class={`rounded-full px-2 py-0.5 transition-colors ${
+                lang === 'en' ? 'bg-cyan-400 text-zinc-950' : 'hover:text-cyan-200'
+              }`}
+            >
+              EN
+            </a>
+            <a
+              href={getLangPath('es')}
+              class={`rounded-full px-2 py-0.5 transition-colors ${
+                lang === 'es' ? 'bg-cyan-400 text-zinc-950' : 'hover:text-cyan-200'
+              }`}
+            >
+              ES
+            </a>
+            <a
+              href={getLangPath('de')}
+              class={`rounded-full px-2 py-0.5 transition-colors ${
+                lang === 'de' ? 'bg-cyan-400 text-zinc-950' : 'hover:text-cyan-200'
+              }`}
+            >
+              DE
+            </a>
+          </div>
+
+          <a
+            href={contactHref}
+            class="hidden rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-1.5 text-xs font-medium text-cyan-200 shadow-sm shadow-cyan-500/40 transition hover:border-cyan-300 hover:bg-cyan-400/20 md:inline-flex"
+          >
+            {t[lang].bookCall}
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="pt-20">
+      <slot />
+    </main>
+
+    <footer class="mt-16 border-t border-zinc-900 px-6 py-8">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-xs text-zinc-500 md:flex-row">
+        <p>© {new Date().getFullYear()} AI‑Native.es. {t[lang].footer}</p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href={teamHref} class="transition-colors hover:text-cyan-300">{t[lang].team}</a>
+          <a href={contactHref} class="transition-colors hover:text-cyan-300">{t[lang].contact}</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

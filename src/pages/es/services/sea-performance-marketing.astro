@@ -1,0 +1,296 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ChevronRight } from '../../../components/FeatherIcons.ts';
+---
+
+<Layout
+  lang="es"
+  title="Auditorías de SEA y Marketing de Rendimiento | AI‑Native.es"
+  description="Inmersiones profundas en SEA lideradas por expertos que van más allá del mantenimiento operativo para descubrir palancas de crecimiento estructural en sus cuentas de Google Ads y Microsoft Advertising."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+
+    <div class="mx-auto max-w-5xl text-center" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        Pago por Clic Estratégico
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+        Deje de mantener. <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">Empiece a escalar.</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
+        La mayoría de las cuentas de SEA están estancadas en el mantenimiento operativo. Tratamos su búsqueda pagada como un sistema, 
+        identificando las palancas estructurales que realmente mueven la aguja en el ROI y el EBITDA.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Solicite una Auditoría de SEA
+        </a>
+        <a
+          href="#metodologia"
+          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
+        >
+          Explore Nuestro Enfoque
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">El SEA es un sistema, no una lista de verificación</h2>
+          <p class="mb-6 text-zinc-400">
+            Inspirados por especialistas como The Boutique Agency, vamos más allá de la simple detección de errores. 
+            Analizamos cómo interactúan la automatización, las estrategias de puja y las estructuras de cuenta con sus 
+            objetivos de negocio. Nuestro objetivo es encontrar dónde se ha estancado el rendimiento y por qué.
+          </p>
+          <ul class="space-y-4">
+            {[
+              "Análisis sistémico de la arquitectura de la cuenta",
+              "Auditoría crítica de la automatización de 'Caja Negra' y smart bidding",
+              "Inmersión profunda en la calidad de los datos de GA4 y seguimiento",
+              "Hoja de ruta accionable para el crecimiento estructural"
+            ].map(item => (
+              <li class="flex items-center gap-3 text-zinc-300">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 text-xs">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:p-12" data-animation="scale">
+           <div class="space-y-6">
+              <div class="flex justify-between items-end border-b border-zinc-800 pb-4">
+                 <div>
+                    <p class="text-xs text-zinc-500 uppercase tracking-widest">Palanca de Crecimiento Identificada</p>
+                    <p class="text-2xl font-bold text-cyan-300">Auditoría de Eficiencia</p>
+                 </div>
+                 <div class="text-right">
+                    <p class="text-xs text-zinc-500">Gasto Desperdiciado</p>
+                    <p class="text-sm font-semibold text-red-400">-18%</p>
+                 </div>
+              </div>
+              <div class="grid grid-cols-5 gap-1 h-20 items-end">
+                 {[40, 60, 45, 90, 100].map(h => (
+                    <div class="bg-gradient-to-t from-cyan-400/40 to-cyan-400 rounded-sm w-full" style={`height: ${h}%`}></div>
+                 ))}
+              </div>
+              <p class="text-[10px] text-zinc-500 text-center font-mono">OPTIMIZACION_ESTRUCTURAL_V4</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="metodologia" class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-5xl">La Auditoría de Eficiencia</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">
+          Seguimos un riguroso proceso de auditoría de más de 90 criterios para clasificar el estado de su cuenta 
+          y proporcionar una base clara para decisiones estratégicas.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "01",
+            title: "Análisis",
+            desc: "Evaluación sistémica de la lógica de palabras clave, segmentación y jerarquía de la cuenta.",
+            icon: "📊"
+          },
+          {
+            step: "02",
+            title: "Validación",
+            desc: "Inmersión técnica en el seguimiento, la atribución y la integridad de los datos de GA4.",
+            icon: "🧪"
+          },
+          {
+            step: "03",
+            title: "Automatización",
+            desc: "Evaluación crítica de las estrategias de puja y el rendimiento de las campañas impulsadas por IA.",
+            icon: "🤖"
+          },
+          {
+            step: "04",
+            title: "Hoja de Ruta",
+            desc: "Un plan priorizado para reasignar el presupuesto de los 'devoradores de costes' a las palancas de crecimiento.",
+            icon: "📈"
+          }
+        ].map(item => (
+          <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
+            <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
+            <div class="mb-6 text-3xl">{item.icon}</div>
+            <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Middle Section -->
+  <section class="bg-gradient-to-b from-zinc-950 to-zinc-900 px-6 py-24 overflow-hidden">
+    <div class="mx-auto max-w-6xl">
+      <div class="rounded-3xl border border-cyan-400/20 bg-cyan-950/5 p-8 md:p-16 lg:flex items-center gap-16" data-animation="fade-up">
+        <div class="lg:w-1/2">
+          <div class="mb-6 inline-flex rounded-full bg-cyan-400/10 px-4 py-1 text-xs font-semibold text-cyan-300">
+            Control de Calidad de la Automatización
+          </div>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">No confíe ciegamente en la caja negra.</h2>
+          <p class="mb-8 text-zinc-400">
+            El SEA moderno está fuertemente impulsado por los algoritmos de Google (PMax, Smart Bidding). 
+            Pero los algoritmos son tan buenos como los datos que reciben. Auditamos su configuración de 
+            automatización para asegurar que persiga el valor real del negocio, no solo métricas de vanidad 
+            específicas de la plataforma.
+          </p>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <h4 class="mb-2 font-semibold text-zinc-200">Auditoría de Calidad de Datos</h4>
+              <p class="text-xs text-zinc-400">Asegurando que las señales de conversión estén limpias y correctamente ponderadas.</p>
+            </div>
+            <div>
+              <h4 class="mb-2 font-semibold text-zinc-200">Dirección Estratégica</h4>
+              <p class="text-xs text-zinc-400">Alineando las pujas automatizadas con sus objetivos reales de margen y LTV.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-0 lg:w-1/2 relative">
+           <div class="p-8 rounded-2xl border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm">
+              <div class="flex items-center gap-4 mb-8">
+                 <div class="h-10 w-10 rounded bg-cyan-400/20 flex items-center justify-center text-cyan-400">IA</div>
+                 <div>
+                    <p class="text-sm font-bold">Algoritmo de Pujas</p>
+                    <p class="text-[10px] text-zinc-500">MODO_ACTUAL: OPTIMIZANDO</p>
+                 </div>
+              </div>
+              <div class="space-y-4">
+                 <div class="flex justify-between text-[10px] font-mono">
+                    <span class="text-zinc-500">FUERZA_SEÑAL</span>
+                    <span class="text-cyan-400">ALTA</span>
+                 </div>
+                 <div class="h-1 w-full bg-zinc-800 rounded-full">
+                    <div class="h-full bg-cyan-400" style="width: 85%"></div>
+                 </div>
+                 <div class="p-4 rounded-lg bg-zinc-950 border border-zinc-800 mt-4">
+                    <p class="text-[10px] text-zinc-500 mb-2 uppercase">Recomendación</p>
+                    <p class="text-xs text-zinc-300 italic">"Mover el 15% del presupuesto de genérico broad-match a campañas localizadas de alta intención."</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Focus Areas -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold">Servicios SEA Especializados</h2>
+        <p class="text-zinc-400">Inmersiones profundas lideradas por expertos para cuentas publicitarias maduras.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {[
+          {
+            title: "Auditoría Estratégica de Google Ads",
+            desc: "Una verificación exhaustiva de más de 90 puntos que cubre la estructura de la cuenta, las pujas y la calidad de los datos.",
+            icon: "🔍"
+          },
+          {
+            title: "Integración de Seguimiento y GA4",
+            desc: "Asegurando que su configuración de medición proporcione una base sólida para decisiones automatizadas.",
+            icon: "📊"
+          },
+          {
+            title: "Auditoría de PMax y Automatización",
+            desc: "Abriendo la 'Caja Negra' para entender qué impulsa sus campañas de Performance Max.",
+            icon: "🤖"
+          },
+          {
+            title: "Escalado Internacional de SEA",
+            desc: "Guía estratégica para marcas españolas que se expanden a los mercados DACH y europeos.",
+            icon: "🌍"
+          }
+        ].map(service => (
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
+            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div>
+              <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
+              <p class="text-sm text-zinc-400">{service.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t border-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl" data-animation="fade-up">Preguntas Frecuentes</h2>
+      <div class="space-y-6" data-animation="fade-up">
+        {[
+          {
+            q: "¿Para quién es esta auditoría?",
+            a: "Normalmente para empresas que gastan más de 20.000€ al mes y sienten que se han estancado o que están perdiendo el control sobre sus estrategias de puja automatizadas."
+          },
+          {
+            q: "¿También gestionan cuentas de forma continua?",
+            a: "Nos centramos en auditorías de alto impacto y reconstrucciones estructurales. Para la gestión continua, o bien entrenamos a su equipo interno o nos asociamos con boutiques especializadas."
+          },
+          {
+            q: "¿Cuánto tiempo lleva una auditoría completa de SEA?",
+            a: "Una auditoría profunda suele llevar entre 10 y 14 días, incluyendo el acceso a la cuenta, el análisis y la presentación final de la hoja de ruta."
+          },
+          {
+            q: "¿Qué necesitan para empezar?",
+            a: "Acceso de solo lectura a sus cuentas de Google Ads y GA4, además de un breve resumen sobre sus KPIs de negocio reales (margen, LTV, etc.)."
+          }
+        ].map(item => (
+          <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="mb-3 font-semibold text-zinc-200">{item.q}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 p-12 md:p-24 border border-zinc-800" data-animation="scale">
+      <h2 class="mb-6 text-3xl font-bold md:text-5xl tracking-tight">¿Listo para un impulso de rendimiento estructural?</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Obtenga una clasificación experta del estado de su cuenta. Sin gestores de cuentas, solo especialistas senior.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Discutir una Auditoría de SEA
+        </a>
+        <a
+          href="mailto:hola@ai-native.es"
+          class="rounded-lg border border-zinc-700 bg-zinc-950 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50"
+        >
+          Envíenos un Email
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

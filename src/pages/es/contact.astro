@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+
+<Layout
+  lang="es"
+  title="Contacto | AI‑Native.es"
+  description="Cuéntanos dónde estás y a dónde quieres llegar. Te diremos con honestidad si somos el partner adecuado y qué necesitaría tu proyecto."
+>
+  <section class="px-6 pb-20 pt-16 md:pt-24">
+    <div class="mx-auto max-w-3xl text-center" data-animation="fade-up">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
+        Contacto
+      </p>
+      <h1 class="mb-4 text-3xl font-bold md:text-5xl">Hablemos de tu proyecto</h1>
+      <p class="mx-auto max-w-2xl text-zinc-400">
+        Trabajamos mejor cuando entendemos el contexto completo: negocio, equipo, datos y restricciones. Un párrafo o
+        unos bullets bien escritos valen más que un briefing de 30 páginas.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-12 grid max-w-5xl gap-10 md:grid-cols-[1.4fr,1fr]">
+      <div data-animation="fade-up">
+        <ContactForm />
+      </div>
+
+      <aside
+        class="space-y-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-sm text-zinc-300"
+        data-animation="fade-up"
+      >
+        <div>
+          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Qué nos ayuda</h2>
+          <ul class="space-y-1 text-xs text-zinc-400">
+            <li>• Sector y tipo de producto/servicio</li>
+            <li>• Situación actual (qué funciona, qué no)</li>
+            <li>• Horizonte temporal aproximado y equipo implicado</li>
+          </ul>
+        </div>
+
+        <div class="border-t border-zinc-800 pt-4">
+          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Correo directo</h2>
+          <p class="text-xs text-zinc-400">
+            Si prefieres escribirnos directamente:{' '}
+            <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">
+              hola@ai-native.es
+            </a>
+            .
+          </p>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
+

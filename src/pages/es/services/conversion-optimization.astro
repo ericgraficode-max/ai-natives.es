@@ -1,0 +1,343 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ChevronRight } from '../../../components/FeatherIcons.ts';
+---
+
+<Layout
+  lang="es"
+  title="Optimización de la Conversión y Experimentación (CRO) | AI‑Native.es"
+  description="Programas de CRO dirigidos por expertos que convierten su tráfico actual en ingresos sostenibles. Sin rodeos, solo experimentación basada en datos que mueve los números."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+
+    <div class="mx-auto max-w-5xl text-center" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        Crecimiento de Alto Rendimiento
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+        Deje de quemar presupuesto en más tráfico. <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">Empiece a convertirlo.</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
+        La mayoría de las marcas tienen un problema de tráfico. Compran más anuncios en lugar de arreglar el "cubo con fugas". 
+        Ejecutamos programas de CRO liderados por expertos que convierten a sus visitantes actuales en clientes leales.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserve una Llamada de Estrategia CRO
+        </a>
+        <a
+          href="#metodologia"
+          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
+        >
+          Explore Nuestro Proceso
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition: El Palancazo del EBITDA -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">Por qué el CRO es su palanca de crecimiento más poderosa</h2>
+          <p class="mb-6 text-zinc-400">
+            Los costes publicitarios aumentan un 20% año tras año. Confiar únicamente en la adquisición es una carrera hacia el fondo. 
+            La Optimización de la Conversión (CRO) es la única actividad de marketing que mejora la eficiencia de 
+            <em>cada</em> euro que invierte.
+          </p>
+          <ul class="space-y-4">
+            {[
+              "Menores Costes de Adquisición de Clientes (CAC)",
+              "Aumento del Valor Medio del Pedido (AOV)",
+              "Mayor Valor del Tiempo de Vida del Cliente (LTV)",
+              "Impacto directo en el EBITDA y el margen"
+            ].map(item => (
+              <li class="flex items-center gap-3 text-zinc-300">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 text-xs">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:p-12" data-animation="scale">
+          <div class="absolute -top-4 -right-4 h-24 w-24 rounded-full bg-violet-500/10 blur-2xl" />
+          <div class="space-y-6">
+            <div class="flex justify-between items-end border-b border-zinc-800 pb-4">
+              <div>
+                <p class="text-xs text-zinc-500 uppercase tracking-widest">Resultado Típico</p>
+                <p class="text-2xl font-bold text-cyan-300">+24% Ingresos</p>
+              </div>
+              <div class="text-right">
+                <p class="text-xs text-zinc-500">Gasto en Ads</p>
+                <p class="text-sm font-semibold text-zinc-300">Constante</p>
+              </div>
+            </div>
+            <p class="text-sm italic text-zinc-400">
+              "Trabajando con el equipo de AI‑Native, no solo vimos un aumento en la CR, sino que por primera vez entendimos *por qué* nuestros usuarios dudaban."
+            </p>
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-zinc-800" />
+              <div>
+                <p class="text-xs font-bold">Responsable de Crecimiento</p>
+                <p class="text-[10px] text-zinc-500">E-commerce de Nivel 1</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="metodologia" class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-5xl">Nuestra Estrategia CRO de Ciclo Completo</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">
+          No hacemos "trucos rápidos". Seguimos un proceso científico riguroso utilizado por agencias de primer nivel como LEAP, 
+          potenciado con la velocidad y precisión de la IA.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "01",
+            title: "Análisis",
+            desc: "Los datos cuantitativos (GA4, mapas de calor) se unen a los conocimientos cualitativos para encontrar el 'Por qué'.",
+            icon: "📊"
+          },
+          {
+            step: "02",
+            title: "Estrategia",
+            desc: "Priorizamos las pruebas basándonos en el impacto potencial, la confianza y la facilidad de implementación (PIE Framework).",
+            icon: "🎯"
+          },
+          {
+            step: "03",
+            title: "Ejecución",
+            desc: "Diseño de alta fidelidad y prototipado rápido de experimentos. Nos encargamos de la configuración técnica.",
+            icon: "⚡"
+          },
+          {
+            step: "04",
+            title: "Éxito",
+            desc: "Análisis estadístico de los resultados. Escalamos los ganadores y aprendemos de los perdedores para iterar.",
+            icon: "📈"
+          }
+        ].map(item => (
+          <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
+            <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
+            <div class="mb-6 text-3xl">{item.icon}</div>
+            <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AI-Native Advantage -->
+  <section class="bg-gradient-to-b from-zinc-950 to-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="rounded-3xl border border-cyan-400/20 bg-cyan-950/5 p-8 md:p-16 lg:flex items-center gap-16" data-animation="fade-up">
+        <div class="lg:w-1/2">
+          <div class="mb-6 inline-flex rounded-full bg-cyan-400/10 px-4 py-1 text-xs font-semibold text-cyan-300">
+            La Ventaja AI-Native
+          </div>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">Datos más inteligentes, ciclos más rápidos.</h2>
+          <p class="mb-8 text-zinc-400">
+            Usamos la IA no como una palabra de moda, sino como una herramienta para acelerar el ciclo de CRO. Desde el reconocimiento 
+            automático de patrones de comportamiento hasta mapas de calor predictivos asistidos por IA, llegamos antes a la hipótesis ganadora.
+          </p>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <h4 class="mb-2 font-semibold text-zinc-200">Predicción de Comportamiento</h4>
+              <p class="text-xs text-zinc-400">Predicción de puntos de abandono antes de que ocurran a escala.</p>
+            </div>
+            <div>
+              <h4 class="mb-2 font-semibold text-zinc-200">Perspectivas Automatizadas</h4>
+              <p class="text-xs text-zinc-400">Sintetización de miles de grabaciones de sesiones de usuarios en minutos.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-0 lg:w-1/2 relative">
+          <div class="aspect-square rounded-2xl bg-zinc-900 border border-zinc-800 overflow-hidden flex items-center justify-center p-8">
+             <div class="grid grid-cols-6 grid-rows-6 gap-2 w-full h-full opacity-40">
+                {Array.from({length: 36}).map((_, i) => (
+                  <div class={`rounded-sm ${i % 7 === 0 ? 'bg-cyan-400' : i % 3 === 0 ? 'bg-violet-400' : 'bg-zinc-800'}`} style={`opacity: ${Math.random() * 0.5 + 0.2}`}></div>
+                ))}
+             </div>
+             <div class="absolute inset-0 flex items-center justify-center">
+                <div class="rounded-lg bg-zinc-950/80 p-6 border border-zinc-700 backdrop-blur-sm">
+                  <p class="text-xs font-mono text-cyan-300">ANALIZANDO PATRONES...</p>
+                  <div class="mt-2 h-1 w-48 bg-zinc-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-cyan-400 animate-[loading_2s_infinite]" style="width: 60%"></div>
+                  </div>
+                </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Focus Areas -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold">Optimización Especializada</h2>
+        <p class="text-zinc-400">Servicios integrales adaptados a sus cuellos de botella específicos de conversión.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {[
+          {
+            title: "Tests A/B y Multivariante",
+            desc: "Validación científica de cada cambio. Gestionamos las pruebas divididas desde la configuración hasta la significación estadística.",
+            icon: "🧪"
+          },
+          {
+            title: "Investigación de Usuarios y Auditoría UX",
+            desc: "Encontrar los puntos de fricción psicológica en su embudo mediante pruebas de usuario tipo laboratorio y encuestas.",
+            icon: "🔍"
+          },
+          {
+            title: "Optimización de Checkout y Carrito",
+            desc: "Eliminar las barreras de última milla que hacen que los usuarios de alta intención abandonen su compra.",
+            icon: "🛒"
+          },
+          {
+            title: "Personalización de Landing Pages",
+            desc: "Adaptar la experiencia a diferentes fuentes de tráfico y segmentos de usuarios para una máxima relevancia.",
+            icon: "👤"
+          }
+        ].map(service => (
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
+            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div>
+              <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
+              <p class="text-sm text-zinc-400">{service.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- The CRO Audit: Entry Point -->
+  <section class="border-y border-zinc-900 bg-zinc-900/10 px-6 py-24">
+    <div class="mx-auto max-w-4xl">
+      <div class="text-center mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-4xl">¿No está listo para un programa completo?</h2>
+        <p class="text-zinc-400">Empiece con una auditoría integral de CRO. Identificaremos sus 10 principales "asesinos de la conversión" en 14 días.</p>
+      </div>
+      
+      <div class="grid gap-8 md:grid-cols-3" data-animation="fade-up">
+        {[
+          { title: "Evaluación Heurística", desc: "Recorrido experto identificando puntos de fricción de UX." },
+          { title: "Inmersión en Datos", desc: "Análisis de GA4 y mapas de calor para encontrar dónde abandonan los usuarios." },
+          { title: "Hoja de Ruta Accionable", desc: "Una lista priorizada de correcciones e hipótesis de prueba." }
+        ].map(item => (
+          <div class="text-center">
+            <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400/10 text-cyan-400">
+              <span set:html={ChevronRight}></span>
+            </div>
+            <h4 class="mb-2 font-semibold">{item.title}</h4>
+            <p class="text-xs text-zinc-500">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+      
+      <div class="mt-12 text-center" data-animation="fade-up">
+        <a href="/es/contact" class="inline-flex items-center gap-2 text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition-colors">
+          Más información sobre nuestra Auditoría CRO <span set:html={ChevronRight}></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl text-center">
+      <h2 class="mb-12 text-2xl font-bold text-zinc-400 uppercase tracking-widest" data-animation="fade-up">Trabajamos con sus herramientas</h2>
+      <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all" data-animation="fade-up">
+        {["Optimizely", "VWO", "AB Tasty", "Google Analytics 4", "Hotjar", "PostHog", "Shopify", "Contentful"].map(tool => (
+          <span class="text-lg font-bold text-zinc-500 tracking-tighter">{tool}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t border-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl" data-animation="fade-up">Preguntas Frecuentes</h2>
+      <div class="space-y-6" data-animation="fade-up">
+        {[
+          {
+            q: "¿Cuánto tráfico necesito para un programa de CRO?",
+            a: "Para pruebas A/B significativas, solemos buscar al menos 500-1,000 conversiones al mes por embudo. Si tiene menos, nos centramos en el 'análisis heurístico' y mejoras de UX de alto impacto donde la señal es clara."
+          },
+          {
+            q: "¿Cuánto tiempo pasará antes de ver resultados?",
+            a: "Solemos encontrar 'oportunidades fáciles' en los primeros 30 días durante la auditoría inicial. Un programa de experimentación completo suele ver sus primeros grandes ganadores en un plazo de 60 a 90 días."
+          },
+          {
+            q: "¿Necesito cambiar mi stack tecnológico?",
+            a: "No. Trabajamos con herramientas estándar como Optimizely, VWO o incluso scripts personalizados. Nos integramos con sus analíticas actuales (GA4, PostHog, etc.) y su flujo de desarrollo."
+          },
+          {
+            q: "¿Por qué contratar una agencia en lugar de una persona interna?",
+            a: "Obtiene acceso a un equipo senior (Estratega Jefe, Diseñador UX e Ingeniero) por menos del coste de una sola contratación senior. Además, aportamos conocimientos de varios sectores de marcas como flaconi, eBay y Vodafone."
+          }
+        ].map(item => (
+          <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="mb-3 font-semibold text-zinc-200">{item.q}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 p-12 md:p-24 border border-zinc-800" data-animation="scale">
+      <h2 class="mb-6 text-3xl font-bold md:text-5xl tracking-tight">¿Listo para arreglar las fugas de su web?</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Hable con nuestros socios senior sobre sus objetivos de crecimiento. Sin gestores de cuentas, solo dos socios en cada llamada.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Discutir un Programa de CRO
+        </a>
+        <a
+          href="mailto:hola@ai-native.es"
+          class="rounded-lg border border-zinc-700 bg-zinc-950 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50"
+        >
+          Envíenos un Email
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  @keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+</style>

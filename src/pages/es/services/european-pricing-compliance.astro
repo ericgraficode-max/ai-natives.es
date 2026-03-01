@@ -1,0 +1,292 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ChevronRight } from '../../../components/FeatherIcons.ts';
+---
+
+<Layout
+  lang="es"
+  title="Cumplimiento de Precios Europeo y UX Omnibus | AI‑Native.es"
+  description="Alinee los precios y promociones de su e-commerce con la Directiva de Indicación de Precios (PID) de la UE y las reglas Omnibus sin comprometer sus tasas de conversión."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+
+    <div class="mx-auto max-w-5xl text-center" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        UX Legalmente Preparada
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+        Cumplimiento que no <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">mata la conversión.</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
+        La Directiva de Indicación de Precios (PID) de la UE y las reglas Omnibus han cambiado las reglas del juego 
+        para los descuentos. Ayudamos a los equipos de e-commerce españoles a implementar la 'regla de los 30 días' 
+        y la transparencia de precios mediante patrones de UX de alto rendimiento.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserve una Auditoría de UX de Precios
+        </a>
+        <a
+          href="#requisitos"
+          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
+        >
+          Vea los Requisitos
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">La transparencia de precios es la nueva señal de confianza</h2>
+          <p class="mb-6 text-zinc-400">
+            Las leyes de protección al consumidor en toda la UE se están endureciendo. Los descuentos engañosos o la 
+            falta de precios unitarios ya no son solo "mala UX", son riesgos legales de alto nivel. Cerramos la brecha 
+            entre los requisitos de su equipo legal y los KPIs de su equipo de crecimiento.
+          </p>
+          <ul class="space-y-4">
+            {[
+              "Visualización automatizada del 'Precio más bajo en 30 días'",
+              "Implementación conforme de precios unitarios (por kg/L)",
+              "Patrones de UX transparentes para descuentos y promociones",
+              "Protección contra reclamaciones por 'Prácticas Comerciales Desleales'"
+            ].map(item => (
+              <li class="flex items-center gap-3 text-zinc-300">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 text-xs">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:p-12" data-animation="scale">
+           <div class="space-y-4">
+              <div class="flex justify-between items-center text-xs text-zinc-500 uppercase tracking-widest">
+                 <span>PDP // VISTA_CUMPLIMIENTO</span>
+                 <span class="text-green-400">APROBADO</span>
+              </div>
+              <div class="p-6 rounded-xl bg-zinc-950 border border-zinc-800">
+                 <p class="text-sm text-zinc-400 line-through">99,99 €</p>
+                 <div class="flex items-baseline gap-3">
+                    <p class="text-3xl font-bold text-zinc-100">79,99 €</p>
+                    <span class="px-2 py-0.5 rounded bg-red-500/10 text-red-500 text-[10px] font-bold">-20%</span>
+                 </div>
+                 <p class="mt-2 text-[10px] text-zinc-500 italic">
+                    Precio más bajo en los últimos 30 días: 79,99 €
+                 </p>
+                 <div class="mt-4 pt-4 border-t border-zinc-900 text-[10px] text-zinc-500">
+                    Precio por kg: 15,99 €
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="requisitos" class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-5xl">El Flujo de Trabajo de Cumplimiento</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">
+          Traducimos las complejas directivas de la UE en componentes de UI concretos y requisitos de datos 
+          para sus equipos de ingeniería y comerciales.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "01",
+            title: "Auditoría",
+            desc: "Mapeo de su visualización de precios actual frente a los requisitos de PID y Omnibus.",
+            icon: "⚖️"
+          },
+          {
+            step: "02",
+            title: "Rediseño",
+            desc: "Diseño de variaciones de UI que satisfagan lo legal manteniendo la 'urgencia' y la conversión.",
+            icon: "📐"
+          },
+          {
+            step: "03",
+            title: "Implementación",
+            desc: "Guía técnica sobre el registro de precios de 30 días y el cálculo dinámico de precios unitarios.",
+            icon: "💻"
+          },
+          {
+            step: "04",
+            title: "Documentación",
+            desc: "Pautas internas claras para que los equipos comerciales aseguren que las futuras promos sean legales.",
+            icon: "📂"
+          }
+        ].map(item => (
+          <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
+            <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
+            <div class="mb-6 text-3xl">{item.icon}</div>
+            <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Middle Section -->
+  <section class="bg-gradient-to-b from-zinc-950 to-zinc-900 px-6 py-24 overflow-hidden">
+    <div class="mx-auto max-w-6xl">
+      <div class="rounded-3xl border border-violet-400/20 bg-violet-950/5 p-8 md:p-16 lg:flex items-center gap-16" data-animation="fade-up">
+        <div class="lg:w-1/2">
+          <div class="mb-6 inline-flex rounded-full bg-violet-400/10 px-4 py-1 text-xs font-semibold text-violet-300">
+            Estrategia de UX de Precios
+          </div>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">Resuelva el problema de diseño de 'Omnibus'.</h2>
+          <p class="mb-8 text-zinc-400">
+            La mayoría de los informes legales son imposibles de implementar sin arruinar sus páginas de producto. 
+            Hemos pasado años dentro de grandes retailers europeos resolviendo exactamente esto: cómo mostrar 
+            la información regulatoria obligatoria (como el precio más bajo de 30 días) de una manera que 
+            se sienta parte de la marca, no como una etiqueta de advertencia.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <div class="h-1 w-12 mt-3 bg-violet-400 shrink-0"></div>
+              <p class="text-sm text-zinc-300"><strong class="text-zinc-100">Jerarquía Inteligente:</strong> Colocación de información obligatoria donde satisface la ley sin distraer del CTA.</p>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="h-1 w-12 mt-3 bg-violet-400 shrink-0"></div>
+              <p class="text-sm text-zinc-300"><strong class="text-zinc-100">Optimización Móvil:</strong> Asegurando que las visualizaciones de múltiples precios sigan siendo legibles en pantallas pequeñas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-0 lg:w-1/2 relative flex justify-center">
+           <div class="w-full max-w-xs aspect-[9/16] rounded-3xl border-[6px] border-zinc-800 bg-zinc-950 overflow-hidden shadow-2xl p-4">
+              <div class="h-1 w-12 bg-zinc-800 rounded-full mx-auto mb-6"></div>
+              <div class="h-40 w-full bg-zinc-900 rounded-xl mb-6"></div>
+              <div class="space-y-4">
+                 <div class="h-6 w-3/4 bg-zinc-900 rounded"></div>
+                 <div class="space-y-2">
+                    <div class="h-3 w-1/4 bg-zinc-800 rounded"></div>
+                    <div class="flex gap-2">
+                       <div class="h-8 w-1/2 bg-zinc-800 rounded"></div>
+                       <div class="h-8 w-12 bg-violet-500/20 rounded"></div>
+                    </div>
+                    <div class="h-2 w-2/3 bg-zinc-900 rounded"></div>
+                 </div>
+                 <div class="h-12 w-full bg-cyan-400 rounded-xl mt-12"></div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Focus Areas -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold">Servicios Especializados de Precios</h2>
+        <p class="text-zinc-400">Profunda experiencia en la ley de protección al consumidor europea y comercio digital.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {[
+          {
+            title: "Implementación de la 'Regla de los 30 días'",
+            desc: "Rediseño de su lógica de descuentos para mostrar el precio más bajo de los últimos 30 días, según requiere el Artículo 6a PID.",
+            icon: "📅"
+          },
+          {
+            title: "Precios Unitarios (Precio por kg/L)",
+            desc: "Asegurando que los precios unitarios obligatorios sean visibles y se calculen correctamente en todos los PLPs y resultados de búsqueda.",
+            icon: "⚖️"
+          },
+          {
+            title: "UX de Promociones y Cupones",
+            desc: "Rediseño de cómo interactúan los vales y los precios tachados para asegurar una transparencia total.",
+            icon: "🎟️"
+          },
+          {
+            title: "Auditoría Legal-UX de Omnibus",
+            desc: "Un barrido completo de su plataforma para identificar 'Patrones Oscuros' que podrían violar las nuevas reglas de Prácticas Comerciales Desleales.",
+            icon: "🔍"
+          }
+        ].map(service => (
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
+            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div>
+              <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
+              <p class="text-sm text-zinc-400">{service.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t border-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl" data-animation="fade-up">Preguntas Frecuentes</h2>
+      <div class="space-y-6" data-animation="fade-up">
+        {[
+          {
+            q: "¿Qué es la 'regla de los 30 días' en términos sencillos?",
+            a: "Cuando anuncia una reducción de precio (por ejemplo, 'Ahorre un 20%'), el precio 'anterior' con el que lo compara debe ser el precio más bajo que cobró por ese artículo en los últimos 30 días. No puede inflar artificialmente el precio justo antes de una oferta."
+          },
+          {
+            q: "¿Esto se aplica a todos los productos?",
+            a: "Generalmente, sí. Hay excepciones para bienes perecederos (como alimentos) y productos que llevan menos de 30 días en el mercado, pero para la mayoría de las categorías de e-commerce, es obligatorio."
+          },
+          {
+            q: "¿Dañará nuestras ventas mostrar el 'precio más bajo de 30 días'?",
+            a: "Puede, si no se maneja correctamente. Nos centramos en patrones de UX que resaltan el valor y la transparencia, convirtiendo el cumplimiento en una señal de confianza que puede mejorar la lealtad a largo plazo."
+          },
+          {
+            q: "¿Podemos usar simplemente un pequeño tooltip para la información de los 30 días?",
+            a: "La ley exige que la información sea 'clara y prominente'. Un pequeño tooltip escondido podría no satisfacer a un regulador. Diseñamos patrones que son a la vez prominentes y estéticamente agradables."
+          }
+        ].map(item => (
+          <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="mb-3 font-semibold text-zinc-200">{item.q}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 p-12 md:p-24 border border-zinc-800" data-animation="scale">
+      <h2 class="mb-6 text-3xl font-bold md:text-5xl tracking-tight">¿Listo para auditar su UX de precios?</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Hable con nuestros socios senior sobre su configuración actual de promociones. Le ayudaremos a cerrar la brecha entre lo legal y el crecimiento.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Discutir Cumplimiento de Precios
+        </a>
+        <a
+          href="mailto:hola@ai-native.es"
+          class="rounded-lg border border-zinc-700 bg-zinc-950 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50"
+        >
+          Envíenos un Email
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

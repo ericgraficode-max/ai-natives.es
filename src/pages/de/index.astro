@@ -9,73 +9,20 @@ const services = await getServices();
 const projects = await getProjects();
 const hasSanity = isSanityConfigured();
 
-// Fallback content when Sanity isn't configured
+// Fallback content
 const heroData = hero || {
-  headline: 'We Build Digital Experiences That Matter',
+  headline: 'Wir bauen digitale Erlebnisse, die zählen',
   subheadline:
-    'From strategy to execution, we help brands connect with people through thoughtful design and cutting-edge technology.',
+    'Von der Strategie bis zur Umsetzung helfen wir Marken, durch durchdachtes Design und modernste Technologie mit Menschen in Kontakt zu treten.',
   image: null,
   video: null,
 };
-
-const servicesData =
-  services.length > 0
-    ? services
-    : [
-        {
-          title: 'Brand Strategy',
-          description: 'We define your brand identity and positioning in the digital landscape.',
-          icon: null,
-          _key: '1',
-        },
-        {
-          title: 'Web & App Development',
-          description: 'Custom digital products built with modern tech stacks.',
-          icon: null,
-          _key: '2',
-        },
-        {
-          title: 'Creative Direction',
-          description: 'Visual storytelling that captures attention and drives engagement.',
-          icon: null,
-          _key: '3',
-        },
-      ];
-
-const projectsData =
-  projects.length > 0
-    ? projects
-    : [
-        {
-          title: 'Project Alpha',
-          description: 'A transformative digital experience.',
-          image: null,
-          video: null,
-          link: '#',
-          _key: '1',
-        },
-        {
-          title: 'Project Beta',
-          description: 'Innovation meets design.',
-          image: null,
-          video: null,
-          link: '#',
-          _key: '2',
-        },
-        {
-          title: 'Project Gamma',
-          description: 'Scaling digital presence.',
-          image: null,
-          video: null,
-          link: '#',
-          _key: '3',
-        },
-      ];
 ---
 
 <Layout
-  title="AI‑Native.es | Digital product, growth & creative studio"
-  description="A senior product design, growth, and engineering team bringing international experience back to the Spanish market."
+  lang="de"
+  title="AI‑Native.es | Digital Product, Growth & Creative Studio"
+  description="Ein Senior-Team für Produktdesign, Growth und Engineering, das internationale Erfahrung in den spanischen Markt einbringt."
 >
   <!-- Hero -->
   <header class="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -95,52 +42,39 @@ const projectsData =
         </span>
       </h1>
       <p class="mx-auto mb-12 max-w-2xl text-lg text-zinc-300 md:text-xl" data-animation="fade-up">
-        AI‑Native.es is led by a senior product design lead and an AI‑native CTO with experience across Vodafone, eBay,
-        flaconi and otros players europeos. No fluff, no AI‑slop – just a senior team shipping work that moves numbers.
+        AI‑Native.es wird von einem Senior Product Lead und einem AI‑native CTO geleitet – mit Erfahrung bei Vodafone, 
+        eBay, flaconi und anderen europäischen Playern. Kein Fluff, kein AI-Slop – nur ein Senior-Team, das Ergebnisse liefert.
       </p>
       <div class="flex flex-wrap gap-4 justify-center" data-animation="fade-up">
         <a
-          href="/contact"
+          href="/de/contact"
           class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
         >
-          Book a project call
+          Projekt-Call buchen
         </a>
         <a
-          href="/services"
+          href="/de/services"
           class="rounded-lg border border-zinc-600 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400 hover:text-cyan-300"
         >
-          Explore our services
+          Unsere Leistungen
         </a>
       </div>
     </div>
-
-    <!-- Hero media -->
-    {heroData.video && hasSanity ? (
-      <div class="absolute bottom-0 left-0 right-0 h-48 md:h-64 overflow-hidden opacity-50">
-        <video autoplay muted loop playsinline class="w-full h-full object-cover">
-          <source src={heroData.video.asset?.url} type="video/mp4" />
-        </video>
-      </div>
-    ) : heroData.image && hasSanity ? (
-      <div class="absolute bottom-0 left-0 right-0 h-48 md:h-64 overflow-hidden opacity-30" data-animation="fade-in">
-        <img src={urlFor(heroData.image).width(1200).url()} alt="" class="w-full h-full object-cover" />
-      </div>
-    ) : null}
   </header>
 
   <!-- Services -->
   <section id="services" class="px-6 py-24">
     <div class="max-w-6xl mx-auto">
       <h2 class="mb-4 text-center text-3xl font-bold md:text-5xl" data-animation="fade-up">
-        Senior brains, lean teams
+        Senior Köpfe, schlanke Teams
       </h2>
       <p class="mx-auto mb-16 max-w-2xl text-center text-zinc-400" data-animation="fade-up">
-        We sit at the intersection of product design, growth, and engineering. Every engagement is led by the AI‑Native.es
-        core team, backed by an international crew who has actually shipped at scale.
+        Wir bewegen uns an der Schnittstelle von Produktdesign, Growth und Engineering. Jedes Projekt wird vom AI‑Native.es 
+        Kernteam geleitet, unterstützt von einem internationalen Netzwerk aus Experten.
       </p>
       <div class="grid gap-8 md:grid-cols-3">
         <a
-          href="/services/user-interface-user-research"
+          href="/de/services/user-interface-user-research"
           class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
           data-animation="fade-up"
         >
@@ -149,13 +83,13 @@ const projectsData =
           >
             ◇
           </div>
-          <h3 class="mb-3 text-xl font-semibold">User interface & user research</h3>
+          <h3 class="mb-3 text-xl font-semibold">User Interface & Research</h3>
           <p class="text-sm text-zinc-400">
-            Product discovery, UX strategy, and interface design rooted in real users – not internal opinions.
+            Product Discovery, UX-Strategie und Interface-Design, das auf echten Nutzerbedürfnissen basiert.
           </p>
         </a>
         <a
-          href="/services/european-accessibility-compliance"
+          href="/de/services/european-accessibility-compliance"
           class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
           data-animation="fade-up"
         >
@@ -164,13 +98,13 @@ const projectsData =
           >
             ☑
           </div>
-          <h3 class="mb-3 text-xl font-semibold">European accessibility audits</h3>
+          <h3 class="mb-3 text-xl font-semibold">Accessibility Audits</h3>
           <p class="text-sm text-zinc-400">
-            WCAG and European Accessibility Act readiness for Spanish teams who need a clear, pragmatic roadmap.
+            WCAG und EAA-Vorbereitung für Teams, die eine klare und pragmatische Roadmap benötigen.
           </p>
         </a>
         <a
-          href="/services/conversion-optimization"
+          href="/de/services/conversion-optimization"
           class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
           data-animation="fade-up"
         >
@@ -179,9 +113,9 @@ const projectsData =
           >
             ↑
           </div>
-          <h3 class="mb-3 text-xl font-semibold">Conversion optimisation</h3>
+          <h3 class="mb-3 text-xl font-semibold">Conversion Optimierung</h3>
           <p class="text-sm text-zinc-400">
-            Structured experimentation, A/B tests, and CRO programs that link every uplift to revenue and EBITDA.
+            Strukturierte Experimente und CRO-Programme, die jedes Uplift direkt mit Umsatz und EBITDA verknüpfen.
           </p>
         </a>
       </div>
@@ -193,13 +127,12 @@ const projectsData =
     <div class="max-w-xl mx-auto">
       <h2 class="mb-4 text-center text-3xl font-bold md:text-5xl" data-animation="fade-up">Let’s talk</h2>
       <p class="mb-8 text-center text-zinc-400" data-animation="fade-up">
-        Two senior partners on every call, zero account managers. Tell us where you want to go – we’ll tell you what it
-        will really take.
+        Zwei Senior-Partner in jedem Call, keine Account-Manager. Sagen Sie uns, wo Sie hin wollen – wir zeigen Ihnen den Weg.
       </p>
       <div class="space-y-8" data-animation="fade-up">
         <ContactForm />
         <p class="text-center text-xs text-zinc-500">
-          Prefer email? Reach out via{' '}
+          Lieber per E-Mail? Schreiben Sie uns an{' '}
           <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">hola@ai-native.es</a>
         </p>
       </div>

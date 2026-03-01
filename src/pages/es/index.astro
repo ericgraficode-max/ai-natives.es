@@ -1,0 +1,142 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { getHero, getServices, getProjects, isSanityConfigured } from '../../lib/sanity';
+import { urlFor } from '../../lib/sanityImage';
+
+const hero = await getHero();
+const services = await getServices();
+const projects = await getProjects();
+const hasSanity = isSanityConfigured();
+
+// Fallback content
+const heroData = hero || {
+  headline: 'Creamos experiencias digitales que importan',
+  subheadline:
+    'Desde la estrategia hasta la ejecución, ayudamos a las marcas a conectar con las personas a través de un diseño cuidado y tecnología de vanguardia.',
+  image: null,
+  video: null,
+};
+---
+
+<Layout
+  lang="es"
+  title="AI‑Native.es | Estudio de producto digital, crecimiento y creatividad"
+  description="Un equipo senior de diseño de producto, crecimiento e ingeniería que trae su experiencia internacional de vuelta al mercado español."
+>
+  <!-- Hero -->
+  <header class="relative flex min-h-screen items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950" />
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <h1
+        class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl font-[family-name:var(--font-syne)]"
+        data-animation="fade-up"
+      >
+        <span class="bg-gradient-to-r from-cyan-300 via-sky-400 to-violet-400 bg-clip-text text-transparent">
+          AI‑native digital growth
+        </span>
+      </h1>
+      <p class="mx-auto mb-12 max-w-2xl text-lg text-zinc-300 md:text-xl" data-animation="fade-up">
+        AI‑Native.es está liderado por un responsable senior de producto y un CTO nativo en IA con experiencia en Vodafone, eBay,
+        flaconi y otros players europeos. Sin rodeos, sin "humo" de IA: solo un equipo senior lanzando trabajo que mueve los números.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center" data-animation="fade-up">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserva una llamada
+        </a>
+        <a
+          href="/es/services"
+          class="rounded-lg border border-zinc-600 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400 hover:text-cyan-300"
+        >
+          Nuestros servicios
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="px-6 py-24">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="mb-4 text-center text-3xl font-bold md:text-5xl" data-animation="fade-up">
+        Mentes senior, equipos ágiles
+      </h2>
+      <p class="mx-auto mb-16 max-w-2xl text-center text-zinc-400" data-animation="fade-up">
+        Nos situamos en la intersección del diseño de producto, el crecimiento y la ingeniería. Cada proyecto es liderado por el 
+        equipo central de AI‑Native.es, respaldado por una red internacional de expertos.
+      </p>
+      <div class="grid gap-8 md:grid-cols-3">
+        <a
+          href="/es/services/user-interface-user-research"
+          class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
+          data-animation="fade-up"
+        >
+          <div
+            class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 text-2xl"
+          >
+            ◇
+          </div>
+          <h3 class="mb-3 text-xl font-semibold">Interfaz de usuario & research</h3>
+          <p class="text-sm text-zinc-400">
+            Descubrimiento de producto, estrategia UX y diseño de interfaz basado en usuarios reales – no en opiniones internas.
+          </p>
+        </a>
+        <a
+          href="/es/services/european-accessibility-compliance"
+          class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
+          data-animation="fade-up"
+        >
+          <div
+            class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 text-2xl"
+          >
+            ☑
+          </div>
+          <h3 class="mb-3 text-xl font-semibold">Auditorías de accesibilidad</h3>
+          <p class="text-sm text-zinc-400">
+            Preparación para WCAG y la Ley Europea de Accesibilidad para equipos que necesitan una hoja de ruta clara y pragmática.
+          </p>
+        </a>
+        <a
+          href="/es/services/conversion-optimization"
+          class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
+          data-animation="fade-up"
+        >
+          <div
+            class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 text-2xl"
+          >
+            ↑
+          </div>
+          <h3 class="mb-3 text-xl font-semibold">Optimización de conversión</h3>
+          <p class="text-sm text-zinc-400">
+            Experimentación estructurada, tests A/B y programas de CRO que vinculan cada mejora con ingresos y EBITDA.
+          </p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact teaser -->
+  <section id="contact" class="px-6 py-24">
+    <div class="max-w-xl mx-auto">
+      <h2 class="mb-4 text-center text-3xl font-bold md:text-5xl" data-animation="fade-up">Hablemos</h2>
+      <p class="mb-8 text-center text-zinc-400" data-animation="fade-up">
+        Dos socios senior en cada llamada, cero gestores de cuentas. Cuéntanos dónde quieres llegar – nosotros te diremos qué hace falta realmente.
+      </p>
+      <div class="space-y-8" data-animation="fade-up">
+        <ContactForm />
+        <p class="text-center text-xs text-zinc-500">
+          ¿Prefieres el email? Escríbenos a{' '}
+          <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">hola@ai-native.es</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</Layout>

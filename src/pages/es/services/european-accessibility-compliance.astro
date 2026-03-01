@@ -1,0 +1,299 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ChevronRight } from '../../../components/FeatherIcons.ts';
+---
+
+<Layout
+  lang="es"
+  title="Cumplimiento de Accesibilidad Europea y Auditorías | AI‑Native.es"
+  description="Auditorías de accesibilidad y hojas de ruta pragmáticas para equipos españoles. Asegure el cumplimiento de la Ley Europea de Accesibilidad (EAA) y los estándares WCAG."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+
+    <div class="mx-auto max-w-5xl text-center" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        Inclusión y Cumplimiento
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+        Construya para todos. <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">Cumpla la ley.</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
+        La Ley Europea de Accesibilidad (EAA) se acerca. Ayudamos a los equipos de producto españoles a navegar los 
+        estándares WCAG con auditorías pragmáticas que equilibran los requisitos legales con la velocidad del producto.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserve una Auditoría de Accesibilidad
+        </a>
+        <a
+          href="#framework"
+          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
+        >
+          Vea Nuestro Framework
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">El cumplimiento es más que un obstáculo legal</h2>
+          <p class="mb-6 text-zinc-400">
+            Inspirados por líderes del sector como Level Access, creemos que la accesibilidad es una ventaja competitiva. 
+            Un producto accesible llega a una audiencia más amplia, rinde mejor en SEO y protege su marca 
+            de litigios costosos y multas regulatorias.
+          </p>
+          <ul class="space-y-4">
+            {[
+              "Adherencia a los estándares WCAG 2.1 / 2.2 AA",
+              "Cumplimiento de la Ley Europea de Accesibilidad (EAA)",
+              "Generación de VPAT para contratos con empresas y administraciones",
+              "Mejora de la UX para todos los usuarios, no solo para aquellos con discapacidades"
+            ].map(item => (
+              <li class="flex items-center gap-3 text-zinc-300">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 text-xs">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:p-12" data-animation="scale">
+           <div class="flex flex-col gap-4">
+              <div class="flex justify-between items-center text-xs font-mono text-zinc-500">
+                 <span>AUDIT_SCAN_V2.0</span>
+                 <span class="text-cyan-400">ESTADO: CUMPLIMIENTO</span>
+              </div>
+              <div class="h-2 w-full bg-zinc-800 rounded-full overflow-hidden">
+                 <div class="h-full bg-cyan-400" style="width: 92%"></div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 mt-2">
+                 <div class="p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+                    <p class="text-[10px] text-zinc-500 uppercase">Perceptible</p>
+                    <p class="text-lg font-bold">100%</p>
+                 </div>
+                 <div class="p-3 rounded-lg bg-zinc-800/50 border border-zinc-700">
+                    <p class="text-[10px] text-zinc-500 uppercase">Operable</p>
+                    <p class="text-lg font-bold">88%</p>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="framework" class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-5xl">La Hoja de Ruta de Accesibilidad</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">
+          Combinamos el escaneo automatizado con la evaluación manual de expertos —incluyendo pruebas realizadas por personas con 
+          discapacidad— para proporcionar un camino realista y amigable para los desarrolladores hacia el cumplimiento.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "01",
+            title: "Auditoría",
+            desc: "Pruebas de múltiples capas en los recorridos clave de los usuarios para identificar barreras técnicas y de UX.",
+            icon: "🔍"
+          },
+          {
+            step: "02",
+            title: "Priorización",
+            desc: "Clasificación de problemas basada en el riesgo. Qué arreglar ahora para evitar la exposición legal.",
+            icon: "⚖️"
+          },
+          {
+            step: "03",
+            title: "Remediación",
+            desc: "Guía y acompañamiento centrado en el desarrollador para solucionar problemas sin romper funcionalidades.",
+            icon: "🛠️"
+          },
+          {
+            step: "04",
+            title: "Gobernanza",
+            desc: "Establecimiento de un monitoreo continuo y formación del equipo para prevenir regresiones.",
+            icon: "📜"
+          }
+        ].map(item => (
+          <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
+            <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
+            <div class="mb-6 text-3xl">{item.icon}</div>
+            <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Specialized Middle Section -->
+  <section class="bg-gradient-to-b from-zinc-950 to-zinc-900 px-6 py-24 overflow-hidden">
+    <div class="mx-auto max-w-6xl">
+      <div class="rounded-3xl border border-cyan-400/20 bg-cyan-950/5 p-8 md:p-16 lg:flex items-center gap-16" data-animation="fade-up">
+        <div class="lg:w-1/2">
+          <div class="mb-6 inline-flex rounded-full bg-cyan-400/10 px-4 py-1 text-xs font-semibold text-cyan-300">
+            Validación Liderada por Expertos
+          </div>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">La automatización encuentra el 30%. Los humanos el resto.</h2>
+          <p class="mb-8 text-zinc-400">
+            Herramientas como Axe y Lighthouse son geniales para empezar, pero pierden el matiz de un recorrido de usuario real. 
+            Nuestras auditorías incluyen pruebas manuales con lectores de pantalla (NVDA, JAWS, VoiceOver) y navegación 
+            solo por teclado para asegurar que su producto sea realmente utilizable, no solo técnicamente conforme.
+          </p>
+          <div class="grid gap-6 sm:grid-cols-2">
+            <div>
+              <h4 class="mb-2 font-semibold text-zinc-200">UX con Lector de Pantalla</h4>
+              <p class="text-xs text-zinc-400">Asegurando que la estructura semántica y las aria-labels proporcionen un modelo mental claro.</p>
+            </div>
+            <div>
+              <h4 class="mb-2 font-semibold text-zinc-200">Tecnología de Apoyo</h4>
+              <p class="text-xs text-zinc-400">Pruebas con controles de interruptor y software de dictado por voz.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-0 lg:w-1/2 relative flex justify-center">
+           <div class="w-full max-w-sm rounded-2xl border border-zinc-800 bg-zinc-900 p-6 shadow-2xl">
+              <div class="flex items-center gap-4 mb-6">
+                 <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                 <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                 <div class="h-3 w-3 rounded-full bg-green-500"></div>
+              </div>
+              <div class="space-y-4">
+                 <div class="h-4 w-3/4 bg-zinc-800 rounded"></div>
+                 <div class="h-20 w-full bg-zinc-800 rounded flex items-center justify-center">
+                    <span class="text-2xl opacity-20">♿</span>
+                 </div>
+                 <div class="space-y-2">
+                    <div class="h-3 w-full bg-zinc-800 rounded"></div>
+                    <div class="h-3 w-5/6 bg-zinc-800 rounded"></div>
+                 </div>
+                 <div class="pt-4 flex justify-between">
+                    <div class="h-8 w-24 bg-cyan-400/20 rounded border border-cyan-400/50"></div>
+                    <div class="h-8 w-24 bg-zinc-800 rounded"></div>
+                 </div>
+              </div>
+           </div>
+           <div class="absolute -bottom-6 -right-6 p-4 rounded-lg bg-zinc-800 border border-zinc-700 shadow-xl hidden sm:block" data-animation="scale">
+              <p class="text-[10px] font-bold text-cyan-300 mb-1">ANUNCIO DE VOICEOVER:</p>
+              <p class="text-xs italic text-zinc-400">"Botón Confirmar pedido. Pulse Enter para confirmar."</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Focus Areas -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold">Servicios Especializados de Cumplimiento</h2>
+        <p class="text-zinc-400">Soluciones profundas para cada etapa de su viaje de accesibilidad.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {[
+          {
+            title: "Auditoría WCAG 2.1 / 2.2",
+            desc: "Evaluación exhaustiva de su plataforma web o móvil frente a los últimos estándares internacionales.",
+            icon: "📜"
+          },
+          {
+            title: "Check de Preparación para la EAA",
+            desc: "Una auditoría estratégica centrada específicamente en los requisitos legales de la Ley Europea de Accesibilidad.",
+            icon: "🇪🇺"
+          },
+          {
+            title: "Generación de VPAT / ACR",
+            desc: "Documentación profesional requerida para contratos del sector público y procesos de licitación de grandes empresas.",
+            icon: "📝"
+          },
+          {
+            title: "Sistemas de Diseño Accesibles",
+            desc: "Integrando la accesibilidad en sus componentes principales para prevenir problemas antes de que se programen.",
+            icon: "🧱"
+          }
+        ].map(service => (
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
+            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div>
+              <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
+              <p class="text-sm text-zinc-400">{service.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t border-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl" data-animation="fade-up">Preguntas Frecuentes</h2>
+      <div class="space-y-6" data-animation="fade-up">
+        {[
+          {
+            q: "¿Cuándo entra en vigor la Ley Europea de Accesibilidad (EAA)?",
+            a: "La EAA (Directiva 2019/882) debe aplicarse a partir del 28 de junio de 2025. Las empresas españolas deben empezar a auditar y remediar ahora para estar listas para el plazo."
+          },
+          {
+            q: "¿Realmente necesitamos pruebas manuales?",
+            a: "Sí. Las herramientas automatizadas solo detectan alrededor del 30% de los problemas de accesibilidad. Las pruebas manuales realizadas por expertos son la única forma de identificar problemas complejos de lógica, gestión del foco y experiencia de usuario con lectores de pantalla."
+          },
+          {
+            q: "¿Cuánto tiempo lleva una auditoría completa?",
+            a: "Una auditoría típica para una aplicación web o un recorrido principal de e-commerce lleva entre 2 y 3 semanas, incluyendo el informe final y una sesión explicativa con su equipo."
+          },
+          {
+            q: "¿Hacer mi sitio accesible arruinará el diseño?",
+            a: "En absoluto. El diseño accesible es simplemente buen diseño. Nos centramos en una 'UX inclusiva' donde la accesibilidad mejora la claridad y la usabilidad para todos, sin comprometer la estética de su marca."
+          }
+        ].map(item => (
+          <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="mb-3 font-semibold text-zinc-200">{item.q}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 p-12 md:p-24 border border-zinc-800" data-animation="scale">
+      <h2 class="mb-6 text-3xl font-bold md:text-5xl tracking-tight">¿Listo para construir un producto inclusivo?</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Hable con nuestros responsables de accesibilidad sobre su hoja de ruta actual. Le ayudaremos a cumplir la ley sin frenar a su equipo.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserve una Llamada de Auditoría
+        </a>
+        <a
+          href="mailto:hola@ai-native.es"
+          class="rounded-lg border border-zinc-700 bg-zinc-950 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50"
+        >
+          Envíenos un Email
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

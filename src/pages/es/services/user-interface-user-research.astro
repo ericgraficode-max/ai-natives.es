@@ -1,0 +1,286 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import { ChevronRight } from '../../../components/FeatherIcons.ts';
+---
+
+<Layout
+  lang="es"
+  title="Interfaz de Usuario e Investigación de Usuarios | AI‑Native.es"
+  description="Diseño de producto e investigación liderados por expertos para plataformas europeas. Cerramos la brecha entre los insights de los usuarios e interfaces de alta fidelidad listas para su implementación."
+>
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden px-6 pb-32 pt-24 md:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-20">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+
+    <div class="mx-auto max-w-5xl text-center" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        Diseño Basado en Evidencias
+      </p>
+      <h1 class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+        Lance productos que <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">se sientan obvios.</span>
+      </h1>
+      <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
+        La mayor parte del diseño se basa en opiniones internas. Construimos productos de la misma manera que hemos trabajado en 
+        las mejores plataformas de Europa: cerca del usuario, cerca de los datos y enfocados en mover los números.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserve una Llamada de Descubrimiento
+        </a>
+        <a
+          href="#metodologia"
+          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
+        >
+          Explore Nuestro Proceso
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Proposition -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-12 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">El diseño es una palanca de crecimiento, no una capa de pintura</h2>
+          <p class="mb-6 text-zinc-400">
+            Hemos liderado el diseño y la investigación para plataformas que llegan a millones de usuarios. Llevamos ese 
+            estándar internacional a los equipos de producto españoles, eliminando lo superficial para entregar 
+            interfaces que son tan funcionales como hermosas.
+          </p>
+          <ul class="space-y-4">
+            {[
+              "Sprints de descubrimiento para definir el problema correcto",
+              "Investigación lean que encaja en ciclos de construcción de 2 semanas",
+              "Sistemas de diseño que escalan con su equipo de ingeniería",
+              "UI de alta fidelidad enfocada en la claridad y la conversión"
+            ].map(item => (
+              <li class="flex items-center gap-3 text-zinc-300">
+                <span class="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-400/20 text-cyan-400 text-xs">✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8 lg:p-12" data-animation="scale">
+           <div class="space-y-6">
+              <div class="flex gap-4">
+                 <div class="h-12 w-12 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xl">💡</div>
+                 <div class="flex-1">
+                    <p class="text-xs font-bold text-cyan-300 uppercase tracking-widest mb-1">Insight</p>
+                    <p class="text-sm text-zinc-300">"Los usuarios abandonan en el paso 3 porque no entienden los niveles de precios."</p>
+                 </div>
+              </div>
+              <div class="flex gap-4">
+                 <div class="h-12 w-12 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xl">📐</div>
+                 <div class="flex-1">
+                    <p class="text-xs font-bold text-violet-300 uppercase tracking-widest mb-1">Solución</p>
+                    <p class="text-sm text-zinc-300">Matriz de comparación simplificada con mapeo de valor claro para cada segmento.</p>
+                 </div>
+              </div>
+              <div class="pt-4 border-t border-zinc-800 flex justify-between items-center">
+                 <span class="text-[10px] text-zinc-500 font-mono">ITERACION_03</span>
+                 <span class="text-[10px] text-zinc-500 font-mono text-green-400">VALIDADO</span>
+              </div>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Methodology Section -->
+  <section id="metodologia" class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold md:text-5xl">El Ciclo de Insight-a-Interfaz</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">
+          Nos movemos rápido sin saltarnos pasos. Nuestro framework asegura que cada píxel esté respaldado 
+          por evidencia del usuario y lógica de negocio.
+        </p>
+      </div>
+
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        {[
+          {
+            step: "01",
+            title: "Descubrimiento",
+            desc: "Mapeo del espacio del problema, recorridos de usuario y limitaciones técnicas.",
+            icon: "🔭"
+          },
+          {
+            step: "02",
+            title: "Investigación",
+            desc: "Validación de supuestos mediante pruebas de usuario lean y análisis de datos.",
+            icon: "🧪"
+          },
+          {
+            step: "03",
+            title: "Diseño",
+            desc: "Construcción de UI de alta fidelidad y prototipos interactivos en Figma.",
+            icon: "✏️"
+          },
+          {
+            step: "04",
+            title: "Validación",
+            desc: "Pruebas de usabilidad y entrega a ingeniería para una construcción pixel-perfect.",
+            icon: "✅"
+          }
+        ].map(item => (
+          <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
+            <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
+            <div class="mb-6 text-3xl">{item.icon}</div>
+            <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Creative Middle Section -->
+  <section class="bg-gradient-to-b from-zinc-950 to-zinc-900 px-6 py-24 overflow-hidden">
+    <div class="mx-auto max-w-6xl">
+      <div class="rounded-3xl border border-cyan-400/20 bg-cyan-950/5 p-8 md:p-16 lg:flex items-center gap-16" data-animation="fade-up">
+        <div class="lg:w-1/2">
+          <div class="mb-6 inline-flex rounded-full bg-cyan-400/10 px-4 py-1 text-xs font-semibold text-cyan-300">
+            Pensamiento Sistémico
+          </div>
+          <h2 class="mb-6 text-3xl font-bold md:text-4xl">Sistemas de diseño que realmente se usan.</h2>
+          <p class="mb-8 text-zinc-400">
+            No construimos "proyectos artísticos". Construimos librerías de componentes vivos que se alinean con 
+            su arquitectura frontend (React, Vue, Astro). Nuestro objetivo es empoderar a su equipo 
+            para lanzar UI consistente más rápido, mucho después de que termine nuestra colaboración.
+          </p>
+          <div class="space-y-4">
+             <div class="flex items-start gap-4">
+                <div class="h-1 w-12 mt-3 bg-cyan-400 shrink-0"></div>
+                <p class="text-sm text-zinc-300"><strong class="text-zinc-100">Componentes Primero:</strong> Cada elemento es un activo reutilizable y documentado.</p>
+             </div>
+             <div class="flex items-start gap-4">
+                <div class="h-1 w-12 mt-3 bg-cyan-400 shrink-0"></div>
+                <p class="text-sm text-zinc-300"><strong class="text-zinc-100">Entrega Lista para Devs:</strong> Especificaciones pixel-perfect con tokens y lógica claros.</p>
+             </div>
+          </div>
+        </div>
+        <div class="mt-12 lg:mt-0 lg:w-1/2 relative">
+           <div class="grid grid-cols-3 gap-3">
+              {Array.from({length: 9}).map((_, i) => (
+                <div class={`aspect-square rounded-xl border border-zinc-800 bg-zinc-900/40 p-4 flex flex-col justify-between ${i === 4 ? 'border-cyan-400/50 bg-cyan-400/10' : ''}`}>
+                   <div class={`h-2 w-full rounded-full ${i % 3 === 0 ? 'bg-cyan-400' : 'bg-zinc-800'}`}></div>
+                   <div class="space-y-1">
+                      <div class="h-1 w-2/3 bg-zinc-800 rounded-full"></div>
+                      <div class="h-1 w-1/2 bg-zinc-800 rounded-full"></div>
+                   </div>
+                </div>
+              ))}
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Focus Areas -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-16" data-animation="fade-up">
+        <h2 class="mb-4 text-3xl font-bold">Capacidades de Diseño e Investigación</h2>
+        <p class="text-zinc-400">Servicios de diseño de producto de extremo a extremo, desde el insight hasta el lanzamiento.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {[
+          {
+            title: "Sprints de Descubrimiento",
+            desc: "Talleres intensivos para alinear a los stakeholders y definir el MVP para nuevos productos o funcionalidades.",
+            icon: "🚀"
+          },
+          {
+            title: "Investigación de Usuarios Lean",
+            desc: "Pruebas y entrevistas rápidas para validar decisiones de UX antes de que lleguen a producción.",
+            icon: "🔬"
+          },
+          {
+            title: "Sistemas de Diseño Escalables",
+            desc: "Librerías de Figma que reflejan su código, asegurando consistencia y velocidad entre equipos.",
+            icon: "🧱"
+          },
+          {
+            title: "Prototipado de Alta Fidelidad",
+            desc: "Prototipos interactivos y listos para su implementación que se sienten como el producto real.",
+            icon: "📱"
+          }
+        ].map(service => (
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
+            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div>
+              <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
+              <p class="text-sm text-zinc-400">{service.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="border-t border-zinc-900 px-6 py-24">
+    <div class="mx-auto max-w-3xl">
+      <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl" data-animation="fade-up">Preguntas Frecuentes</h2>
+      <div class="space-y-6" data-animation="fade-up">
+        {[
+          {
+            q: "¿Cómo se integran con nuestro equipo de ingeniería?",
+            a: "Hablamos su idioma. Entregamos archivos de Figma listos para implementación, lógica de componentes clara y nos sentimos cómodos participando en standups para asegurar que la visión del diseño sea técnicamente viable."
+          },
+          {
+            q: "¿Pueden ayudarnos a construir un sistema de diseño desde cero?",
+            a: "Sí. Hemos construido sistemas para plataformas con cientos de diseñadores e ingenieros. Le ayudaremos a establecer las bases y formaremos a su equipo sobre cómo mantenerlo."
+          },
+          {
+            q: "¿Cuánto tiempo lleva un sprint de descubrimiento típico?",
+            a: "Un sprint de descubrimiento estándar dura entre 1 y 2 semanas, dependiendo de la complejidad del espacio del problema y del número de stakeholders involucrados."
+          },
+          {
+            q: "¿Solo trabajan en Figma?",
+            a: "Figma es nuestra herramienta principal de diseño y colaboración, pero también utilizamos varias herramientas de investigación y nos sentimos cómodos trabajando dentro de su stack tecnológico para las entregas."
+          }
+        ].map(item => (
+          <div class="rounded-xl border border-zinc-800 bg-zinc-900/40 p-6">
+            <h3 class="mb-3 font-semibold text-zinc-200">{item.q}</h3>
+            <p class="text-sm text-zinc-400 leading-relaxed">{item.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="px-6 py-24 text-center">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gradient-to-br from-cyan-400/20 to-violet-400/20 p-12 md:p-24 border border-zinc-800" data-animation="scale">
+      <h2 class="mb-6 text-3xl font-bold md:text-5xl tracking-tight">¿Listo para construir algo que la gente ame?</h2>
+      <p class="mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Hable con nuestros socios de diseño sobre su hoja de ruta de producto. Sin gestores de cuentas, solo responsables senior en cada llamada.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a
+          href="/es/contact"
+          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        >
+          Reserve una Llamada de Proyecto
+        </a>
+        <a
+          href="mailto:hola@ai-native.es"
+          class="rounded-lg border border-zinc-700 bg-zinc-950 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50"
+        >
+          Envíenos un Email
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
