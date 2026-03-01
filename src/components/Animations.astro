@@ -1,0 +1,35 @@
+---
+// Global GSAP scroll animations - include once in layout
+---
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initAnimations() {
+    gsap.utils.toArray<HTMLElement>('[data-animation]').forEach((el) => {
+      const anim = el.dataset.animation || 'fade-up';
+      const from = anim === 'scale' ? { opacity: 0, scale: 0.95 } : { opacity: 0, y: 50 };
+      const to = anim === 'scale' ? { opacity: 1, scale: 1 } : { opacity: 1, y: 0 };
+      gsap.fromTo(el, from, {
+        ...to,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 88%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimations);
+  } else {
+    initAnimations();
+  }
+
+  document.addEventListener('astro:page-load', initAnimations);
+</script>

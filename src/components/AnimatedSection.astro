@@ -1,0 +1,12 @@
+---
+interface Props {
+  class?: string;
+  animation?: 'fade-up' | 'fade-in' | 'scale';
+}
+
+const { class: className = '', animation = 'fade-up' } = Astro.props;
+---
+
+<section class={`scroll-animate ${className}`} data-animation={animation}>
+  <slot />
+</section>

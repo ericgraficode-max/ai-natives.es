@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Animations from '../components/Animations.astro';
+import ContactForm from '../components/ContactForm.astro';
+import { getHero, getServices, getProjects, isSanityConfigured } from '../lib/sanity';
+import { urlFor } from '../lib/sanityImage';
+
+const hero = await getHero();
+const services = await getServices();
+const projects = await getProjects();
+const hasSanity = isSanityConfigured();
+
+// Fallback content when Sanity isn't configured
+const heroData = hero || {
+  headline: 'We Build Digital Experiences That Matter',
+  subheadline: 'From strategy to execution, we help brands connect with people through thoughtful design and cutting-edge technology.',
+  image: null,
+  video: null,
+};
+
+const servicesData = services.length > 0 ? services : [
+  { title: 'Brand Strategy', description: 'We define your brand identity and positioning in the digital landscape.', icon: null, _key: '1' },
+  { title: 'Web & App Development', description: 'Custom digital products built with modern tech stacks.', icon: null, _key: '2' },
+  { title: 'Creative Direction', description: 'Visual storytelling that captures attention and drives engagement.', icon: null, _key: '3' },
+];
+
+const projectsData = projects.length > 0 ? projects : [
+  { title: 'Project Alpha', description: 'A transformative digital experience.', image: null, video: null, link: '#', _key: '1' },
+  { title: 'Project Beta', description: 'Innovation meets design.', image: null, video: null, link: '#', _key: '2' },
+  { title: 'Project Gamma', description: 'Scaling digital presence.', image: null, video: null, link: '#', _key: '3' },
+];
+---
+
+<Layout title="AI Native | Digital Agency" description="We craft digital experiences that connect brands with people.">
+  <Animations />
+
+  <!-- Hero -->
+  <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950" />
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
+      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
+    </div>
+    
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 font-[family-name:var(--font-syne)]" data-animation="fade-up">
+        <span class="bg-gradient-to-r from-cyan-400 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+          {heroData.headline}
+        </span>
+      </h1>
+      <p class="text-xl md:text-2xl text-zinc-400 max-w-2xl mx-auto mb-12" data-animation="fade-up">
+        {heroData.subheadline}
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center" data-animation="fade-up">
+        <a href="#contact" class="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-zinc-950 font-semibold rounded-lg transition-colors">
+          Get in Touch
+        </a>
+        <a href="#work" class="px-8 py-4 border border-zinc-600 hover:border-cyan-500 text-zinc-300 hover:text-cyan-400 rounded-lg transition-colors">
+          View Our Work
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero media -->
+    {heroData.video && hasSanity ? (
+      <div class="absolute bottom-0 left-0 right-0 h-48 md:h-64 overflow-hidden opacity-50">
+        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+          <source src={heroData.video.asset?.url} type="video/mp4" />
+        </video>
+      </div>
+    ) : heroData.image && hasSanity ? (
+      <div class="absolute bottom-0 left-0 right-0 h-48 md:h-64 overflow-hidden opacity-30" data-animation="fade-in">
+        <img src={urlFor(heroData.image).width(1200).url()} alt="" class="w-full h-full object-cover" />
+      </div>
+    ) : null}
+  </header>
+
+  <!-- Services -->
+  <section id="services" class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center" data-animation="fade-up">What We Do</h2>
+      <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16" data-animation="fade-up">
+        We combine creativity with technology to deliver solutions that drive results.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {servicesData.map((service, i) => (
+          <div class="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800 hover:border-cyan-500/50 transition-colors" data-animation="fade-up">
+            {service.icon && hasSanity ? (
+              <div class="mb-6 w-16 h-16 rounded-xl overflow-hidden" data-animation="scale">
+                <img src={urlFor(service.icon).width(128).url()} alt={service.title} class="w-full h-full object-cover" />
+              </div>
+            ) : (
+              <div class="mb-6 w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500/30 to-violet-500/30 flex items-center justify-center text-2xl">
+                {i === 0 ? '◆' : i === 1 ? '◇' : '○'}
+              </div>
+            )}
+            <h3 class="text-xl font-semibold mb-3">{service.title}</h3>
+            <p class="text-zinc-400">{service.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects / Work -->
+  <section id="work" class="py-24 px-6 bg-zinc-900/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center" data-animation="fade-up">Selected Work</h2>
+      <p class="text-zinc-400 text-center max-w-2xl mx-auto mb-16" data-animation="fade-up">
+        A glimpse into our recent projects and collaborations.
+      </p>
+      <div class="grid md:grid-cols-3 gap-8">
+        {projectsData.map((project) => (
+          <a href={project.link || '#'} class="group block" data-animation="fade-up">
+            <div class="aspect-video rounded-2xl overflow-hidden bg-zinc-800 mb-4">
+              {project.video && hasSanity ? (
+                <video muted loop playsinline class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                  <source src={project.video.asset?.url} type="video/mp4" />
+                </video>
+              ) : project.image && hasSanity ? (
+                <img src={urlFor(project.image).width(600).url()} alt={project.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              ) : (
+                <div class="w-full h-full bg-gradient-to-br from-cyan-900/40 to-violet-900/40 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
+                  <span class="text-4xl text-zinc-600">◈</span>
+                </div>
+              )}
+            </div>
+            <h3 class="text-lg font-semibold group-hover:text-cyan-400 transition-colors">{project.title}</h3>
+            <p class="text-zinc-500 text-sm mt-1">{project.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-xl mx-auto">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 text-center" data-animation="fade-up">Let's Talk</h2>
+      <p class="text-zinc-400 text-center mb-12" data-animation="fade-up">
+        Have a project in mind? We'd love to hear from you.
+      </p>
+      <div data-animation="fade-up">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 border-t border-zinc-800">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-zinc-500 text-sm">© {new Date().getFullYear()} AI Native. All rights reserved.</p>
+      <a href="/admin" class="text-zinc-500 hover:text-zinc-400 text-sm">CMS Admin</a>
+    </div>
+  </footer>
+</Layout>
