@@ -1,62 +1,76 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import { ChevronRight } from '../components/FeatherIcons.ts';
 ---
 
 <Layout
   title="Contact | AI‑Native.es"
-  description="Two senior partners on every call, zero account managers. Tell us where you want to go – we’ll tell you what it will really take."
+  description="Skip the account managers. Talk directly to the senior partners about your growth goals."
 >
-  <section class="px-6 pb-20 pt-16 md:pt-24">
-    <div class="mx-auto max-w-3xl text-center" data-animation="fade-up">
-      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
-        Contact
-      </p>
-      <h1 class="mb-4 text-3xl font-bold md:text-5xl">Let’s talk about your product</h1>
-      <p class="mx-auto max-w-2xl text-zinc-400">
-        Whether you’re in discovery, scaling, or firefighting mode, we’ll give you an honest view on where we can help
-        – and where someone else might be a better fit.
-      </p>
+  <section class="relative min-h-screen px-6 pb-20 pt-16 md:pt-24 overflow-hidden">
+    <!-- Decorative background -->
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute top-0 right-0 h-[500px] w-[500px] bg-cyan-500/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 left-0 h-[500px] w-[500px] bg-violet-500/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
     </div>
 
-    <div class="mx-auto mt-12 grid max-w-5xl gap-10 md:grid-cols-[1.4fr,1fr]">
-      <div data-animation="fade-up">
-        <ContactForm />
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-16 lg:grid-cols-[1fr,1.2fr] items-start">
+        <div data-animation="fade-up">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Get in touch
+          </p>
+          <h1 class="mb-8 text-5xl font-bold tracking-tight md:text-7xl">
+            Let's build <br/><span class="text-zinc-500 italic">the future.</span>
+          </h1>
+          <p class="mb-12 max-w-md text-lg text-zinc-400">
+            Tell us about your project. Whether it's a structural audit, a design sprint, or a full-scale growth engine, we're ready to dive in.
+          </p>
+
+          <div class="space-y-8">
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">🤝</div>
+              <div>
+                <h3 class="font-bold text-zinc-200">Senior Partners Only</h3>
+                <p class="text-sm text-zinc-500">You'll always talk to Eric or Victor. No middle-men, no juniors.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">⚡</div>
+              <div>
+                <h3 class="font-bold text-zinc-200">Rapid Response</h3>
+                <p class="text-sm text-zinc-500">We respond to serious inquiries within 24 hours.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">📍</div>
+              <div>
+                <h3 class="font-bold text-zinc-200">Based in Berlin & Spain</h3>
+                <p class="text-sm text-zinc-500">International standards with a local heart.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 pt-16 border-t border-zinc-900">
+             <p class="text-xs text-zinc-500 mb-2 uppercase tracking-widest">Direct channel</p>
+             <a href="mailto:hola@ai-native.es" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                hola@ai-native.es
+             </a>
+          </div>
+        </div>
+
+        <div class="relative" data-animation="fade-up">
+           <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-[2.5rem] blur opacity-20"></div>
+           <div class="relative bg-zinc-950 border border-zinc-800 rounded-[2rem] p-8 md:p-12 shadow-2xl">
+              <h2 class="mb-8 text-2xl font-bold">Start a conversation</h2>
+              <ContactForm />
+              <p class="mt-8 text-center text-[10px] text-zinc-500 leading-relaxed uppercase tracking-tighter">
+                 By submitting this form, you agree to our senior squad reviewing your data to provide a strategic response.
+              </p>
+           </div>
+        </div>
       </div>
-
-      <aside
-        class="space-y-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-sm text-zinc-300"
-        data-animation="fade-up"
-      >
-        <div>
-          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">What to include</h2>
-          <p class="text-xs text-zinc-400">
-            A few bullet points are enough: what you’re building, where you are today, and what a “win” would look like
-            in 12 months.
-          </p>
-        </div>
-
-        <div class="border-t border-zinc-800 pt-4">
-          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Direct email</h2>
-          <p class="text-xs text-zinc-400">
-            Prefer email? Reach us at{' '}
-            <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">
-              hola@ai-native.es
-            </a>
-            .
-          </p>
-        </div>
-
-        <div class="border-t border-zinc-800 pt-4">
-          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Typical clients</h2>
-          <ul class="space-y-1 text-xs text-zinc-300">
-            <li>• Spanish companies expanding across Europe</li>
-            <li>• European teams who want a senior Spanish partner</li>
-            <li>• Founders who want to ship something serious from day one</li>
-          </ul>
-        </div>
-      </aside>
     </div>
   </section>
 </Layout>
-

@@ -1,98 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Eric Martinez Solis',
+    role: 'Co‑founder · Product & Design',
+    bio: 'Design Director mit Fokus auf Produktdesign, Research und Experimentation. Eric hat Design- und Research-Teams für Plattformen mit über 100 Mio. € Umsatz geleitet, darunter flaconi, kfzteile24, Vodafone und eBay.',
+    experience: 'Leitete 100M€+ Plattformen',
+    avatar: 'https://unavatar.io/twitter/ericsolis'
+  },
+  {
+    name: 'Victor',
+    role: 'Co‑founder · AI‑native CTO',
+    bio: 'Unternehmerischer CTO, der die Brücke zwischen modernem Frontend, Cloud-Infrastruktur und KI-gestützten Workflows schlägt. Er stellt sicher, dass jede Design-Idee sauber und performant umgesetzt wird.',
+    experience: '10+ Jahre intl. Produkt-Skalierung',
+    avatar: 'https://unavatar.io/github/vgm' 
+  },
+  {
+    name: 'Belinda',
+    role: 'SEO & Organic Growth',
+    bio: 'Konzentriert sich auf organische Sichtbarkeit, technisches SEO und Content-Strategie. Sie verbindet das Suchverhalten der Nutzer mit der optimalen Präsentation Ihres Produkts.',
+    experience: 'Expertin für technisches SEO',
+    avatar: 'https://unavatar.io/microlink/belinda.com'
+  },
+  {
+    name: 'Katja',
+    role: 'SEA & Performance Marketing',
+    bio: 'Leitet Paid Search und Performance Marketing mit einem starken Gespür für Marke und Kreation. Sie betrachtet SEA als Teil eines Gesamtsystems abgestimmt auf UX und Analytics.',
+    experience: 'Performance-System Architektin',
+    avatar: 'https://unavatar.io/microlink/katja.com'
+  }
+];
 ---
 
 <Layout
   lang="de"
   title="Team | AI‑Native.es"
-  description="Ein internationales Team unter der Leitung von Eric Martinez Solis und Victor, das ein Jahrzehnt europäischer Produkt- und Growth-Erfahrung nach Spanien bringt."
+  description="Ein Senior-Produktteam mit Erfahrung von den größten europäischen Plattformen, das jetzt spanischen Marken beim Wachsen hilft."
 >
-  <section class="px-6 pb-20 pt-16 md:pt-24">
-    <div class="mx-auto max-w-4xl text-center" data-animation="fade-up">
-      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
-        Das Team
+  <section class="relative px-6 pb-32 pt-24 md:pt-32 overflow-hidden">
+     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
+     
+    <div class="mx-auto max-w-4xl text-center mb-24" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        Das Kernteam
       </p>
-      <h1 class="mb-4 text-3xl font-bold md:text-5xl">Köpfe hinter AI‑Native.es</h1>
-      <p class="mx-auto max-w-3xl text-zinc-400">
-        Wir haben AI‑Native.es gegründet, nachdem wir über zehn Jahre in großen europäischen Organisationen gearbeitet haben. 
-        Diese Erfahrung nutzen wir nun, um spanische und europäische Unternehmen schneller voranzubringen – mit Senior-Experten, 
-        die tatsächlich selbst an den Projekten arbeiten.
+      <h1 class="mb-6 text-5xl font-bold tracking-tight md:text-7xl">
+        Senior Köpfe. <br/><span class="text-zinc-500">Ohne Overhead.</span>
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-zinc-400">
+        Wir sind keine klassische Agentur. Wir sind ein reines Senior-Team, das sich direkt in Ihr Business integriert, um High-Impact-Work zu liefern.
       </p>
     </div>
 
-    <div class="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-2" data-animation="fade-up">
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Co‑Founder · Product & Design</p>
-        <h2 class="text-xl font-semibold">Eric Martinez Solis</h2>
-        <p class="text-sm text-zinc-400">
-          Design Director mit Fokus auf Produktdesign, Research und Experimentation. Eric hat Design- und Research-Teams 
-          für Plattformen mit über 100 Mio. € Umsatz geleitet, darunter flaconi, kfzteile24, Vodafone und eBay.
-        </p>
-        <p class="text-sm text-zinc-400">
-          Seine Stärke liegt in komplexen Umgebungen – er verbindet Management, Produkt und Engineering und macht 
-          UX zu einem messbaren Wachstumshebel statt nur zu einem "Nice-to-have".
-        </p>
-        <p class="text-xs text-zinc-500">
-          Eric lebt in Berlin, stammt ursprünglich aus Spanien und teilt seine Zeit zwischen europäischen Produkt-Teams 
-          und Kunden auf, die diesen hohen Qualitätsstandard suchen.
-        </p>
-      </article>
-
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Co‑Founder · AI‑native CTO</p>
-        <h2 class="text-xl font-semibold">Victor</h2>
-        <p class="text-sm text-zinc-400">
-          Victor ist das technische Rückgrat von AI‑Native.es – ein unternehmerischer CTO, der die Brücke zwischen modernem 
-          Frontend, Cloud-Infrastruktur und KI-gestützten Workflows schlägt. Er stellt sicher, dass jede Design-Idee 
-          sauber und performant umgesetzt wird.
-        </p>
-        <p class="text-sm text-zinc-400">
-          Sein Fokus: Pragmatische Architekturen, solide Datenfundamente und der Einsatz von KI dort, wo sie echten 
-          Mehrwert bietet und Reibung reduziert.
-        </p>
-        <p class="text-xs text-zinc-500">
-          Victor stammt aus Spanien, lebt in Europa und hat das letzte Jahrzehnt damit verbracht, digitale Produkte 
-          international aufzubauen und zu skalieren.
-        </p>
-      </article>
-
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">SEO & Organic Growth</p>
-        <h2 class="text-xl font-semibold">Belinda</h2>
-        <p class="text-sm text-zinc-400">
-          Belinda konzentriert sich auf organische Sichtbarkeit, technisches SEO und Content-Strategie. Sie verbindet 
-          das Suchverhalten der Nutzer mit der optimalen Präsentation Ihres Produkts – für Menschen und Suchmaschinen.
-        </p>
-        <p class="text-xs text-zinc-500">
-          In enger Zusammenarbeit mit Eric und Victor stellt sie sicher, dass technische Entscheidungen, IA und Content 
-          an einem Strang ziehen.
-        </p>
-      </article>
-
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">SEA, Brand & Performance</p>
-        <h2 class="text-xl font-semibold">Katja</h2>
-        <p class="text-sm text-zinc-400">
-          Katja leitet Paid Search und Performance Marketing mit einem starken Gespür für Marke und Kreation. Sie betrachtet 
-          SEA als Teil eines Gesamtsystems – abgestimmt auf UX, Content und Analytics – statt als isolierten Kanal.
-        </p>
-        <p class="text-xs text-zinc-500">
-          Ihre Arbeit steht für Klarheit und Kontrolle: Wissen, wohin das Budget fließt, warum es performt und wie man 
-          nachhaltig skaliert.
-        </p>
-      </article>
+    <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+      {team.map((member, i) => (
+        <article class="group relative flex flex-col gap-8 rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 transition-all hover:border-cyan-400/30" data-animation="fade-up">
+           <div class="flex flex-col sm:flex-row gap-8 items-start">
+              <div class="relative shrink-0">
+                 <div class="h-32 w-32 overflow-hidden rounded-2xl bg-zinc-800 relative group-hover:scale-105 transition-transform duration-500">
+                    <img src={member.avatar} alt={member.name} class="h-full w-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+                    <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+                 </div>
+                 <div class="absolute -bottom-2 -right-2 h-8 w-8 rounded-lg bg-cyan-400 flex items-center justify-center text-zinc-950 font-bold text-xs">
+                    {i + 1}
+                 </div>
+              </div>
+              
+              <div class="flex-1">
+                 <p class="mb-1 text-xs font-bold uppercase tracking-widest text-cyan-400">{member.role}</p>
+                 <h2 class="mb-4 text-3xl font-bold text-zinc-100">{member.name}</h2>
+                 <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                    {member.bio}
+                 </p>
+                 <div class="inline-flex items-center gap-2 rounded-full bg-zinc-800/50 px-3 py-1 text-[10px] font-bold text-zinc-300 border border-zinc-700">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                    {member.experience}
+                 </div>
+              </div>
+           </div>
+        </article>
+      ))}
     </div>
 
-    <div class="mx-auto mt-16 max-w-4xl text-center" data-animation="fade-up">
-      <h2 class="mb-3 text-2xl font-semibold">Internationales Mindset, Fokus auf Resultate</h2>
-      <p class="mb-6 text-sm text-zinc-400">
-        Wir haben alle jahrelang im Ausland in Teams gearbeitet, die auf höchstem Niveau operieren. AI‑Native.es ist 
-        unser Weg, diesen Standard nach Spanien zu bringen – für Unternehmen, die echte Senior-Partner statt 
-        generischer Agenturen suchen.
+    <div class="mx-auto mt-32 max-w-4xl text-center rounded-3xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950 p-12" data-animation="fade-up">
+      <h2 class="mb-4 text-3xl font-bold">Warum nur Senior-Level?</h2>
+      <p class="mb-8 text-zinc-400">
+        In klassischen Agenturen lernen Sie die Partner beim Pitch kennen und arbeiten im Projekt mit Junioren. 
+        Bei AI‑Native.es sind die Personen auf dieser Seite diejenigen, die tatsächlich recherchieren, den Code schreiben und Ihre Anzeigen optimieren. 
+        Bessere Qualität, schnellere Umsetzung, null Reibungsverlust.
       </p>
       <a
         href="/de/contact"
-        class="inline-flex items-center justify-center rounded-lg bg-cyan-400 px-8 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        class="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-10 py-4 text-sm font-bold text-zinc-950 transition-all hover:bg-cyan-300 hover:scale-105"
       >
         Lernen Sie uns kennen
       </a>

@@ -1,140 +1,170 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
-import { getHero, getServices, getProjects, isSanityConfigured } from '../lib/sanity';
-import { urlFor } from '../lib/sanityImage';
+import { ChevronRight } from '../components/FeatherIcons.ts';
 
-const hero = await getHero();
-const services = await getServices();
-const projects = await getProjects();
-const hasSanity = isSanityConfigured();
-
-// Fallback content
-const heroData = hero || {
-  headline: 'Wir bauen digitale Erlebnisse, die zählen',
-  subheadline:
-    'Von der Strategie bis zur Umsetzung helfen wir Marken, durch durchdachtes Design und modernste Technologie mit Menschen in Kontakt zu treten.',
-  image: null,
-  video: null,
-};
+const services = [
+  {
+    title: 'Interface & Research',
+    simple: 'Wir gestalten Apps und Websites, die Nutzer lieben und die den Kaufprozess vereinfachen.',
+    icon: '✨',
+    link: '/de/services/user-interface-user-research'
+  },
+  {
+    title: 'Conversion Optimierung',
+    simple: 'Wir finden die Schwachstellen Ihrer Website und beheben sie, um Ihren Umsatz nachhaltig zu steigern.',
+    icon: '📈',
+    link: '/de/services/conversion-optimization'
+  },
+  {
+    title: 'Accessibility Audits',
+    simple: 'Wir stellen sicher, dass Ihre Seite rechtskonform und für alle nutzbar ist – Schutz vor Bußgeldern inklusive.',
+    icon: '♿',
+    link: '/de/services/european-accessibility-compliance'
+  },
+  {
+    title: 'Digitale Fotos & Video',
+    simple: 'Wir erstellen Premium-Content, der Ihr Produkt besser erklärt als tausend Worte.',
+    icon: '📸',
+    link: '/de/services/digital-photoshoots-video'
+  },
+  {
+    title: 'Pricing Compliance',
+    simple: 'Wir helfen Ihnen bei der Umsetzung der EU-Preisrichtlinien, ohne die Verkaufspsychologie zu opfern.',
+    icon: '⚖️',
+    link: '/de/services/european-pricing-compliance'
+  },
+  {
+    title: 'Performance Marketing',
+    simple: 'Wir optimieren Ihre Google Ads für maximale Sales bei jedem investierten Euro.',
+    icon: '🎯',
+    link: '/de/services/sea-performance-marketing'
+  }
+];
 ---
 
 <Layout
   lang="de"
-  title="AI‑Native.es | Digital Product, Growth & Creative Studio"
-  description="Ein Senior-Team für Produktdesign, Growth und Engineering, das internationale Erfahrung in den spanischen Markt einbringt."
+  title="AI‑Native.es | High-Performance Digital Growth Studio"
+  description="Senior-led Produktdesign, Growth und Engineering. Wir bauen digitale Erlebnisse, die Ergebnisse liefern."
 >
-  <!-- Hero -->
-  <header class="relative flex min-h-screen items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950" />
-    <div class="absolute inset-0 opacity-30">
-      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" />
-      <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-violet-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s" />
-    </div>
+  <!-- Hero Section -->
+  <header class="relative flex min-h-[90vh] items-center justify-center overflow-hidden px-6 pt-20">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.05),transparent)] opacity-50"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/50 to-transparent"></div>
     
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-      <h1
-        class="mb-6 text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl font-[family-name:var(--font-syne)]"
-        data-animation="fade-up"
-      >
-        <span class="bg-gradient-to-r from-cyan-300 via-sky-400 to-violet-400 bg-clip-text text-transparent">
-          AI‑native digital growth
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <div class="mb-8 inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-1.5 text-xs font-semibold text-cyan-300" data-animation="fade-up">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
         </span>
+        Senior-geführt. Ergebnisorientiert. Kein Fluff.
+      </div>
+      
+      <h1 class="mb-6 text-5xl font-bold tracking-tight md:text-7xl lg:text-8xl" data-animation="fade-up">
+        Wir bauen digitale Produkte, die <span class="bg-gradient-to-r from-cyan-300 via-sky-400 to-violet-400 bg-clip-text text-transparent">den Unterschied machen.</span>
       </h1>
-      <p class="mx-auto mb-12 max-w-2xl text-lg text-zinc-300 md:text-xl" data-animation="fade-up">
-        AI‑Native.es wird von einem Senior Product Lead und einem AI‑native CTO geleitet – mit Erfahrung bei Vodafone, 
-        eBay, flaconi und anderen europäischen Playern. Kein Fluff, kein AI-Slop – nur ein Senior-Team, das Ergebnisse liefert.
+      
+      <p class="mx-auto mb-10 max-w-2xl text-lg text-zinc-300 md:text-xl" data-animation="fade-up">
+        Schluss mit Vermutungen. Wir bringen Erfahrung von eBay, Vodafone und Flaconi ein, um Marken mit Präzision und Senior-Know-how zu skalieren.
       </p>
-      <div class="flex flex-wrap gap-4 justify-center" data-animation="fade-up">
-        <a
-          href="/de/contact"
-          class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
-        >
-          Projekt-Call buchen
+      
+      <div class="flex flex-wrap items-center justify-center gap-4" data-animation="fade-up">
+        <a href="/de/contact" class="rounded-xl bg-cyan-400 px-8 py-4 font-bold text-zinc-950 transition-all hover:bg-cyan-300 hover:scale-105 active:scale-95">
+          Projekt starten
         </a>
-        <a
-          href="/de/services"
-          class="rounded-lg border border-zinc-600 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400 hover:text-cyan-300"
-        >
+        <a href="#services" class="rounded-xl border border-zinc-800 bg-zinc-900/50 px-8 py-4 font-semibold text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300">
           Unsere Leistungen
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Services -->
-  <section id="services" class="px-6 py-24">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="mb-4 text-center text-3xl font-bold md:text-5xl" data-animation="fade-up">
-        Senior Köpfe, schlanke Teams
-      </h2>
-      <p class="mx-auto mb-16 max-w-2xl text-center text-zinc-400" data-animation="fade-up">
-        Wir bewegen uns an der Schnittstelle von Produktdesign, Growth und Engineering. Jedes Projekt wird vom AI‑Native.es 
-        Kernteam geleitet, unterstützt von einem internationalen Netzwerk aus Experten.
-      </p>
-      <div class="grid gap-8 md:grid-cols-3">
-        <a
-          href="/de/services/user-interface-user-research"
-          class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
-          data-animation="fade-up"
-        >
-          <div
-            class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 text-2xl"
-          >
-            ◇
+  <!-- "Warum wir" Sektion -->
+  <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-16 lg:grid-cols-2 items-center">
+        <div data-animation="fade-up">
+          <h2 class="mb-8 text-4xl font-bold leading-tight md:text-5xl">Sie haben ein Wachstumsproblem. <br/><span class="text-zinc-500">Wir haben die Senior-Lösung.</span></h2>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-red-500/10 text-red-500">✕</div>
+              <div>
+                <h4 class="font-semibold text-zinc-200">Die "Agentur"-Falle</h4>
+                <p class="text-sm text-zinc-400">Junior-Teams lernen auf Ihr Budget, langsame Feedback-Zyklen und Design von der Stange.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-green-500/10 text-green-500">✓</div>
+              <div>
+                <h4 class="font-semibold text-zinc-200">Der AI-Native Ansatz</h4>
+                <p class="text-sm text-zinc-400">Zwei Senior-Partner in jedem Call. High-Fidelity Ergebnisse in Wochen, nicht Monaten. Datenbasierte Logik.</p>
+              </div>
+            </div>
           </div>
-          <h3 class="mb-3 text-xl font-semibold">User Interface & Research</h3>
-          <p class="text-sm text-zinc-400">
-            Product Discovery, UX-Strategie und Interface-Design, das auf echten Nutzerbedürfnissen basiert.
-          </p>
-        </a>
-        <a
-          href="/de/services/european-accessibility-compliance"
-          class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
-          data-animation="fade-up"
-        >
-          <div
-            class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 text-2xl"
-          >
-            ☑
+        </div>
+        <div class="relative" data-animation="scale">
+          <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-cyan-500/20 to-violet-500/20 blur-2xl opacity-30"></div>
+          <div class="relative rounded-2xl border border-zinc-800 bg-zinc-900/40 p-8">
+            <p class="mb-6 text-xl font-medium italic text-zinc-300 leading-relaxed">
+              "Die Zusammenarbeit mit Eric und Victor war, als hätten wir über Nacht ein dediziertes Produkt-Team eingestellt. Sie lösen Business-Probleme mit Code und Daten."
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="h-12 w-12 rounded-full bg-zinc-800 border border-zinc-700"></div>
+              <div>
+                <p class="text-sm font-bold">Product Lead</p>
+                <p class="text-xs text-zinc-500">Führender europäischer Retailer</p>
+              </div>
+            </div>
           </div>
-          <h3 class="mb-3 text-xl font-semibold">Accessibility Audits</h3>
-          <p class="text-sm text-zinc-400">
-            WCAG und EAA-Vorbereitung für Teams, die eine klare und pragmatische Roadmap benötigen.
-          </p>
-        </a>
-        <a
-          href="/de/services/conversion-optimization"
-          class="group rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 transition-colors hover:border-cyan-400/60"
-          data-animation="fade-up"
-        >
-          <div
-            class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400/30 to-violet-400/30 text-2xl"
-          >
-            ↑
-          </div>
-          <h3 class="mb-3 text-xl font-semibold">Conversion Optimierung</h3>
-          <p class="text-sm text-zinc-400">
-            Strukturierte Experimente und CRO-Programme, die jedes Uplift direkt mit Umsatz und EBITDA verknüpfen.
-          </p>
-        </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact teaser -->
-  <section id="contact" class="px-6 py-24">
-    <div class="max-w-xl mx-auto">
-      <h2 class="mb-4 text-center text-3xl font-bold md:text-5xl" data-animation="fade-up">Let’s talk</h2>
-      <p class="mb-8 text-center text-zinc-400" data-animation="fade-up">
-        Zwei Senior-Partner in jedem Call, keine Account-Manager. Sagen Sie uns, wo Sie hin wollen – wir zeigen Ihnen den Weg.
+  <!-- Service Grid -->
+  <section id="services" class="px-6 py-32">
+    <div class="mx-auto max-w-6xl">
+      <div class="mb-20 text-center" data-animation="fade-up">
+        <h2 class="mb-4 text-4xl font-bold md:text-6xl tracking-tight">Wie wir Ihre Zahlen bewegen</h2>
+        <p class="mx-auto max-w-2xl text-zinc-400">Kein Fachchinesisch. Nur High-Impact Services, die spezifische Engpässe in Ihrem digitalen Business lösen.</p>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {services.map(service => (
+          <a href={service.link} class="group relative rounded-3xl border border-zinc-800 bg-zinc-900/30 p-8 transition-all hover:border-cyan-400/40 hover:bg-zinc-900/50" data-animation="fade-up">
+            <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-zinc-800 text-3xl transition-transform group-hover:scale-110 group-hover:rotate-3">
+              {service.icon}
+            </div>
+            <h3 class="mb-3 text-2xl font-bold group-hover:text-cyan-300 transition-colors">{service.title}</h3>
+            <p class="mb-8 text-zinc-400 leading-relaxed">{service.simple}</p>
+            <div class="flex items-center gap-2 text-sm font-bold text-cyan-400 opacity-0 transition-all group-hover:opacity-100 group-hover:translate-x-2">
+              Mehr erfahren <span set:html={ChevronRight}></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="px-6 py-24">
+    <div class="mx-auto max-w-4xl rounded-[2.5rem] bg-gradient-to-br from-cyan-400/20 via-violet-400/10 to-transparent p-12 text-center md:p-24 border border-zinc-800/50 overflow-hidden relative" data-animation="scale">
+      <div class="absolute -top-24 -left-24 h-64 w-64 bg-cyan-500/10 blur-[100px] rounded-full"></div>
+      <div class="absolute -bottom-24 -right-24 h-64 w-64 bg-violet-500/10 blur-[100px] rounded-full"></div>
+      
+      <h2 class="relative z-10 mb-6 text-4xl font-bold md:text-6xl tracking-tight">Bereit für echte Ergebnisse?</h2>
+      <p class="relative z-10 mx-auto mb-10 max-w-xl text-lg text-zinc-300">
+        Kein Schnickschnack. Sprechen Sie direkt mit den Partnern, die die Arbeit machen. Keine Account-Manager, nur Resultate.
       </p>
-      <div class="space-y-8" data-animation="fade-up">
-        <ContactForm />
-        <p class="text-center text-xs text-zinc-500">
-          Lieber per E-Mail? Schreiben Sie uns an{' '}
-          <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">hola@ai-native.es</a>
-        </p>
+      <div class="relative z-10 flex flex-wrap justify-center gap-4">
+        <a href="/de/contact" class="rounded-xl bg-cyan-400 px-10 py-5 font-bold text-zinc-950 transition-all hover:bg-cyan-300 hover:scale-105 active:scale-95">
+          Call vereinbaren
+        </a>
+        <a href="mailto:hola@ai-native.es" class="rounded-xl border border-zinc-700 bg-zinc-950 px-10 py-5 font-semibold text-zinc-300 transition-colors hover:border-cyan-400/50">
+          Direkt kontaktieren
+        </a>
       </div>
     </div>
   </section>

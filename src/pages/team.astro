@@ -1,100 +1,101 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Eric Martinez Solis',
+    role: 'Co‑founder · Product & Design',
+    bio: 'Design Director specializing in product design, research, and experimentation. Eric has led design and research for €100M+ platforms across Europe, including Flaconi, KFZteile24, Vodafone, eBay, and Dunnhumby.',
+    experience: 'led 100M+ platforms',
+    avatar: 'https://unavatar.io/twitter/ericsolis' // Using unavatar as a placeholder for a real/AI portrait
+  },
+  {
+    name: 'Victor',
+    role: 'Co‑founder · AI‑native CTO',
+    bio: 'Entrepreneurial CTO comfortable bridging modern front‑end, cloud, and AI‑driven workflows. He ensures that every idea we design can be implemented cleanly and performantly.',
+    experience: '10+ years scaling intl. products',
+    avatar: 'https://unavatar.io/github/vgm' 
+  },
+  {
+    name: 'Belinda',
+    role: 'SEO & Organic Growth',
+    bio: 'Focuses on organic visibility, technical SEO, and content strategy. She connects what people actually search for with how your product is presented.',
+    experience: 'Technical SEO expert',
+    avatar: 'https://unavatar.io/microlink/belinda.com'
+  },
+  {
+    name: 'Katja',
+    role: 'SEA & Performance Marketing',
+    bio: 'Leads paid search and performance marketing with a strong brand sensibility. She treats SEA as part of a broader system aligned with UX and analytics.',
+    experience: 'Performance system architect',
+    avatar: 'https://unavatar.io/microlink/katja.com'
+  }
+];
 ---
 
 <Layout
   title="Team | AI‑Native.es"
-  description="An international team led by Eric Martinez Solis and Victor, bringing a decade of European product and growth experience back to Spain."
+  description="A senior product squad with experience from Europe's biggest platforms, now helping Spanish brands grow."
 >
-  <section class="px-6 pb-20 pt-16 md:pt-24">
-    <div class="mx-auto max-w-4xl text-center" data-animation="fade-up">
-      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
-        The team
+  <section class="relative px-6 pb-32 pt-24 md:pt-32 overflow-hidden">
+     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-px bg-gradient-to-r from-transparent via-zinc-800 to-transparent"></div>
+     
+    <div class="mx-auto max-w-4xl text-center mb-24" data-animation="fade-up">
+      <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+        The Core Squad
       </p>
-      <h1 class="mb-4 text-3xl font-bold md:text-5xl">People behind AI‑Native.es</h1>
-      <p class="mx-auto max-w-3xl text-zinc-400">
-        We started AI‑Native.es after a decade of working inside large European organisations. Now we’re using that
-        experience to help Spanish companies move faster, with senior hands actually on the work.
+      <h1 class="mb-6 text-5xl font-bold tracking-tight md:text-7xl">
+        Senior brains. <br/><span class="text-zinc-500">Zero overhead.</span>
+      </h1>
+      <p class="mx-auto max-w-2xl text-lg text-zinc-400">
+        We’re not a traditional agency. We’re a senior-only team that integrates directly into your business to ship high-impact work.
       </p>
     </div>
 
-    <div class="mx-auto mt-16 grid max-w-6xl gap-8 md:grid-cols-2" data-animation="fade-up">
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Co‑founder · Product & Design</p>
-        <h2 class="text-xl font-semibold">Eric Martinez Solis</h2>
-        <p class="text-sm text-zinc-400">
-          Design Director specialising in product design, research, and experimentation. Eric has led design and
-          research for €100M+ platforms across Europe, including Flaconi, KFZteile24, Vodafone, eBay, and Dunnhumby.
-        </p>
-        <p class="text-sm text-zinc-400">
-          He’s at his best in complex environments – aligning leadership, product, and engineering, and turning UX into
-          a measurable growth lever rather than a “nice to have”.
-        </p>
-        <p class="text-xs text-zinc-500">
-          Based in Berlin, originally from Spain, Eric splits his time between European product teams and Spanish
-          clients who want that same level of rigour.
-        </p>
-      </article>
-
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Co‑founder · AI‑native CTO</p>
-        <h2 class="text-xl font-semibold">Victor</h2>
-        <p class="text-sm text-zinc-400">
-          Victor is the technical backbone of AI‑Native.es – an entrepreneurial CTO comfortable bridging modern
-          front‑end, cloud, and AI‑driven workflows. He ensures that every idea we design can be implemented cleanly and
-          performantly.
-        </p>
-        <p class="text-sm text-zinc-400">
-          His focus: pragmatic architectures, solid data foundations, and using AI where it genuinely reduces friction
-          instead of adding noise.
-        </p>
-        <p class="text-xs text-zinc-500">
-          Originally from Spain and based in Europe, Victor has spent the last decade building and scaling digital
-          products internationally.
-        </p>
-      </article>
-
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">SEO & Organic Growth</p>
-        <h2 class="text-xl font-semibold">Belinda</h2>
-        <p class="text-sm text-zinc-400">
-          Belinda focuses on organic visibility, technical SEO, and content strategy. She connects what people actually
-          search for with how your product is presented – both to users and to search engines.
-        </p>
-        <p class="text-xs text-zinc-500">
-          Working closely with Eric and Victor, she makes sure technical decisions, IA, and content all pull in the same
-          direction.
-        </p>
-      </article>
-
-      <article class="space-y-3 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6">
-        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">SEA, Brand & Performance</p>
-        <h2 class="text-xl font-semibold">Katja</h2>
-        <p class="text-sm text-zinc-400">
-          Katja leads paid search and performance marketing, with a strong brand and creative sensibility. She treats
-          SEA as part of a broader system – aligned with UX, content, and analytics – rather than an isolated channel.
-        </p>
-        <p class="text-xs text-zinc-500">
-          Her work is about clarity and control: knowing where budget goes, why it performs, and how to scale
-          sustainably.
-        </p>
-      </article>
+    <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+      {team.map((member, i) => (
+        <article class="group relative flex flex-col gap-8 rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 transition-all hover:border-cyan-400/30" data-animation="fade-up">
+           <div class="flex flex-col sm:flex-row gap-8 items-start">
+              <div class="relative shrink-0">
+                 <!-- AI Portrait Placeholder/Simulation -->
+                 <div class="h-32 w-32 overflow-hidden rounded-2xl bg-zinc-800 relative group-hover:scale-105 transition-transform duration-500">
+                    <img src={member.avatar} alt={member.name} class="h-full w-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" />
+                    <div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl"></div>
+                 </div>
+                 <div class="absolute -bottom-2 -right-2 h-8 w-8 rounded-lg bg-cyan-400 flex items-center justify-center text-zinc-950 font-bold text-xs">
+                    {i + 1}
+                 </div>
+              </div>
+              
+              <div class="flex-1">
+                 <p class="mb-1 text-xs font-bold uppercase tracking-widest text-cyan-400">{member.role}</p>
+                 <h2 class="mb-4 text-3xl font-bold text-zinc-100">{member.name}</h2>
+                 <p class="text-sm text-zinc-400 leading-relaxed mb-6">
+                    {member.bio}
+                 </p>
+                 <div class="inline-flex items-center gap-2 rounded-full bg-zinc-800/50 px-3 py-1 text-[10px] font-bold text-zinc-300 border border-zinc-700">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-500"></span>
+                    {member.experience}
+                 </div>
+              </div>
+           </div>
+        </article>
+      ))}
     </div>
 
-    <div class="mx-auto mt-16 max-w-4xl text-center" data-animation="fade-up">
-      <h2 class="mb-3 text-2xl font-semibold">International mindset, Spanish focus</h2>
-      <p class="mb-6 text-sm text-zinc-400">
-        We’ve all spent years working abroad, inside teams that operate at scale. AI‑Native.es is our way of bringing
-        that standard back home – to Spanish companies who want serious, senior partners rather than generic “AI”
-        agencies.
+    <div class="mx-auto mt-32 max-w-4xl text-center rounded-3xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-zinc-950 p-12" data-animation="fade-up">
+      <h2 class="mb-4 text-3xl font-bold">Why senior-only?</h2>
+      <p class="mb-8 text-zinc-400">
+        In traditional agencies, you meet the partners during the pitch and work with juniors during the project. 
+        At AI‑Native.es, the people on this page are the ones actually doing the research, writing the code, and optimizing your ads. 
+        Better quality, faster shipping, zero friction.
       </p>
       <a
         href="/contact"
-        class="inline-flex items-center justify-center rounded-lg bg-cyan-400 px-8 py-3 text-sm font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
+        class="inline-flex items-center justify-center rounded-xl bg-cyan-400 px-10 py-4 text-sm font-bold text-zinc-950 transition-all hover:bg-cyan-300 hover:scale-105"
       >
-        Meet the team on a call
+        Meet us on a call
       </a>
     </div>
   </section>
 </Layout>
-

@@ -1,55 +1,77 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ContactForm from '../../components/ContactForm.astro';
+import { ChevronRight } from '../../components/FeatherIcons.ts';
 ---
 
 <Layout
   lang="es"
   title="Contacto | AI‑Native.es"
-  description="Cuéntanos dónde estás y a dónde quieres llegar. Te diremos con honestidad si somos el partner adecuado y qué necesitaría tu proyecto."
+  description="Olvídate de los gestores de cuentas. Habla directamente con los socios senior sobre tus objetivos de crecimiento."
 >
-  <section class="px-6 pb-20 pt-16 md:pt-24">
-    <div class="mx-auto max-w-3xl text-center" data-animation="fade-up">
-      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.28em] text-cyan-300">
-        Contacto
-      </p>
-      <h1 class="mb-4 text-3xl font-bold md:text-5xl">Hablemos de tu proyecto</h1>
-      <p class="mx-auto max-w-2xl text-zinc-400">
-        Trabajamos mejor cuando entendemos el contexto completo: negocio, equipo, datos y restricciones. Un párrafo o
-        unos bullets bien escritos valen más que un briefing de 30 páginas.
-      </p>
+  <section class="relative min-h-screen px-6 pb-20 pt-16 md:pt-24 overflow-hidden">
+    <!-- Fondo decorativo -->
+    <div class="absolute inset-0 -z-10">
+      <div class="absolute top-0 right-0 h-[500px] w-[500px] bg-cyan-500/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 left-0 h-[500px] w-[500px] bg-violet-500/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
     </div>
 
-    <div class="mx-auto mt-12 grid max-w-5xl gap-10 md:grid-cols-[1.4fr,1fr]">
-      <div data-animation="fade-up">
-        <ContactForm />
-      </div>
-
-      <aside
-        class="space-y-4 rounded-2xl border border-zinc-800 bg-zinc-900/60 p-6 text-sm text-zinc-300"
-        data-animation="fade-up"
-      >
-        <div>
-          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Qué nos ayuda</h2>
-          <ul class="space-y-1 text-xs text-zinc-400">
-            <li>• Sector y tipo de producto/servicio</li>
-            <li>• Situación actual (qué funciona, qué no)</li>
-            <li>• Horizonte temporal aproximado y equipo implicado</li>
-          </ul>
-        </div>
-
-        <div class="border-t border-zinc-800 pt-4">
-          <h2 class="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300">Correo directo</h2>
-          <p class="text-xs text-zinc-400">
-            Si prefieres escribirnos directamente:{' '}
-            <a href="mailto:hola@ai-native.es" class="text-cyan-300 hover:text-cyan-200">
-              hola@ai-native.es
-            </a>
-            .
+    <div class="mx-auto max-w-6xl">
+      <div class="grid gap-16 lg:grid-cols-[1fr,1.2fr] items-start">
+        <div data-animation="fade-up">
+          <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
+            Contacto
           </p>
+          <h1 class="mb-8 text-5xl font-bold tracking-tight md:text-7xl">
+            Construyamos <br/><span class="text-zinc-500 italic">el futuro.</span>
+          </h1>
+          <p class="mb-12 max-w-md text-lg text-zinc-400">
+            Cuéntanos sobre tu proyecto. Ya sea una auditoría estructural, un design sprint o un motor de crecimiento completo, estamos listos.
+          </p>
+
+          <div class="space-y-8">
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">🤝</div>
+              <div>
+                <h3 class="font-bold text-zinc-200">Solo Socios Senior</h3>
+                <p class="text-sm text-zinc-500">Siempre hablarás con Eric o Victor. Sin intermediarios ni perfiles junior.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">⚡</div>
+              <div>
+                <h3 class="font-bold text-zinc-200">Respuesta Rápida</h3>
+                <p class="text-sm text-zinc-500">Respondemos a consultas serias en menos de 24 horas.</p>
+              </div>
+            </div>
+            <div class="flex gap-6">
+              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">📍</div>
+              <div>
+                <h3 class="font-bold text-zinc-200">En Berlín y España</h3>
+                <p class="text-sm text-zinc-500">Estándares internacionales con corazón local.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-16 pt-16 border-t border-zinc-900">
+             <p class="text-xs text-zinc-500 mb-2 uppercase tracking-widest">Canal directo</p>
+             <a href="mailto:hola@ai-native.es" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+                hola@ai-native.es
+             </a>
+          </div>
         </div>
-      </aside>
+
+        <div class="relative" data-animation="fade-up">
+           <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-[2.5rem] blur opacity-20"></div>
+           <div class="relative bg-zinc-950 border border-zinc-800 rounded-[2rem] p-8 md:p-12 shadow-2xl">
+              <h2 class="mb-8 text-2xl font-bold">Empieza una conversación</h2>
+              <ContactForm />
+              <p class="mt-8 text-center text-[10px] text-zinc-500 leading-relaxed uppercase tracking-tighter">
+                 Al enviar este formulario, aceptas que nuestro equipo senior revise tus datos para ofrecerte una respuesta estratégica.
+              </p>
+           </div>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>
-
