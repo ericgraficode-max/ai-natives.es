@@ -79,9 +79,6 @@ const team = [
           Empieza la Caza
           <span class="transition-transform group-hover:translate-x-1" set:html={ChevronRight}></span>
         </a>
-        <a href="#origin" class="rounded-2xl border border-zinc-800 bg-zinc-900/50 px-10 py-5 font-bold text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300">
-          Nuestra Historia
-        </a>
       </div>
     </div>
     
@@ -89,55 +86,6 @@ const team = [
       <div class="h-10 w-px bg-gradient-to-b from-cyan-400 to-transparent"></div>
     </div>
   </header>
-
-  <!-- The Origin -->
-  <section id="origin" class="relative border-y border-zinc-900 bg-zinc-950 px-6 py-32 overflow-hidden">
-    <div class="absolute -right-24 top-1/4 h-96 w-96 bg-cyan-500/5 blur-[120px] rounded-full"></div>
-    
-    <div class="mx-auto max-w-6xl">
-      <div class="grid gap-20 lg:grid-cols-2 items-center">
-        <div data-animation="fade-up">
-          <p class="mb-4 text-xs font-bold uppercase tracking-[0.4em] text-cyan-500">Cómo nació todo</p>
-          <h2 class="mb-8 text-5xl font-bold tracking-tight md:text-7xl leading-tight text-white">
-            Dejamos a los <span class="text-zinc-600">Gigantes Corporativos</span> para construir algo más ágil.
-          </h2>
-          <div class="space-y-8 text-lg text-zinc-400 leading-relaxed">
-            <p>
-              Tras una década liderando producto e ingeniería en <span class="text-white font-bold">eBay, Vodafone y Flaconi</span>, vimos un patrón repetitivo: empresas malgastando millones en "grandes agencias" donde los socios venden el sueño, pero los juniors hacen el trabajo.
-            </p>
-            <p>
-              Fundamos <span class="text-cyan-400 font-bold italic">Hound</span> para arreglar eso. Sin gestores de cuentas. Sin juniors aprendiendo con tu presupuesto. Solo un equipo de seniors curtidos en mil batallas que buscan la eficiencia y el crecimiento en cada línea de código y cada píxel.
-            </p>
-          </div>
-        </div>
-        
-        <div class="relative" data-animation="scale">
-          <div class="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-cyan-500/20 to-violet-500/20 blur-2xl opacity-40"></div>
-          <div class="relative rounded-[2.5rem] border border-zinc-800 bg-zinc-900/60 p-12 backdrop-blur-xl">
-             <div class="flex gap-4 mb-8">
-                {team.map(member => (
-                  <div class="relative group">
-                    <img src={member.avatar} alt={member.name} class="h-20 w-20 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 border border-zinc-700 group-hover:border-cyan-400/50" />
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-cyan-400 px-2 py-0.5 text-[10px] font-black text-zinc-950 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {member.name}
-                    </div>
-                  </div>
-                ))}
-             </div>
-            <p class="mb-8 text-2xl font-medium text-zinc-200 leading-tight">
-              "No vendemos y luego delegamos. Auditamos, diseñamos y lanzamos. Somos Hounds porque no paramos hasta encontrar el resultado."
-            </p>
-            <div class="flex items-center gap-4 border-t border-zinc-800 pt-8">
-              <div>
-                <p class="text-sm font-black text-cyan-400 uppercase tracking-widest">El Escuadrón Core</p>
-                <p class="text-xs text-zinc-500">Eric Martinez Solis & Victor</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- The USP -->
   <section class="px-6 py-32 bg-zinc-950">

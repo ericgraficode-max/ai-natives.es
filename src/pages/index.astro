@@ -78,9 +78,6 @@ const team = [
           Start the Hunt
           <span class="transition-transform group-hover:translate-x-1" set:html={ChevronRight}></span>
         </a>
-        <a href="#origin" class="btn-secondary rounded-2xl border border-zinc-800 bg-zinc-900/50 px-10 py-5 font-bold text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300">
-          Our Story
-        </a>
       </div>
     </div>
     
@@ -88,55 +85,6 @@ const team = [
       <div class="h-10 w-px bg-gradient-to-b from-cyan-400 to-transparent"></div>
     </div>
   </header>
-
-  <!-- The Origin: From Giants to Hunters -->
-  <section id="origin" class="section-origin relative border-y border-zinc-900 bg-zinc-950 px-6 py-32 overflow-hidden">
-    <div class="absolute -right-24 top-1/4 h-96 w-96 bg-cyan-500/5 blur-[120px] rounded-full"></div>
-    
-    <div class="mx-auto max-w-6xl">
-      <div class="grid gap-20 lg:grid-cols-2 items-center">
-        <div class="origin-content" data-animation="fade-up">
-          <p class="mb-4 text-xs font-bold uppercase tracking-[0.4em] text-cyan-500">How it came to be</p>
-          <h2 class="mb-8 text-5xl font-bold tracking-tight md:text-7xl leading-tight text-white">
-            We left the <span class="text-zinc-600">Corporate Giants</span> to build something faster.
-          </h2>
-          <div class="space-y-8 text-lg text-zinc-400 leading-relaxed">
-            <p>
-              After a decade leading product and engineering at <span class="text-white font-bold">eBay, Vodafone, and Flaconi</span>, we saw a recurring pattern: companies wasting millions on "big agencies" where senior partners sell the dream, but juniors do the work.
-            </p>
-            <p>
-              We founded <span class="text-cyan-400 font-bold italic">Hound</span> to fix that. No account managers. No juniors learning on your budget. Just a lean squad of battle-hardened seniors who hunt for efficiency and growth in every line of code and every pixel.
-            </p>
-          </div>
-        </div>
-        
-        <div class="origin-visual relative" data-animation="scale">
-          <div class="absolute -inset-4 rounded-[3rem] bg-gradient-to-tr from-cyan-500/20 to-violet-500/20 blur-2xl opacity-40"></div>
-          <div class="relative rounded-[2.5rem] border border-zinc-800 bg-zinc-900/60 p-12 backdrop-blur-xl">
-             <div class="flex gap-4 mb-8">
-                {team.map(member => (
-                  <div class="relative group">
-                    <img src={member.avatar} alt={member.name} class="h-20 w-20 rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-500 border border-zinc-700 group-hover:border-cyan-400/50" />
-                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-lg bg-cyan-400 px-2 py-0.5 text-[10px] font-black text-zinc-950 opacity-0 group-hover:opacity-100 transition-opacity">
-                      {member.name}
-                    </div>
-                  </div>
-                ))}
-             </div>
-            <p class="mb-8 text-2xl font-medium text-zinc-200 leading-tight">
-              "We don't pitch and delegate. We audit, design, and ship. We are Hounds because we don't stop until we find the result."
-            </p>
-            <div class="flex items-center gap-4 border-t border-zinc-800 pt-8">
-              <div>
-                <p class="text-sm font-black text-cyan-400 uppercase tracking-widest">The Core Squad</p>
-                <p class="text-xs text-zinc-500">Eric Martinez Solis & Victor</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- The USP: The Antidote -->
   <section class="section-usp px-6 py-32 bg-zinc-950">
