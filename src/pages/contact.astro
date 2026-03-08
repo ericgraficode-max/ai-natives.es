@@ -8,16 +8,16 @@ import { ChevronRight } from '../components/FeatherIcons.ts';
   title="Contact | Hound | ai-native"
   description="Skip the account managers. Talk directly to the senior partners about your growth goals."
 >
-  <section class="relative min-h-screen px-6 pb-20 pt-16 md:pt-24 overflow-hidden">
+  <section class="section-contact relative min-h-screen px-6 pb-20 pt-16 md:pt-24 overflow-hidden">
     <!-- Decorative background -->
-    <div class="absolute inset-0 -z-10">
+    <div class="contact-bg absolute inset-0 -z-10">
       <div class="absolute top-0 right-0 h-[500px] w-[500px] bg-cyan-500/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
       <div class="absolute bottom-0 left-0 h-[500px] w-[500px] bg-violet-500/10 blur-[120px] rounded-full -translate-x-1/2 translate-y-1/2"></div>
     </div>
 
-    <div class="mx-auto max-w-6xl">
-      <div class="grid gap-16 lg:grid-cols-[1fr,1.2fr] items-start">
-        <div data-animation="fade-up">
+    <div class="contact-container mx-auto max-w-6xl">
+      <div class="contact-grid grid gap-16 lg:grid-cols-[1fr,1.2fr] items-start">
+        <div class="contact-info" data-animation="fade-up">
           <p class="mb-4 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-300">
             Get in touch
           </p>
@@ -28,44 +28,44 @@ import { ChevronRight } from '../components/FeatherIcons.ts';
             Tell us about your project. Whether it's a structural audit, a design sprint, or a full-scale growth engine, we're ready to dive in.
           </p>
 
-          <div class="space-y-8">
-            <div class="flex gap-6">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">🤝</div>
-              <div>
+          <div class="contact-features space-y-8">
+            <div class="feature-item flex gap-6">
+              <div class="feature-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">🤝</div>
+              <div class="feature-text">
                 <h3 class="font-bold text-zinc-200">Senior Partners Only</h3>
                 <p class="text-sm text-zinc-500">You'll always talk to Eric or Victor. No middle-men, no juniors.</p>
               </div>
             </div>
-            <div class="flex gap-6">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">⚡</div>
-              <div>
+            <div class="feature-item flex gap-6">
+              <div class="feature-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">⚡</div>
+              <div class="feature-text">
                 <h3 class="font-bold text-zinc-200">Rapid Response</h3>
                 <p class="text-sm text-zinc-500">We respond to serious inquiries within 24 hours.</p>
               </div>
             </div>
-            <div class="flex gap-6">
-              <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">📍</div>
-              <div>
+            <div class="feature-item flex gap-6">
+              <div class="feature-icon flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-zinc-900 border border-zinc-800 text-xl">📍</div>
+              <div class="feature-text">
                 <h3 class="font-bold text-zinc-200">Based in Berlin & Spain</h3>
                 <p class="text-sm text-zinc-500">International standards with a local heart.</p>
               </div>
             </div>
           </div>
 
-          <div class="mt-16 pt-16 border-t border-zinc-900">
+          <div class="contact-direct mt-16 pt-16 border-t border-zinc-900">
              <p class="text-xs text-zinc-500 mb-2 uppercase tracking-widest">Direct channel</p>
-             <a href="mailto:hola@ai-native.es" class="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
+             <a href="mailto:hola@ai-native.es" class="email-link text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors">
                 hola@ai-native.es
              </a>
           </div>
         </div>
 
-        <div class="relative" data-animation="fade-up">
+        <div class="contact-form-wrapper relative" data-animation="fade-up">
            <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-[2.5rem] blur opacity-20"></div>
            <div class="relative bg-zinc-950 border border-zinc-800 rounded-[2rem] p-8 md:p-12 shadow-2xl">
               <h2 class="mb-8 text-2xl font-bold">Start a conversation</h2>
               <ContactForm />
-              <p class="mt-8 text-center text-[10px] text-zinc-500 leading-relaxed uppercase tracking-tighter">
+              <p class="form-disclaimer mt-8 text-center text-[10px] text-zinc-500 leading-relaxed uppercase tracking-tighter">
                  By submitting this form, you agree to our senior squad reviewing your data to provide a strategic response.
               </p>
            </div>

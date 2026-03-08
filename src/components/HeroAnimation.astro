@@ -1,4 +1,19 @@
-<div class="absolute inset-0 -z-10 overflow-hidden bg-zinc-950">
+<div class="section-hero-animation absolute inset-0 -z-10 overflow-hidden bg-zinc-950">
+  <!-- Video Background Layer -->
+  <div class="video-background absolute inset-0 -z-20">
+    <video
+      id="heroVideo"
+      autoplay
+      loop
+      muted
+      playsinline
+      class="h-full w-full object-cover opacity-60 mix-blend-lighten"
+    >
+      <source src="/hound_bg_home_pitch.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/20 via-zinc-950/50 to-zinc-950"></div>
+  </div>
+
   <!-- Dynamic Gradient Blobs -->
   <div class="blob-1 absolute -left-1/4 -top-1/4 h-[800px] w-[800px] rounded-full bg-cyan-500/10 blur-[120px]"></div>
   <div class="blob-2 absolute -right-1/4 -bottom-1/4 h-[800px] w-[800px] rounded-full bg-violet-500/10 blur-[120px]"></div>
@@ -13,6 +28,57 @@
     <div class="sweep h-full w-full bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent blur-sm"></div>
   </div>
 </div>
+
+<!-- Audio Control - Moved outside the -z-10 container to be clickable -->
+<button 
+  id="muteToggle" 
+  class="absolute bottom-8 right-8 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-zinc-800 bg-zinc-950/80 text-zinc-400 backdrop-blur-md transition-all hover:border-cyan-400 hover:text-cyan-400 group"
+  aria-label="Toggle Mute"
+>
+  <div class="absolute inset-0 rounded-full bg-cyan-400/20 animate-ping opacity-0 group-hover:opacity-100 transition-opacity"></div>
+  <svg id="muteIcon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>
+  <svg id="unmuteIcon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+</button>
+
+<script>
+  function setupVideoControls() {
+    const video = document.getElementById('heroVideo') as HTMLVideoElement;
+    const muteToggle = document.getElementById('muteToggle');
+    const muteIcon = document.getElementById('muteIcon');
+    const unmuteIcon = document.getElementById('unmuteIcon');
+
+    if (video && muteToggle && muteIcon && unmuteIcon) {
+      console.log('Video controls initialized');
+
+      muteToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        console.log('Mute toggle clicked. Current state (muted):', video.muted);
+        
+        video.muted = !video.muted;
+        
+        if (video.muted) {
+          muteIcon.classList.remove('hidden');
+          unmuteIcon.classList.add('hidden');
+        } else {
+          muteIcon.classList.add('hidden');
+          unmuteIcon.classList.remove('hidden');
+          video.play();
+        }
+        
+        console.log('New state (muted):', video.muted);
+      });
+    } else {
+      console.warn('Video elements not found:', { video, muteToggle, muteIcon, unmuteIcon });
+    }
+  }
+
+  // Setup on initial load
+  setupVideoControls();
+  // Setup on page transitions
+  document.addEventListener('astro:after-swap', setupVideoControls);
+</script>
 
 <style>
   .blob-1 {
