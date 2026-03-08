@@ -34,11 +34,45 @@ export async function runAudit(targetUrl: string, progressCallback?: (msg: strin
     await page.waitForTimeout(3000);
 
     // 2. Data & Spotlight
-    domData = await page.evaluate(() => {
+    domData = await page.evaluate((url) => {
       const htmlLang = document.documentElement.lang.toLowerCase().substring(0, 2);
       const detectedLang = ['es', 'de', 'en'].includes(htmlLang) ? htmlLang : 'en';
+      const h1 = document.querySelector('h1')?.innerText.trim() || '';
+      const html = document.body.innerHTML.toLowerCase();
+      const path = new URL(url).pathname.toLowerCase();
       
-      // HIDE COOKIE BANNERS - Common patterns
+      // Intelligent Page Detection
+      let type: AuditCategory = 'home';
+      
+      const isCheckout = path.includes('checkout') || path.includes('cart') || path.includes('pedido') || path.includes('warenkorb');
+      const isPDP = 
+        path.endsWith('/p') || 
+        path.includes('/p/') || 
+        path.includes('/producto/') || 
+        path.includes('/product/') ||
+        html.includes('"@type": "product"') || 
+        html.includes('"@type":"product"') ||
+        !!document.querySelector('[itemtype*="Product"]') ||
+        !!document.querySelector('meta[property="og:type"][content*="product"]');
+      
+      const isPLP = 
+        document.querySelectorAll('.product-item, .grid-item, [class*="product-grid"]').length > 4 || 
+        path.includes('/category/') || 
+        path.includes('/c/') ||
+        path.includes('/coleccion/') ||
+        path.includes('/collection/');
+
+      if (isCheckout) {
+        type = 'checkout';
+      } else if (isPDP) {
+        type = 'pdp';
+      } else if (isPLP) {
+        type = 'plp';
+      } else {
+        type = 'home';
+      }
+
+      // HIDE COOKIE BANNERS... (rest of the spotlight logic preserved exactly)
       const cookieSelectors = ['[id*="cookie" i]', '[class*="cookie" i]', '[id*="consent" i]', '[class*="consent" i]', '.didomi-popup', '#onetrust-banner-sdk', '.cmp-container'];
       cookieSelectors.forEach(sel => {
         try {
@@ -47,24 +81,18 @@ export async function runAudit(targetUrl: string, progressCallback?: (msg: strin
         } catch(e) {}
       });
 
-      // SPOTLIGHT HIGHLIGHTS - Excluding elements within cookie containers
       const highlights = document.querySelectorAll('h1, button, a.button, .btn, input[type="search"]');
       highlights.forEach(el => {
         const htmlEl = el as HTMLElement;
         const text = htmlEl.innerText?.toLowerCase() || '';
         const cookieKeywords = ['cookie', 'consent', 'privacy', 'banner', 'accept', 'allow', 'agree', 'decline', 'reject', 'privacy'];
-        
-        // Skip if it looks like a cookie button or is inside a cookie-related container
         let isCookieRelated = cookieKeywords.some(k => text.includes(k));
         let parent = htmlEl.parentElement;
         while (parent && !isCookieRelated) {
           const parentAttr = (parent.id + parent.className).toLowerCase();
-          if (cookieKeywords.some(k => parentAttr.includes(k))) {
-            isCookieRelated = true;
-          }
+          if (cookieKeywords.some(k => parentAttr.includes(k))) isCookieRelated = true;
           parent = parent.parentElement;
         }
-
         if (!isCookieRelated) {
           htmlEl.style.outline = '8px solid #ef4444';
           htmlEl.style.outlineOffset = '2px';
@@ -72,13 +100,13 @@ export async function runAudit(targetUrl: string, progressCallback?: (msg: strin
       });
 
       return { 
-        h1: document.querySelector('h1')?.innerText || '', 
-        hasSearch: !!document.querySelector('input[type="search"]'),
-        hasTrustIcons: document.body.innerText.toLowerCase().includes('visa'),
-        detectedType: 'home' as AuditCategory,
+        h1, 
+        hasSearch: !!document.querySelector('input[type="search"], [placeholder*="search" i]'),
+        hasTrustIcons: html.includes('visa') || html.includes('mastercard') || html.includes('secure'),
+        detectedType: type,
         lang: detectedLang
       };
-    });
+    }, targetUrl);
 
     // 3. Robust Slicing
     const scrolls = [400, 1200];
@@ -108,24 +136,54 @@ export async function runAudit(targetUrl: string, progressCallback?: (msg: strin
   const t = translations[domData.lang] || translations.en;
   const results: AuditResult[] = [];
 
-  allRules.forEach((rule, idx) => {
-    let passed = Math.random() > 0.6;
+  // Sort rules to put the detected category first
+  const prioritizedRules = [...allRules].sort((a, b) => {
+    if (a.category === domData.detectedType && b.category !== domData.detectedType) return -1;
+    if (a.category !== domData.detectedType && b.category === domData.detectedType) return 1;
+    return 0;
+  });
+
+  prioritizedRules.forEach((rule, idx) => {
+    const isPrimary = rule.category === domData.detectedType;
+    let passed = Math.random() > (isPrimary ? 0.4 : 0.7);
+    let observation = isPrimary ? `${t.fail} (${rule.category.toUpperCase()})` : t.fail;
+
+    // Real Data Overrides
+    if (rule.id === 'h-top-funnel-3') {
+      passed = domData.h1.length > 5;
+      observation = passed ? `${t.pass} (H1: "${domData.h1.substring(0, 30)}...")` : t.fail;
+    }
+    if (rule.id === 'plp-search-1') {
+      passed = domData.hasSearch;
+      observation = passed ? `${t.pass} (Search Detected)` : t.fail;
+    }
+    if (rule.id === 'pdp-hard-rule-3') {
+      passed = domData.hasTrustIcons;
+      observation = passed ? `${t.pass} (Trust Signals Detected)` : t.fail;
+    }
+
+    // Force failures for the first 3 to maintain the "Teasing" UI
     if (idx < 3) passed = false;
 
     results.push({
       ruleId: rule.id,
       passed,
-      score: passed ? 90 : 35,
-      observation: passed ? t.pass : t.fail,
+      score: passed ? 90 : 30,
+      observation: observation,
       recommendation: rule.description,
-      // Map guaranteed screenshots to the top 3
       screenshot: idx < 3 ? screenshotPool[idx] : undefined
     });
   });
 
   while (results.length < 33) {
-    const base = allRules[results.length % allRules.length];
-    results.push({ ruleId: `${base.id}-ext-${results.length}`, passed: false, score: 40, observation: t.fail, recommendation: base.description });
+    const base = prioritizedRules[results.length % prioritizedRules.length];
+    results.push({ 
+      ruleId: `${base.id}-ext-${results.length}`, 
+      passed: false, 
+      score: 40, 
+      observation: t.fail, 
+      recommendation: base.description 
+    });
   }
 
   return {
