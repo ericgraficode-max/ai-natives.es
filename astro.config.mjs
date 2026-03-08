@@ -4,6 +4,8 @@ import tailwind from '@astrojs/tailwind';
 import sanity from '@sanity/astro';
 import react from '@astrojs/react';
 
+import node from '@astrojs/node';
+
 const sanityProjectId = import.meta.env.PUBLIC_SANITY_PROJECT_ID;
 const hasSanity = sanityProjectId && sanityProjectId !== 'placeholder';
 
@@ -22,6 +24,9 @@ export default defineConfig({
         ]
       : []),
     react(),
-  ],
-  output: 'static',
+    ],
+    output: 'server',
+    adapter: node({
+    mode: 'standalone',
+  }),
 });

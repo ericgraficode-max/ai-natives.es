@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { ChevronRight } from '../../../components/FeatherIcons.ts';
+import AuditTool from '../../../components/AuditTool.tsx';
 ---
 
 <Layout
@@ -26,25 +27,25 @@ import { ChevronRight } from '../../../components/FeatherIcons.ts';
         Deje de quemar presupuesto en más tráfico. <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">Empiece a convertirlo.</span>
       </h1>
       <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
-        La mayoría de las marcas tienen un problema de tráfico. Compran más anuncios en lugar de arreglar el "cubo con fugas". 
-        Ejecutamos programas de CRO liderados por expertos que convierten a sus visitantes actuales en clientes leales.
+        La mayoría de las marcas tienen un problema de tráfico. Compran más anuncios en lugar de arreglar el embudo que gotea. 
+        Ejecutamos programas de CRO dirigidos por expertos que convierten a sus visitantes actuales en clientes leales.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
+
+      <AuditTool 
+        client:load 
+        buttonText="Auditar mi web" 
+        placeholderText="https://tuweb.es"
+      />
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
         <a
-          href="/es/contact"
+          href="/contact"
           class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
         >
-          Reserve una Llamada de Estrategia CRO
-        </a>
-        <a
-          href="#metodologia"
-          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
-        >
-          Explore Nuestro Proceso
+          Reservar llamada estratégica de CRO
         </a>
       </div>
-    </div>
-  </section>
+      </div>  </section>
 
   <!-- Value Proposition: El Palancazo del EBITDA -->
   <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">

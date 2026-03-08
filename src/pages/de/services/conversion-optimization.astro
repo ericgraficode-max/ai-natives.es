@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { ChevronRight } from '../../../components/FeatherIcons.ts';
+import AuditTool from '../../../components/AuditTool.tsx';
 ---
 
 <Layout
@@ -26,25 +27,25 @@ import { ChevronRight } from '../../../components/FeatherIcons.ts';
         Verbrennen Sie kein Budget für mehr Traffic. <span class="bg-gradient-to-r from-cyan-300 to-violet-400 bg-clip-text text-transparent">Fangen Sie an zu konvertieren.</span>
       </h1>
       <p class="mx-auto mb-10 max-w-3xl text-lg text-zinc-400 md:text-xl">
-        Die meisten Marken haben ein Traffic-Problem. Sie kaufen mehr Anzeigen, anstatt das "lecke Fass" zu reparieren. 
-        Wir führen Senior-geführte CRO-Programme durch, die Ihre Besucher in treue Kunden verwandeln.
+        Die meisten Marken haben ein Traffic-Problem. Sie kaufen mehr Anzeigen, anstatt den undichten Eimer zu flicken. 
+        Wir führen Senior-geführte CRO-Programme durch, die Ihre bestehenden Besucher in loyale Kunden verwandeln.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
+
+      <AuditTool 
+        client:load 
+        buttonText="Jetzt Audit starten" 
+        placeholderText="https://deinewebsite.de"
+      />
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
         <a
-          href="/de/contact"
+          href="/contact"
           class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
         >
           CRO-Strategiegespräch buchen
         </a>
-        <a
-          href="#methodik"
-          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
-        >
-          Unser Prozess
-        </a>
       </div>
-    </div>
-  </section>
+      </div>  </section>
 
   <!-- Value Proposition: Der EBITDA-Hebel -->
   <section class="border-y border-zinc-900 bg-zinc-950/50 px-6 py-24">

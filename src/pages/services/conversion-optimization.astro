@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { ChevronRight } from '../../components/FeatherIcons.ts';
+import AuditTool from '../../components/AuditTool.tsx';
 ---
 
 <Layout
@@ -28,18 +29,15 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
         Most brands have a traffic problem. They buy more ads instead of fixing the leaky bucket. 
         We run senior-led CRO programs that turn your existing visitors into loyal customers.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
+
+      <AuditTool client:load />
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
         <a
           href="/contact"
           class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
         >
           Book a CRO Strategy Call
-        </a>
-        <a
-          href="#methodology"
-          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
-        >
-          Explore Our Process
         </a>
       </div>
     </div>
