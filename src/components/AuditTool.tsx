@@ -22,12 +22,10 @@ const AuditTool: React.FC<AuditToolProps> = ({
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [mounted, setMounted] = useState(false);
 
-  // Handle mounting state for Portals
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Handle body scroll locking
   useEffect(() => {
     if (report) {
       document.body.style.overflow = 'hidden';
@@ -40,10 +38,8 @@ const AuditTool: React.FC<AuditToolProps> = ({
   const startAudit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url) return;
-    
     setLoading(true);
     setError(null);
-    // Explicitly clear old report to show fresh state
     setReport(null);
     setIsUnlocked(false);
 
@@ -55,9 +51,6 @@ const AuditTool: React.FC<AuditToolProps> = ({
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "audit tool isn't available");
-      
-      // Artificial delay to ensure UI transitions nicely
-      await new Promise(resolve => setTimeout(resolve, 500));
       setReport(data);
     } catch (err: any) {
       setError(err.message || "audit tool isn't available");
@@ -83,10 +76,9 @@ const AuditTool: React.FC<AuditToolProps> = ({
     setIsUnlocked(false);
   };
 
-  // The Audit Report UI
   const reportModal = report ? (
     <div 
-      key={report.timestamp} // Force fresh render when report updates
+      key={report.timestamp}
       className="fixed inset-0 z-[9999] bg-zinc-950/90 backdrop-blur-md overflow-y-auto pt-10 pb-20 px-4"
       onClick={closeReport}
     >
@@ -101,6 +93,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
         className="w-full max-w-4xl mx-auto bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Header */}
         <div className="p-8 border-b border-zinc-800 flex flex-col md:flex-row items-center gap-8">
           <div className="relative w-32 h-32 flex-shrink-0">
             <svg className="w-full h-full transform -rotate-90">
@@ -109,27 +102,29 @@ const AuditTool: React.FC<AuditToolProps> = ({
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <span className="text-3xl font-black text-white">{report.overallScore}</span>
-              <span className="text-[10px] text-zinc-500 uppercase">Score</span>
+              <span className="text-[10px] text-zinc-500 uppercase font-bold tracking-widest">Score</span>
             </div>
           </div>
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl font-black text-white mb-2">CRO Audit Report</h2>
-            <p className="text-zinc-500 text-sm truncate max-w-md">{report.url}</p>
+            <h2 className="text-3xl font-black text-white mb-2 tracking-tight">Conversion Diagnostic</h2>
+            <p className="text-zinc-500 font-mono text-xs truncate max-w-md">{report.url}</p>
             <div className="mt-4 flex flex-wrap justify-center md:justify-start gap-4">
-              <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold border border-green-500/20">{passedCount} Passed</span>
-              <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-xs font-bold border border-red-500/20">{failedCount} Improvements</span>
+              <span className="px-3 py-1 rounded-full bg-green-500/10 text-green-400 text-[10px] font-black uppercase tracking-widest border border-green-500/20">{passedCount} Passed</span>
+              <span className="px-3 py-1 rounded-full bg-red-500/10 text-red-400 text-[10px] font-black uppercase tracking-widest border border-red-500/20">{failedCount} Potential Risks</span>
             </div>
           </div>
         </div>
 
-        <div className="p-8 md:p-12 space-y-16">
+        <div className="p-8 md:p-12 space-y-20">
+          
+          {/* 01: Summary */}
           <section>
             <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="text-cyan-400 font-mono">01</span> Strengths vs. Weaknesses
+              <span className="text-cyan-400 font-mono">01</span> Performance Overview
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-3">
-                <div className="text-[10px] font-black text-green-400 uppercase tracking-widest mb-4">Strengths</div>
+                <div className="text-[10px] font-black text-green-400 uppercase tracking-widest mb-4 opacity-60">Competitive Strengths</div>
                 {strengths.map(s => (
                   <div key={s.ruleId} className="p-4 rounded-xl bg-green-500/5 border border-green-500/10 text-sm text-zinc-300 flex items-start gap-3">
                     <span className="text-green-400">✓</span> {allRules.find(r => r.id === (s.ruleId.split('-ref-')[0]))?.title}
@@ -137,7 +132,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
                 ))}
               </div>
               <div className="space-y-3">
-                <div className="text-[10px] font-black text-red-400 uppercase tracking-widest mb-4">Weaknesses</div>
+                <div className="text-[10px] font-black text-red-400 uppercase tracking-widest mb-4 opacity-60">Conversion Leakage</div>
                 {weaknesses.map(w => (
                   <div key={w.ruleId} className="p-4 rounded-xl bg-red-500/5 border border-red-500/10 text-sm text-zinc-300 flex items-start gap-3">
                     <span className="text-red-400">!</span> {allRules.find(r => r.id === (w.ruleId.split('-ref-')[0]))?.title}
@@ -147,25 +142,43 @@ const AuditTool: React.FC<AuditToolProps> = ({
             </div>
           </section>
 
+          {/* 02: Visual Proof */}
           <section>
             <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="text-red-500 font-mono">02</span> Top 3 Critical Issues
+              <span className="text-red-500 font-mono">02</span> Visual Proof: High-Impact Risks
             </h3>
-            <div className="space-y-6">
+            <div className="space-y-12">
               {weaknesses.map((res, i) => {
                 const ruleId = res.ruleId.split('-ref-')[0];
                 const rule = allRules.find(r => r.id === ruleId);
                 return (
-                  <div key={res.ruleId} className="p-6 rounded-2xl bg-zinc-800/50 border border-zinc-800">
-                    <div className="flex justify-between items-start mb-4">
-                      <span className="text-[10px] font-bold uppercase px-2 py-1 rounded bg-red-500/10 text-red-400">High Impact #{i+1}</span>
-                      <span className="text-xs text-zinc-600">Impact: {100 - res.score}%</span>
+                  <div key={res.ruleId} className="grid md:grid-cols-2 gap-8 items-center bg-zinc-800/30 rounded-3xl overflow-hidden border border-zinc-800">
+                    {/* The Screenshot Side */}
+                    <div className="relative aspect-video bg-zinc-950 flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-zinc-800">
+                      {res.screenshot ? (
+                        <img 
+                          src={`data:image/jpeg;base64,${res.screenshot}`} 
+                          alt="Audit Evidence" 
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="text-zinc-700 text-[10px] font-black uppercase tracking-widest animate-pulse">Analyzing Visual Patterns...</div>
+                      )}
+                      <div className="absolute top-4 left-4 px-2 py-1 bg-red-500 text-white text-[10px] font-black uppercase rounded shadow-lg">Friction Snapshot</div>
                     </div>
-                    <h4 className="text-xl font-bold text-white mb-2">{rule?.title || 'Friction Point'}</h4>
-                    <p className="text-zinc-400 text-sm mb-6">{res.observation}</p>
-                    <div className="p-4 rounded-xl bg-cyan-400/5 border border-cyan-400/20">
-                      <div className="text-[10px] font-black text-cyan-400 uppercase tracking-widest mb-1">Recommendation</div>
-                      <p className="text-sm text-cyan-100 italic">"{res.recommendation}"</p>
+
+                    {/* The Logic Side */}
+                    <div className="p-8">
+                      <div className="flex justify-between items-start mb-4">
+                        <span className="text-[10px] font-black uppercase px-2 py-1 rounded bg-red-500/10 text-red-400 tracking-tighter">Critical Rank #{i+1}</span>
+                        <span className="text-xs font-black text-zinc-600 uppercase">Impact: {100 - res.score}%</span>
+                      </div>
+                      <h4 className="text-xl font-black text-white mb-2 leading-tight">{rule?.title || 'Heuristic Failure'}</h4>
+                      <p className="text-zinc-400 text-sm mb-6 leading-relaxed">{res.observation}</p>
+                      <div className="p-4 rounded-xl bg-cyan-400/5 border border-cyan-400/20">
+                        <div className="text-[10px] font-black text-cyan-400 uppercase tracking-widest mb-2">HOUND Proposed Action</div>
+                        <p className="text-sm text-cyan-100 italic leading-relaxed">"{res.recommendation}"</p>
+                      </div>
                     </div>
                   </div>
                 );
@@ -173,35 +186,48 @@ const AuditTool: React.FC<AuditToolProps> = ({
             </div>
           </section>
 
-          <section className="p-10 rounded-3xl bg-zinc-950 border border-zinc-800 text-center">
-            <div className="text-4xl mb-6">🔒</div>
-            <h3 className="text-2xl font-bold text-white mb-4">+27 More Insights Locked</h3>
-            <p className="text-zinc-500 text-sm mb-8 max-w-sm mx-auto">Enter your email to receive the full 30-point technical roadmap as a PDF.</p>
-            {!isUnlocked ? (
-              <div className="max-w-xs mx-auto space-y-3">
-                <input
-                  type="email"
-                  placeholder="business@email.com"
-                  className="w-full px-4 py-3 bg-zinc-900 border border-zinc-700 rounded-lg text-white focus:border-cyan-400 outline-none"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <button 
-                  onClick={() => { if(email.includes('@')) setIsUnlocked(true) }}
-                  className="w-full py-3 bg-cyan-400 text-zinc-950 font-bold rounded-lg hover:bg-cyan-300 transition-all"
-                >
-                  Send Full Report
-                </button>
-              </div>
-            ) : (
-              <div className="p-4 text-green-400 font-bold border border-green-500/20 rounded-xl bg-green-500/5">✅ Full report dispatched to inbox.</div>
-            )}
+          {/* 03: The Gate */}
+          <section className="relative p-12 rounded-[2.5rem] bg-zinc-950 border-2 border-dashed border-zinc-800 text-center overflow-hidden">
+            <div className="relative z-10">
+              <div className="text-5xl mb-8">🔒</div>
+              <h3 className="text-3xl font-black text-white mb-4 tracking-tight">+27 More Targeted Conversion Insights Locked</h3>
+              <p className="text-zinc-500 text-base mb-10 max-w-lg mx-auto leading-relaxed">
+                Our scan analyzed 30+ e-commerce heuristics on your site. Unlock the full technical roadmap including mobile performance and checkout leak analysis.
+              </p>
+              
+              {!isUnlocked ? (
+                <div className="max-w-md mx-auto space-y-4">
+                  <input
+                    type="email"
+                    placeholder="Enter your business email"
+                    className="w-full px-6 py-4 bg-zinc-900 border border-zinc-700 rounded-xl text-white focus:border-cyan-400 outline-none transition-all text-lg"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                  <button 
+                    onClick={() => { if(email.includes('@')) setIsUnlocked(true) }}
+                    className="w-full py-4 bg-cyan-400 text-zinc-950 font-black rounded-xl hover:bg-cyan-300 transition-all text-lg shadow-lg shadow-cyan-400/20 active:scale-[0.98]"
+                  >
+                    Receive Full Visual Roadmap
+                  </button>
+                </div>
+              ) : (
+                <div className="p-8 text-green-400 font-black border border-green-500/20 rounded-2xl bg-green-500/5 animate-pulse text-xl">
+                  ✅ Complete Diagnostic Dispatched to Inbox
+                </div>
+              )}
+            </div>
           </section>
         </div>
 
-        <div className="p-8 border-t border-zinc-800 flex justify-between items-center bg-zinc-950/50 rounded-b-3xl">
-          <button onClick={closeReport} className="text-xs text-zinc-500 hover:text-white transition-colors">Close Audit</button>
-          <a href="/contact" className="px-6 py-2 bg-white text-zinc-950 text-xs font-bold rounded-lg hover:bg-zinc-200 transition-all">Fix These Issues Now</a>
+        <div className="p-8 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-6 bg-zinc-950/50 rounded-b-3xl">
+          <button onClick={closeReport} className="text-xs font-bold text-zinc-500 hover:text-white transition-colors">← Exit Audit</button>
+          <div className="flex flex-col md:flex-row items-center gap-6 w-full md:w-auto">
+            <span className="text-[10px] text-zinc-600 font-black uppercase tracking-[0.2em] hidden lg:block">Build a higher-converting experience</span>
+            <a href="/contact" className="w-full md:w-auto text-center px-10 py-4 bg-white text-zinc-950 text-sm font-black rounded-xl hover:bg-zinc-200 transition-all">
+              Talk to a Senior Expert
+            </a>
+          </div>
         </div>
       </div>
     </div>

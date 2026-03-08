@@ -16,6 +16,7 @@ export interface AuditResult {
   score: number; // 0 to 100
   observation: string;
   recommendation: string;
+  screenshot?: string; // Base64 encoded JPEG
 }
 
 export interface FullAuditReport {
