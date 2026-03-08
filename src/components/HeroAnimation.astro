@@ -1,0 +1,46 @@
+<div class="absolute inset-0 -z-10 overflow-hidden bg-zinc-950">
+  <!-- Dynamic Gradient Blobs -->
+  <div class="blob-1 absolute -left-1/4 -top-1/4 h-[800px] w-[800px] rounded-full bg-cyan-500/10 blur-[120px]"></div>
+  <div class="blob-2 absolute -right-1/4 -bottom-1/4 h-[800px] w-[800px] rounded-full bg-violet-500/10 blur-[120px]"></div>
+  
+  <!-- The "Hunt" Grid -->
+  <div class="absolute inset-0 opacity-20 [mask-image:radial-gradient(ellipse_at_center,black,transparent_80%)]">
+    <div class="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+  </div>
+
+  <!-- The Scanning Sweep (The "Hound") -->
+  <div class="scanner absolute inset-0 opacity-30">
+    <div class="sweep h-full w-full bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent blur-sm"></div>
+  </div>
+</div>
+
+<style>
+  .blob-1 {
+    animation: drift 20s infinite alternate ease-in-out;
+  }
+  .blob-2 {
+    animation: drift 25s infinite alternate-reverse ease-in-out;
+  }
+  
+  @keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 50px) scale(1.1); }
+  }
+
+  .scanner {
+    animation: scan 8s infinite linear;
+    width: 200%;
+    left: -100%;
+  }
+
+  @keyframes scan {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+  }
+
+  .sweep {
+    width: 20px;
+    height: 100%;
+    transform: skewX(-20deg);
+  }
+</style>
