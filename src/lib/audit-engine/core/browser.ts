@@ -57,6 +57,45 @@ export async function captureSlices(page: Page): Promise<string[]> {
   return pool;
 }
 
+export async function captureAccessibilityViolation(page: Page, selector: string): Promise<string | null> {
+  try {
+    // Find the specific element. Axe selectors can be complex, so we use it directly.
+    const el = await page.$(selector);
+    if (el) {
+      // 1. Highlight ONLY this specific element
+      await el.evaluate(node => {
+        const htmlEl = node as HTMLElement;
+        // Apply massive high-contrast outline
+        htmlEl.style.outline = '12px solid #ef4444';
+        htmlEl.style.outlineOffset = '4px';
+        htmlEl.style.position = 'relative';
+        htmlEl.style.zIndex = '9999999';
+        // Ensure it's in view
+        htmlEl.scrollIntoView({ block: 'center', inline: 'center' });
+      });
+      
+      await page.waitForTimeout(800);
+
+      const buffer = await page.screenshot({ 
+        type: 'jpeg', 
+        quality: 90
+      });
+
+      // Reset style immediately after capture
+      await el.evaluate(node => {
+        const htmlEl = node as HTMLElement;
+        htmlEl.style.outline = '';
+        htmlEl.style.outlineOffset = '';
+      });
+      
+      return buffer.toString('base64');
+    }
+  } catch (e) {
+    console.error(`[BrowserCore] Failed to capture specific violation for ${selector}:`, e);
+  }
+  return null;
+}
+
 export async function captureElementScreenshot(page: Page, selector: string): Promise<string | null> {
   try {
     const el = await page.$(selector);

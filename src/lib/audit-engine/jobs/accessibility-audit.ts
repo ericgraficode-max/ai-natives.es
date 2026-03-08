@@ -2,7 +2,7 @@ import { type Page } from 'playwright';
 import AxeBuilder from '@axe-core/playwright';
 import type { AuditResult, FullAuditReport } from '../types';
 import { allAccessibilityRules } from '../knowledge-base/accessibility';
-import { captureSlices, captureElementScreenshot, applySpotlight } from '../core/browser';
+import { captureSlices, captureAccessibilityViolation, applySpotlight } from '../core/browser';
 
 const translations: Record<string, any> = {
   en: { fail: "EAA Legal Compliance Violation." },
@@ -19,7 +19,6 @@ export async function runAccessibilityAudit(page: Page, targetUrl: string, reque
     .withTags(['wcag2aa', 'wcag22aa', 'best-practice'])
     .analyze();
 
-  await applySpotlight(page);
   const screenshotPool = await captureSlices(page);
 
   const t = translations[requestedLang] || translations.en;
@@ -33,14 +32,14 @@ export async function runAccessibilityAudit(page: Page, targetUrl: string, reque
     
     let screenshot;
     if (targetSelector && typeof targetSelector === 'string') {
-      screenshot = await captureElementScreenshot(page, targetSelector);
+      screenshot = await captureAccessibilityViolation(page, targetSelector);
     }
 
     results.push({
       ruleId: `axe-${v.id}`,
       passed: false,
       score: 15,
-      observation: v.help, // Use the specific help text as the primary observation
+      observation: v.help, 
       recommendation: v.description,
       screenshot: screenshot || undefined
     });
