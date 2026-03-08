@@ -40,9 +40,12 @@ const AuditTool: React.FC<AuditToolProps> = ({
   const startAudit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url) return;
+    
     setLoading(true);
     setError(null);
+    // Explicitly clear old report to show fresh state
     setReport(null);
+    setIsUnlocked(false);
 
     try {
       const response = await fetch('/api/audit', {
@@ -52,6 +55,9 @@ const AuditTool: React.FC<AuditToolProps> = ({
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "audit tool isn't available");
+      
+      // Artificial delay to ensure UI transitions nicely
+      await new Promise(resolve => setTimeout(resolve, 500));
       setReport(data);
     } catch (err: any) {
       setError(err.message || "audit tool isn't available");
@@ -80,10 +86,10 @@ const AuditTool: React.FC<AuditToolProps> = ({
   // The Audit Report UI
   const reportModal = report ? (
     <div 
+      key={report.timestamp} // Force fresh render when report updates
       className="fixed inset-0 z-[9999] bg-zinc-950/90 backdrop-blur-md overflow-y-auto pt-10 pb-20 px-4"
       onClick={closeReport}
     >
-      {/* Close Button - Top Right of Viewport */}
       <button 
         onClick={closeReport}
         className="fixed top-6 right-6 z-[10000] p-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full border border-zinc-700 transition-all shadow-xl"
@@ -91,12 +97,10 @@ const AuditTool: React.FC<AuditToolProps> = ({
         ✕
       </button>
 
-      {/* Simple Modal Container - NO internal scroll, NO height limit */}
       <div 
         className="w-full max-w-4xl mx-auto bg-zinc-900 border border-zinc-800 rounded-3xl shadow-2xl relative"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
         <div className="p-8 border-b border-zinc-800 flex flex-col md:flex-row items-center gap-8">
           <div className="relative w-32 h-32 flex-shrink-0">
             <svg className="w-full h-full transform -rotate-90">
@@ -118,10 +122,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
           </div>
         </div>
 
-        {/* Content Sections */}
         <div className="p-8 md:p-12 space-y-16">
-          
-          {/* 01: Strengths vs Weaknesses */}
           <section>
             <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
               <span className="text-cyan-400 font-mono">01</span> Strengths vs. Weaknesses
@@ -131,7 +132,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
                 <div className="text-[10px] font-black text-green-400 uppercase tracking-widest mb-4">Strengths</div>
                 {strengths.map(s => (
                   <div key={s.ruleId} className="p-4 rounded-xl bg-green-500/5 border border-green-500/10 text-sm text-zinc-300 flex items-start gap-3">
-                    <span className="text-green-400">✓</span> {allRules.find(r => r.id === s.ruleId)?.title}
+                    <span className="text-green-400">✓</span> {allRules.find(r => r.id === (s.ruleId.split('-ref-')[0]))?.title}
                   </div>
                 ))}
               </div>
@@ -139,21 +140,20 @@ const AuditTool: React.FC<AuditToolProps> = ({
                 <div className="text-[10px] font-black text-red-400 uppercase tracking-widest mb-4">Weaknesses</div>
                 {weaknesses.map(w => (
                   <div key={w.ruleId} className="p-4 rounded-xl bg-red-500/5 border border-red-500/10 text-sm text-zinc-300 flex items-start gap-3">
-                    <span className="text-red-400">!</span> {allRules.find(r => r.id === w.ruleId)?.title}
+                    <span className="text-red-400">!</span> {allRules.find(r => r.id === (w.ruleId.split('-ref-')[0]))?.title}
                   </div>
                 ))}
               </div>
             </div>
           </section>
 
-          {/* 02: Top 3 Critical Issues */}
           <section>
             <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
               <span className="text-red-500 font-mono">02</span> Top 3 Critical Issues
             </h3>
             <div className="space-y-6">
               {weaknesses.map((res, i) => {
-                const ruleId = res.ruleId.split('-extra-')[0].split('-ext-')[0].split('-ref-')[0];
+                const ruleId = res.ruleId.split('-ref-')[0];
                 const rule = allRules.find(r => r.id === ruleId);
                 return (
                   <div key={res.ruleId} className="p-6 rounded-2xl bg-zinc-800/50 border border-zinc-800">
@@ -173,12 +173,10 @@ const AuditTool: React.FC<AuditToolProps> = ({
             </div>
           </section>
 
-          {/* 03: The Gate */}
           <section className="p-10 rounded-3xl bg-zinc-950 border border-zinc-800 text-center">
             <div className="text-4xl mb-6">🔒</div>
             <h3 className="text-2xl font-bold text-white mb-4">+27 More Insights Locked</h3>
             <p className="text-zinc-500 text-sm mb-8 max-w-sm mx-auto">Enter your email to receive the full 30-point technical roadmap as a PDF.</p>
-            
             {!isUnlocked ? (
               <div className="max-w-xs mx-auto space-y-3">
                 <input
@@ -201,7 +199,6 @@ const AuditTool: React.FC<AuditToolProps> = ({
           </section>
         </div>
 
-        {/* Footer */}
         <div className="p-8 border-t border-zinc-800 flex justify-between items-center bg-zinc-950/50 rounded-b-3xl">
           <button onClick={closeReport} className="text-xs text-zinc-500 hover:text-white transition-colors">Close Audit</button>
           <a href="/contact" className="px-6 py-2 bg-white text-zinc-950 text-xs font-bold rounded-lg hover:bg-zinc-200 transition-all">Fix These Issues Now</a>
@@ -229,14 +226,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
           {loading ? 'Analyzing...' : buttonText}
         </button>
       </form>
-
-      {error && (
-        <p className="mt-3 text-red-400 text-sm text-center">
-          {errorPrefix} {error}
-        </p>
-      )}
-
-      {/* Portal the modal to body to escape parent transforms */}
+      {error && <p className="mt-3 text-red-400 text-sm text-center">{errorPrefix} {error}</p>}
       {mounted && typeof document !== 'undefined' && createPortal(reportModal, document.body)}
     </div>
   );
