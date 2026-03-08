@@ -2,9 +2,9 @@ import { homeRules } from './home';
 import { plpRules } from './plp';
 import { pdpRules } from './pdp';
 import { checkoutRules } from './checkout';
-import type { AuditRule } from '../types';
+import type { AuditRule } from '../../types';
 
-export const allRules: AuditRule[] = [
+export const allCroRules: AuditRule[] = [
   ...homeRules,
   ...plpRules,
   ...pdpRules,

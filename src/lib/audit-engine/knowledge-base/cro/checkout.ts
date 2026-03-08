@@ -1,4 +1,4 @@
-import type { AuditRule } from '../types';
+import type { AuditRule } from '../../types';
 
 export const checkoutRules: AuditRule[] = [
   {

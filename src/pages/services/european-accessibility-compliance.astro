@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { ChevronRight } from '../../components/FeatherIcons.ts';
+import AuditTool from '../../components/AuditTool.tsx';
 ---
 
 <Layout
@@ -28,18 +29,20 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
         The European Accessibility Act (EAA) is coming. We help Spanish product teams navigate WCAG standards 
         with pragmatic audits that balance legal requirements with product velocity.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
+
+      <AuditTool 
+        client:load 
+        auditType="accessibility"
+        buttonText="Audit accessibility" 
+        placeholderText="https://yourwebsite.com"
+      />
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
         <a
           href="/contact"
           class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
         >
           Book an Accessibility Audit
-        </a>
-        <a
-          href="#framework"
-          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
-        >
-          See Our Framework
         </a>
       </div>
     </div>

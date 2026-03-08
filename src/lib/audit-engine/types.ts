@@ -1,4 +1,5 @@
-export type AuditCategory = 'home' | 'plp' | 'pdp' | 'checkout';
+export type AuditCategory = 'home' | 'plp' | 'pdp' | 'checkout' | 'accessibility';
+export type AuditType = 'cro' | 'accessibility';
 
 export interface AuditRule {
   id: string;
@@ -7,16 +8,16 @@ export interface AuditRule {
   description: string;
   severity: 'high' | 'medium' | 'low';
   referenceUrl: string;
-  checkLogic: string; // Internal instruction for the crawler/evaluator
+  checkLogic?: string;
 }
 
 export interface AuditResult {
   ruleId: string;
   passed: boolean;
-  score: number; // 0 to 100
+  score: number;
   observation: string;
   recommendation: string;
-  screenshot?: string; // Base64 encoded JPEG
+  screenshot?: string;
 }
 
 export interface FullAuditReport {
@@ -24,4 +25,7 @@ export interface FullAuditReport {
   timestamp: string;
   overallScore: number;
   results: AuditResult[];
+  detectedType: AuditCategory;
+  lang: string;
+  auditType: AuditType;
 }

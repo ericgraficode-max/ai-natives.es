@@ -1,6 +1,7 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
 import { ChevronRight } from '../../../components/FeatherIcons.ts';
+import AuditTool from '../../../components/AuditTool.tsx';
 ---
 
 <Layout
@@ -29,18 +30,20 @@ import { ChevronRight } from '../../../components/FeatherIcons.ts';
         La Ley Europea de Accesibilidad (EAA) se acerca. Ayudamos a los equipos de producto españoles a navegar los 
         estándares WCAG con auditorías pragmáticas que equilibran los requisitos legales con la velocidad del producto.
       </p>
-      <div class="flex flex-wrap justify-center gap-4">
+
+      <AuditTool 
+        client:load 
+        auditType="accessibility"
+        buttonText="Auditar accesibilidad" 
+        placeholderText="https://tuweb.es"
+      />
+
+      <div class="flex flex-wrap justify-center gap-4 mt-8">
         <a
-          href="/es/contact"
+          href="/contact"
           class="rounded-lg bg-cyan-400 px-8 py-4 font-semibold text-zinc-950 transition-colors hover:bg-cyan-300"
         >
           Reserve una Auditoría de Accesibilidad
-        </a>
-        <a
-          href="#framework"
-          class="rounded-lg border border-zinc-700 px-8 py-4 text-zinc-300 transition-colors hover:border-cyan-400/50 hover:text-cyan-300"
-        >
-          Vea Nuestro Framework
         </a>
       </div>
     </div>
