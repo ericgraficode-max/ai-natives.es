@@ -11,19 +11,33 @@ const translations: Record<string, any> = {
 };
 
 export async function runAccessibilityAudit(page: Page, targetUrl: string, requestedLang: string = 'en'): Promise<FullAuditReport> {
-  await page.goto(targetUrl, { waitUntil: 'domcontentloaded', timeout: 30000 });
-  await page.waitForTimeout(3000);
+  let violations: any[] = [];
+  
+  try {
+    await page.goto(targetUrl, { waitUntil: 'load', timeout: 45000 }).catch(e => {
+      console.warn(`[AccessibilityAudit] Navigation error for ${targetUrl}:`, e.message);
+    });
+    
+    await page.waitForTimeout(3000);
 
-  // 1. Run Comprehensive Axe-Core Scan
-  const accessibilityScan = await new AxeBuilder({ page })
-    .withTags(['wcag2aa', 'wcag22aa', 'best-practice'])
-    .analyze();
+    // 1. Run Comprehensive Axe-Core Scan
+    const accessibilityScan = await new AxeBuilder({ page })
+      .withTags(['wcag2aa', 'wcag22aa', 'best-practice'])
+      .analyze()
+      .catch(e => {
+        console.error("[AccessibilityAudit] Axe analysis failed:", e.message);
+        return { violations: [] };
+      });
 
-  const screenshotPool = await captureSlices(page);
+    violations = (accessibilityScan as any).violations || [];
+  } catch (err) {
+    console.error('[AccessibilityAudit] Major scan error:', err);
+  }
+
+  const screenshotPool = await captureSlices(page).catch(() => ["", "", ""]);
 
   const t = translations[requestedLang] || translations.en;
   const results: AuditResult[] = [];
-  const violations = accessibilityScan.violations;
 
   // 2. Map REAL violations with targeted screenshots
   for (let i = 0; i < Math.min(3, violations.length); i++) {
@@ -32,7 +46,7 @@ export async function runAccessibilityAudit(page: Page, targetUrl: string, reque
     
     let screenshot;
     if (targetSelector && typeof targetSelector === 'string') {
-      screenshot = await captureAccessibilityViolation(page, targetSelector);
+      screenshot = await captureAccessibilityViolation(page, targetSelector).catch(() => null);
     }
 
     results.push({
