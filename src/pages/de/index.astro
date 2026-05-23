@@ -8,37 +8,37 @@ const services = [
   {
     title: 'UI & User Research',
     simple: 'Wir gestalten Apps und Websites, die Nutzer lieben und die den Kaufprozess vereinfachen.',
-    icon: '✨',
+    icon: '/3D Icons/magic-trick/magic-trick-front-color.png',
     link: '/de/services/user-interface-user-research'
   },
   {
     title: 'Conversion Optimierung',
     simple: 'Wir finden die Schwachstellen Ihrer Website und beheben sie, um Ihren Umsatz nachhaltig zu steigern.',
-    icon: '📈',
+    icon: '/3D Icons/chart/chart-front-color.png',
     link: '/de/services/conversion-optimization'
   },
   {
     title: 'Accessibility Audits',
     simple: 'Wir stellen sicher, dass Ihre Seite rechtskonform und für alle nutzbar ist – Schutz vor Bußgeldern inklusive.',
-    icon: '♿',
+    icon: '/3D Icons/axe/axe-front-color.png',
     link: '/de/services/european-accessibility-compliance'
   },
   {
     title: 'Digitale Fotos & Video',
     simple: 'Wir erstellen Premium-Content, der Ihr Produkt besser erklärt als tausend Worte.',
-    icon: '📸',
+    icon: '/3D Icons/camera/camera-front-color.png',
     link: '/de/services/digital-photoshoots-video'
   },
   {
     title: 'Pricing Compliance',
     simple: 'Wir helfen Ihnen bei der Umsetzung der EU-Preisrichtlinien, ohne die Verkaufspsychologie zu opfern.',
-    icon: '⚖️',
+    icon: '/3D Icons/euro/euro-front-color.png',
     link: '/de/services/european-pricing-compliance'
   },
   {
     title: 'Performance Marketing',
     simple: 'Wir optimieren Ihre Google Ads für maximale Sales bei jedem investierten Euro.',
-    icon: '🎯',
+    icon: '/3D Icons/target/target-front-color.png',
     link: '/de/services/sea-performance-marketing'
   }
 ];
@@ -149,17 +149,23 @@ const team = [
         
         <div class="grid gap-8 md:grid-cols-3">
            <div class="group rounded-3xl border border-zinc-800 bg-zinc-900/20 p-10 hover:border-cyan-400/30 transition-all" data-animation="fade-up">
-              <div class="mb-6 text-3xl">🛡️</div>
+              <div class="mb-6 h-12 w-12">
+                <img src="/3D Icons/shield/sheild-front-color.png" alt="" class="h-full w-full object-contain" />
+              </div>
               <h3 class="text-xl font-bold mb-4 text-white">Nur Senior-Experten</h3>
               <p class="text-zinc-400 text-sm leading-relaxed">Sie sprechen direkt mit den Machern. Keine Account-Manager, kein "Stille Post"-Prinzip. Direkter Zugang zu Elite-Talent.</p>
            </div>
            <div class="group rounded-3xl border border-zinc-800 bg-zinc-900/20 p-10 hover:border-violet-400/30 transition-all" data-animation="fade-up">
-              <div class="mb-6 text-3xl">⚡</div>
+              <div class="mb-6 h-12 w-12">
+                <img src="/3D Icons/flash/flash-front-color.png" alt="" class="h-full w-full object-contain" />
+              </div>
               <h3 class="text-xl font-bold mb-4 text-white">AI-Native Speed</h3>
               <p class="text-zinc-400 text-sm leading-relaxed">Wir nutzen KI für das "Boring Stuff" – so liefern wir High-Fidelity Ergebnisse in Wochen, wofür andere Monate brauchen.</p>
            </div>
            <div class="group rounded-3xl border border-zinc-800 bg-zinc-900/20 p-10 hover:border-cyan-400/30 transition-all" data-animation="fade-up">
-              <div class="mb-6 text-3xl">🌎</div>
+              <div class="mb-6 h-12 w-12">
+                <img src="/3D Icons/travel/travel-front-color.png" alt="" class="h-full w-full object-contain" />
+              </div>
               <h3 class="text-xl font-bold mb-4 text-white">Intl. Standards</h3>
               <p class="text-zinc-400 text-sm leading-relaxed">Ansässig in Spanien und Berlin, bringen wir die Strenge von 100M€+ Plattformen in jedes Projekt ein.</p>
            </div>
@@ -178,8 +184,8 @@ const team = [
       <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {services.map(service => (
           <a href={service.link} class="group relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900/20 p-10 transition-all hover:border-cyan-400/40 hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800 text-4xl transition-transform group-hover:scale-110 group-hover:rotate-6">
-              {service.icon}
+            <div class="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800 p-3 transition-transform group-hover:scale-110 group-hover:rotate-6">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-4 text-2xl font-black group-hover:text-cyan-300 transition-colors tracking-tight">{service.title}</h3>
             <p class="mb-10 text-zinc-500 leading-relaxed font-medium">{service.simple}</p>

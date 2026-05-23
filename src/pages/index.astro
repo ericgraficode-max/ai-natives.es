@@ -8,37 +8,37 @@ const services = [
   {
     title: 'UI & User Research',
     simple: 'We design apps and websites that people actually enjoy using, making it easy for them to buy from you.',
-    icon: '✨',
+    icon: '/3D Icons/magic-trick/magic-trick-front-color.png',
     link: '/services/user-interface-user-research'
   },
   {
     title: 'Conversion Optimization',
     simple: 'We find the "leaks" in your website where you lose customers and fix them to increase your revenue.',
-    icon: '📈',
+    icon: '/3D Icons/chart/chart-front-color.png',
     link: '/services/conversion-optimization'
   },
   {
     title: 'Accessibility Audits',
     simple: 'We ensure your site is legal and usable for everyone, protecting you from fines and reaching more people.',
-    icon: '♿',
+    icon: '/3D Icons/axe/axe-front-color.png',
     link: '/services/european-accessibility-compliance'
   },
   {
     title: 'Digital Photos & Video',
     simple: 'We create premium visuals that explain your product better than words ever could.',
-    icon: '📸',
+    icon: '/3D Icons/camera/camera-front-color.png',
     link: '/services/digital-photoshoots-video'
   },
   {
     title: 'Pricing Compliance',
     simple: 'We help you navigate European discount laws so you stay legal without losing your "sale" appeal.',
-    icon: '⚖️',
+    icon: '/3D Icons/euro/euro-front-color.png',
     link: '/services/european-pricing-compliance'
   },
   {
     title: 'Performance Marketing',
     simple: 'We optimize your Google Ads to make sure you get the most sales for every euro you spend.',
-    icon: '🎯',
+    icon: '/3D Icons/target/target-front-color.png',
     link: '/services/sea-performance-marketing'
   }
 ];
@@ -145,17 +145,23 @@ const team = [
         
         <div class="usp-grid grid gap-8 md:grid-cols-3">
            <div class="usp-card group rounded-3xl border border-zinc-800 bg-zinc-900/20 p-10 hover:border-cyan-400/30 transition-all" data-animation="fade-up">
-              <div class="mb-6 text-3xl">🛡️</div>
+              <div class="mb-6 h-12 w-12">
+                <img src="/3D Icons/shield/sheild-front-color.png" alt="" class="h-full w-full object-contain" />
+              </div>
               <h3 class="text-xl font-bold mb-4 text-white">Senior-Only Squad</h3>
               <p class="text-zinc-400 text-sm leading-relaxed">You talk to the people who build. No account managers, no game of telephone. Direct access to elite talent.</p>
            </div>
            <div class="usp-card group rounded-3xl border border-zinc-800 bg-zinc-900/20 p-10 hover:border-violet-400/30 transition-all" data-animation="fade-up">
-              <div class="mb-6 text-3xl">⚡</div>
+              <div class="mb-6 h-12 w-12">
+                <img src="/3D Icons/flash/flash-front-color.png" alt="" class="h-full w-full object-contain" />
+              </div>
               <h3 class="text-xl font-bold mb-4 text-white">AI-Native Velocity</h3>
               <p class="text-zinc-400 text-sm leading-relaxed">We use AI to automate the boring stuff, allowing us to ship high-fidelity work in weeks that takes others months.</p>
            </div>
            <div class="usp-card group rounded-3xl border border-zinc-800 bg-zinc-900/20 p-10 hover:border-cyan-400/30 transition-all" data-animation="fade-up">
-              <div class="mb-6 text-3xl">🌎</div>
+              <div class="mb-6 h-12 w-12">
+                <img src="/3D Icons/travel/travel-front-color.png" alt="" class="h-full w-full object-contain" />
+              </div>
               <h3 class="text-xl font-bold mb-4 text-white">Intl. Standards</h3>
               <p class="text-zinc-400 text-sm leading-relaxed">Based in Spain and Berlin, we bring the rigor of €100M+ European platforms to every project we touch.</p>
            </div>
@@ -174,8 +180,8 @@ const team = [
       <div class="services-grid grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {services.map(service => (
           <a href={service.link} class="service-card group relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900/20 p-10 transition-all hover:border-cyan-400/40 hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800 text-4xl transition-transform group-hover:scale-110 group-hover:rotate-6">
-              {service.icon}
+            <div class="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-800 p-3 transition-transform group-hover:scale-110 group-hover:rotate-6">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-4 text-2xl font-black group-hover:text-cyan-300 transition-colors tracking-tight">{service.title}</h3>
             <p class="mb-10 text-zinc-500 leading-relaxed font-medium">{service.simple}</p>
