@@ -118,30 +118,32 @@ import AuditTool from '../../../components/AuditTool.tsx';
             step: "01",
             title: "Análisis",
             desc: "Los datos cuantitativos (GA4, mapas de calor) se unen a los conocimientos cualitativos para encontrar el 'Por qué'.",
-            icon: "📊"
+            icon: "/3D Icons/chart/chart-front-color.png"
           },
           {
             step: "02",
             title: "Estrategia",
             desc: "Priorizamos las pruebas basándonos en el impacto potencial, la confianza y la facilidad de implementación (PIE Framework).",
-            icon: "🎯"
+            icon: "/3D Icons/target/target-front-color.png"
           },
           {
             step: "03",
             title: "Ejecución",
             desc: "Diseño de alta fidelidad y prototipado rápido de experimentos. Nos encargamos de la configuración técnica.",
-            icon: "⚡"
+            icon: "/3D Icons/rocket/rocket-front-color.png"
           },
           {
             step: "04",
             title: "Éxito",
             desc: "Análisis estadístico de los resultados. Escalamos los ganadores y aprendemos de los perdedores para iterar.",
-            icon: "📈"
+            icon: "/3D Icons/chart/chart-front-color.png"
           }
         ].map(item => (
           <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
             <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
-            <div class="mb-6 text-3xl">{item.icon}</div>
+            <div class="mb-6 h-12 w-12">
+              <img src={item.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
             <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
           </div>
@@ -208,26 +210,28 @@ import AuditTool from '../../../components/AuditTool.tsx';
           {
             title: "Tests A/B y Multivariante",
             desc: "Validación científica de cada cambio. Gestionamos las pruebas divididas desde la configuración hasta la significación estadística.",
-            icon: "🧪"
+            icon: "/3D Icons/lab/lab-front-color.png"
           },
           {
             title: "Investigación de Usuarios y Auditoría UX",
             desc: "Encontrar los puntos de fricción psicológica en su embudo mediante pruebas de usuario tipo laboratorio y encuestas.",
-            icon: "🔍"
+            icon: "/3D Icons/zoom/zoom-front-color.png"
           },
           {
             title: "Optimización de Checkout y Carrito",
             desc: "Eliminar las barreras de última milla que hacen que los usuarios de alta intención abandonen su compra.",
-            icon: "🛒"
+            icon: "/3D Icons/bag/bag-front-color.png"
           },
           {
             title: "Personalización de Landing Pages",
-            desc: "Adaptar la experiencia a diferentes fuentes de tráfico y segmentos de usuarios para una máxima relevancia.",
-            icon: "👤"
+            desc: "Adaptar la experiencia a differentes fuentes de tráfico y segmentos de usuarios para una máxima relevancia.",
+            icon: "/3D Icons/boy/boy-front-color.png"
           }
         ].map(service => (
           <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div class="h-10 w-10 shrink-0">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <div>
               <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
               <p class="text-sm text-zinc-400">{service.desc}</p>

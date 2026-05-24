@@ -80,7 +80,9 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
                  </div>
               </div>
               <div class="flex gap-4">
-                 <div class="h-12 w-12 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center text-xl">📐</div>
+                 <div class="h-12 w-12 rounded-lg bg-zinc-800 border border-zinc-700 flex items-center justify-center p-2">
+                   <img src="/3D Icons/colour-palette/colour-palette-front-color.png" alt="" class="h-full w-full object-contain" />
+                 </div>
                  <div class="flex-1">
                     <p class="text-xs font-bold text-violet-300 uppercase tracking-widest mb-1">Solution</p>
                     <p class="text-sm text-zinc-300">Simplified comparison matrix with clear value-mapping for each segment.</p>
@@ -113,30 +115,32 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
             step: "01",
             title: "Discovery",
             desc: "Mapping the problem space, user journeys, and technical constraints.",
-            icon: "🔭"
+            icon: "/3D Icons/explorer/explorer-front-color.png"
           },
           {
             step: "02",
             title: "Research",
             desc: "Validating assumptions through lean user testing and data analysis.",
-            icon: "🧪"
+            icon: "/3D Icons/lab/lab-front-color.png"
           },
           {
             step: "03",
             title: "Design",
             desc: "Building high-fidelity UI and interactive prototypes in Figma.",
-            icon: "✏️"
+            icon: "/3D Icons/figma/figma-front-color.png"
           },
           {
             step: "04",
             title: "Validate",
             desc: "Usability testing and handover to engineering for pixel-perfect build.",
-            icon: "✅"
+            icon: "/3D Icons/tick/tick-front-color.png"
           }
         ].map(item => (
           <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
             <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
-            <div class="mb-6 text-3xl">{item.icon}</div>
+            <div class="mb-6 h-12 w-12">
+              <img src={item.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
             <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
           </div>
@@ -200,26 +204,28 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
           {
             title: "Product Discovery Sprints",
             desc: "Intensive workshops to align stakeholders and define the MVP for new products or features.",
-            icon: "🚀"
+            icon: "/3D Icons/rocket/rocket-front-color.png"
           },
           {
             title: "Lean User Research",
             desc: "Rapid testing and interviews to validate UX decisions before they hit production.",
-            icon: "🔬"
+            icon: "/3D Icons/lab/lab-front-color.png"
           },
           {
             title: "Scalable Design Systems",
             desc: "Figma libraries that mirror your code, ensuring consistency and speed across teams.",
-            icon: "🧱"
+            icon: "/3D Icons/cube/cube-front-color.png"
           },
           {
             title: "High-Fidelity Prototyping",
             desc: "Interactive, implementation-ready prototypes that feel like the real thing.",
-            icon: "📱"
+            icon: "/3D Icons/mobile/mobile-front-color.png"
           }
         ].map(service => (
           <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div class="h-10 w-10 shrink-0">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <div>
               <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
               <p class="text-sm text-zinc-400">{service.desc}</p>

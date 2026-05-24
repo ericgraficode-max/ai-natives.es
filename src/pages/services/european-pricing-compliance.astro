@@ -113,30 +113,32 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
             step: "01",
             title: "Audit",
             desc: "Mapping your current pricing display against PID and Omnibus requirements.",
-            icon: "⚖️"
+            icon: "/3D Icons/euro/euro-front-color.png"
           },
           {
             step: "02",
             title: "Redesign",
             desc: "Designing UI variations that satisfy legal while maintaining 'urgency' and CR.",
-            icon: "📐"
+            icon: "/3D Icons/colour-palette/colour-palette-front-color.png"
           },
           {
             step: "03",
             title: "Implement",
             desc: "Technical guidance on 30-day price logging and dynamic unit price calculation.",
-            icon: "💻"
+            icon: "/3D Icons/computer/computer-front-color.png"
           },
           {
             step: "04",
             title: "Document",
             desc: "Clear internal guidelines for trading teams to ensure future promos stay legal.",
-            icon: "📂"
+            icon: "/3D Icons/folder/folder-front-color.png"
           }
         ].map(item => (
           <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
             <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
-            <div class="mb-6 text-3xl">{item.icon}</div>
+            <div class="mb-6 h-12 w-12">
+              <img src={item.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
             <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
           </div>
@@ -206,26 +208,28 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
           {
             title: "The '30-Day Rule' Implementation",
             desc: "Redesigning your discount logic to display the lowest price from the last 30 days as required by Article 6a PID.",
-            icon: "📅"
+            icon: "/3D Icons/calender/calender-front-color.png"
           },
           {
             title: "Unit Pricing (Price per kg/L)",
             desc: "Ensuring mandatory unit prices are visible and calculated correctly across all PLPs and search results.",
-            icon: "⚖️"
+            icon: "/3D Icons/euro/euro-front-color.png"
           },
           {
             title: "Promotion & Coupon UX",
             desc: "Redesigning how vouchers and 'strike-through' prices interact to ensure total transparency.",
-            icon: "🎟️"
+            icon: "/3D Icons/3d-coin/3d-coin-front-color.png"
           },
           {
             title: "Omnibus Legal-UX Audit",
             desc: "A full sweep of your platform to identify 'Dark Patterns' that might violate the new Unfair Commercial Practices rules.",
-            icon: "🔍"
+            icon: "/3D Icons/zoom/zoom-front-color.png"
           }
         ].map(service => (
           <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div class="h-10 w-10 shrink-0">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <div>
               <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
               <p class="text-sm text-zinc-400">{service.desc}</p>

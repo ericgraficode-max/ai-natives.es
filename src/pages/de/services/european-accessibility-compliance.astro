@@ -116,30 +116,32 @@ import AuditTool from '../../../components/AuditTool.tsx';
             step: "01",
             title: "Audit",
             desc: "Vielschichtige Tests der wichtigsten User-Journeys zur Identifikation technischer und UX-Barrieren.",
-            icon: "🔍"
+            icon: "/3D Icons/zoom/zoom-front-color.png"
           },
           {
             step: "02",
             title: "Priorisierung",
             desc: "Risikobasierte Klassifizierung der Probleme. Was muss jetzt gefixt werden, um rechtliche Risiken zu vermeiden.",
-            icon: "⚖️"
+            icon: "/3D Icons/euro/euro-front-color.png"
           },
           {
             step: "03",
             title: "Remediation",
             desc: "Developer-zentrierte Anleitung zur Behebung von Fehlern, ohne Features zu beeinträchtigen.",
-            icon: "🛠️"
+            icon: "/3D Icons/tools/tool-front-color.png"
           },
           {
             step: "04",
             title: "Governance",
             desc: "Einführung von Monitoring und Team-Training, um künftige Barrieren zu vermeiden.",
-            icon: "📜"
+            icon: "/3D Icons/file-text/file-text-front-color.png"
           }
         ].map(item => (
           <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
             <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
-            <div class="mb-6 text-3xl">{item.icon}</div>
+            <div class="mb-6 h-12 w-12">
+              <img src={item.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
             <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
           </div>
@@ -217,26 +219,28 @@ import AuditTool from '../../../components/AuditTool.tsx';
           {
             title: "WCAG 2.1 / 2.2 Audit",
             desc: "Umfassende Bewertung Ihrer Web- oder Mobile-Plattform nach den neuesten internationalen Standards.",
-            icon: "📜"
+            icon: "/3D Icons/file-text/file-text-front-color.png"
           },
           {
             title: "EAA Readiness-Check",
             desc: "Ein strategisches Audit fokussiert auf die rechtlichen Anforderungen des European Accessibility Act.",
-            icon: "🇪🇺"
+            icon: "/3D Icons/flag/flag-front-color.png"
           },
           {
             title: "VPAT / ACR Erstellung",
             desc: "Professionelle Dokumentation für öffentliche Aufträge und Enterprise-Ausschreibungen.",
-            icon: "📝"
+            icon: "/3D Icons/notebook/notebook-front-color.png"
           },
           {
             title: "Accessible Design Systems",
             desc: "Barrierefreiheit direkt in die Core-Komponenten einbauen, um Probleme im Keim zu ersticken.",
-            icon: "🧱"
+            icon: "/3D Icons/cube/cube-front-color.png"
           }
         ].map(service => (
           <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div class="h-12 w-12 shrink-0">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <div>
               <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
               <p class="text-sm text-zinc-400">{service.desc}</p>

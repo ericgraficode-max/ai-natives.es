@@ -192,26 +192,28 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
           {
             title: "Brand & Image Films",
             desc: "High-end cinematic films that capture your brand's essence and mission.",
-            icon: "🎥"
+            icon: "/3D Icons/video-cam/video-camera-front-color.png"
           },
           {
             title: "Product Photography",
             desc: "Technical and lifestyle imagery designed to move products on web and print.",
-            icon: "📸"
+            icon: "/3D Icons/camera/camera-front-color.png"
           },
           {
             title: "Social-First Content",
             desc: "Short-form vertical video and motion loops optimized for engagement.",
-            icon: "📱"
+            icon: "/3D Icons/mobile/mobile-front-color.png"
           },
           {
             title: "Professional Livestreams",
             desc: "Agency-grade livestream production for events, product launches, and panels.",
-            icon: "📡"
+            icon: "/3D Icons/wifi/wifi-front-color.png"
           }
         ].map(service => (
           <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div class="h-10 w-10 shrink-0">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <div>
               <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
               <p class="text-sm text-zinc-400">{service.desc}</p>

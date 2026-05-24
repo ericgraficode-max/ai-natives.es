@@ -111,30 +111,32 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
             step: "01",
             title: "Analysis",
             desc: "Systemic evaluation of keyword logic, targeting, and account hierarchy.",
-            icon: "📊"
+            icon: "/3D Icons/chart/chart-front-color.png"
           },
           {
             step: "02",
             title: "Validation",
             desc: "Technical deep-dive into tracking, attribution, and GA4 data integrity.",
-            icon: "🧪"
+            icon: "/3D Icons/lab/lab-front-color.png"
           },
           {
             step: "03",
             title: "Automation",
             desc: "Critical assessment of bidding strategies and AI-driven campaign performance.",
-            icon: "🤖"
+            icon: "/3D Icons/rocket/rocket-front-color.png"
           },
           {
             step: "04",
             title: "Roadmap",
             desc: "A prioritized plan to reallocate budget from 'cost eaters' to growth levers.",
-            icon: "📈"
+            icon: "/3D Icons/target/target-front-color.png"
           }
         ].map(item => (
           <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
             <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
-            <div class="mb-6 text-3xl">{item.icon}</div>
+            <div class="mb-6 h-12 w-12">
+              <img src={item.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
             <p class="text-sm text-zinc-400 leading-relaxed">{item.desc}</p>
           </div>
@@ -210,26 +212,28 @@ import { ChevronRight } from '../../components/FeatherIcons.ts';
           {
             title: "Google Ads Strategic Audit",
             desc: "A comprehensive 90+ point check covering account structure, bidding, and data quality.",
-            icon: "🔍"
+            icon: "/3D Icons/zoom/zoom-front-color.png"
           },
           {
             title: "Tracking & GA4 Integration",
             desc: "Ensuring your measurement setup provides a solid foundation for automated decisions.",
-            icon: "📊"
+            icon: "/3D Icons/chart/chart-front-color.png"
           },
           {
             title: "PMax & Automation Audit",
             desc: "Opening the 'Black Box' to understand what drives your Performance Max campaigns.",
-            icon: "🤖"
+            icon: "/3D Icons/rocket/rocket-front-color.png"
           },
           {
             title: "International SEA Scaling",
             desc: "Strategic guidance for Spanish brands expanding into the DACH and European markets.",
-            icon: "🌍"
+            icon: "/3D Icons/travel/travel-front-color.png"
           }
         ].map(service => (
           <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="text-3xl shrink-0">{service.icon}</div>
+            <div class="h-10 w-10 shrink-0">
+              <img src={service.icon} alt="" class="h-full w-full object-contain" />
+            </div>
             <div>
               <h3 class="mb-2 text-xl font-semibold">{service.title}</h3>
               <p class="text-sm text-zinc-400">{service.desc}</p>
