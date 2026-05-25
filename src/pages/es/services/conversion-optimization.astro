@@ -118,30 +118,30 @@ import AuditTool from '../../../components/AuditTool.tsx';
             step: "01",
             title: "Análisis",
             desc: "Los datos cuantitativos (GA4, mapas de calor) se unen a los conocimientos cualitativos para encontrar el 'Por qué'.",
-            icon: "/3D Icons/chart/chart-front-color.png"
+            icon: "/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Report.png"
           },
           {
             step: "02",
             title: "Estrategia",
             desc: "Priorizamos las pruebas basándonos en el impacto potencial, la confianza y la facilidad de implementación (PIE Framework).",
-            icon: "/3D Icons/target/target-front-color.png"
+            icon: "/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Target_Market.png"
           },
           {
             step: "03",
             title: "Ejecución",
             desc: "Diseño de alta fidelidad y prototipado rápido de experimentos. Nos encargamos de la configuración técnica.",
-            icon: "/3D Icons/rocket/rocket-front-color.png"
+            icon: "/3D Icons/tools/tool-front-color.png"
           },
           {
             step: "04",
             title: "Éxito",
             desc: "Análisis estadístico de los resultados. Escalamos los ganadores y aprendemos de los perdedores para iterar.",
-            icon: "/3D Icons/chart/chart-front-color.png"
+            icon: "/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Growth.png"
           }
         ].map(item => (
           <div class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/30 p-8 transition-colors hover:border-cyan-400/40" data-animation="fade-up">
             <span class="absolute top-4 right-6 text-4xl font-black text-zinc-800/50 transition-colors group-hover:text-cyan-400/10">{item.step}</span>
-            <div class="mb-6 h-12 w-12">
+            <div class="mb-6 h-[124px] w-[124px]">
               <img src={item.icon} alt="" class="h-full w-full object-contain" />
             </div>
             <h3 class="mb-3 text-xl font-semibold">{item.title}</h3>
@@ -210,12 +210,12 @@ import AuditTool from '../../../components/AuditTool.tsx';
           {
             title: "Tests A/B y Multivariante",
             desc: "Validación científica de cada cambio. Gestionamos las pruebas divididas desde la configuración hasta la significación estadística.",
-            icon: "/3D Icons/lab/lab-front-color.png"
+            icon: "/3D Icons/lab/lab-front-gradient.png"
           },
           {
             title: "Investigación de Usuarios y Auditoría UX",
             desc: "Encontrar los puntos de fricción psicológica en su embudo mediante pruebas de usuario tipo laboratorio y encuestas.",
-            icon: "/3D Icons/zoom/zoom-front-color.png"
+            icon: "/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Report.png"
           },
           {
             title: "Optimización de Checkout y Carrito",
@@ -228,8 +228,8 @@ import AuditTool from '../../../components/AuditTool.tsx';
             icon: "/3D Icons/boy/boy-front-color.png"
           }
         ].map(service => (
-          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40" data-animation="fade-up">
-            <div class="h-10 w-10 shrink-0">
+          <div class="flex gap-6 rounded-2xl border border-zinc-800 bg-zinc-900/20 p-8 transition-colors hover:bg-zinc-900/40 items-center" data-animation="fade-up">
+            <div class="h-[124px] w-[124px] shrink-0">
               <img src={service.icon} alt="" class="h-full w-full object-contain" />
             </div>
             <div>
@@ -278,9 +278,24 @@ import AuditTool from '../../../components/AuditTool.tsx';
   <section class="px-6 py-24">
     <div class="mx-auto max-w-6xl text-center">
       <h2 class="mb-12 text-2xl font-bold text-zinc-400 uppercase tracking-widest" data-animation="fade-up">Trabajamos con sus herramientas</h2>
-      <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all" data-animation="fade-up">
-        {["Optimizely", "VWO", "AB Tasty", "Google Analytics 4", "Hotjar", "PostHog", "Shopify", "Contentful"].map(tool => (
-          <span class="text-lg font-bold text-zinc-500 tracking-tighter">{tool}</span>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all" data-animation="fade-up">
+        {[
+          { name: "Optimizely", icon: "/brands/Optimizely.png" },
+          { name: "VWO", icon: "/brands/vwo.png", class: "h-4 md:h-8" },
+          { name: "AB Tasty", icon: "/brands/Abtasty.png", class: "h-4 md:h-8" },
+          { name: "Google Analytics 4", icon: "/brands/GA4.svg" },
+          { name: "Hotjar", icon: "/brands/hotjar.svg" },
+          { name: "PostHog", icon: "/brands/posthog.svg" },
+          { name: "Shopify", icon: "/brands/shopify.svg" },
+          { name: "Contentful", icon: "https://cdn.simpleicons.org/contentful/a1a1aa" }
+        ].map(tool => (
+          <div class={tool.class || "h-8 md:h-12 w-auto"} title={tool.name}>
+            <img 
+              src={tool.icon} 
+              alt={tool.name} 
+              class="h-full w-auto object-contain" 
+            />
+          </div>
         ))}
       </div>
     </div>
