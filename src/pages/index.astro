@@ -4,8 +4,9 @@ import ContactForm from '../components/ContactForm.astro';
 import { ChevronRight } from '../components/FeatherIcons.ts';
 import HeroAnimation from '../components/HeroAnimation.astro';
 
-const services = [
+const allServices = [
   {
+    id: 'uiux',
     title: 'UI & User Research',
     simple: 'We design apps and websites that people actually enjoy using, making it easy for them to buy from you.',
     icon: '/3D Icons/colour-palette/colour-palette-front-color.png',
@@ -13,6 +14,7 @@ const services = [
     size: 'h-[124px] w-[124px]'
   },
   {
+    id: 'cro',
     title: 'Conversion Optimization',
     simple: 'We find the "leaks" in your website where you lose customers and fix them to increase your revenue.',
     icon: '/3D Icons/target/target-front-color.png',
@@ -20,6 +22,7 @@ const services = [
     size: 'h-[124px] w-[124px]'
   },
   {
+    id: 'access',
     title: 'Accessibility Audits',
     simple: 'We ensure your site is legal and usable for everyone, protecting you from fines and reaching more people.',
     icon: '/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Report.png',
@@ -27,6 +30,7 @@ const services = [
     size: 'h-[148px] w-[148px]'
   },
   {
+    id: 'photo',
     title: 'Digital Photos & Video',
     simple: 'We create premium visuals that explain your product better than words ever could.',
     icon: '/3D Icons/camera/camera-front-color.png',
@@ -34,6 +38,7 @@ const services = [
     size: 'h-[124px] w-[124px]'
   },
   {
+    id: 'pricing',
     title: 'Pricing Compliance',
     simple: 'We help you navigate European discount laws so you stay legal without losing your "sale" appeal.',
     icon: '/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Wallet.png',
@@ -41,6 +46,7 @@ const services = [
     size: 'h-[148px] w-[148px]'
   },
   {
+    id: 'sea',
     title: 'Performance Marketing',
     simple: 'We optimize your Google Ads to make sure you get the most sales for every euro you spend.',
     icon: '/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Graph_Chart.png',
@@ -48,6 +54,9 @@ const services = [
     size: 'h-[148px] w-[148px]'
   }
 ];
+
+const activeServiceIds = ['cro', 'access', 'pricing'];
+const services = allServices.filter(s => activeServiceIds.includes(s.id));
 
 const team = [
   { name: 'Eric', role: 'Product & Design', avatar: '/Eric_Martinez.jpg' },

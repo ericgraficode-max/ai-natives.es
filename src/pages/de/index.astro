@@ -4,8 +4,9 @@ import ContactForm from '../../components/ContactForm.astro';
 import { ChevronRight } from '../../components/FeatherIcons.ts';
 import HeroAnimation from '../../components/HeroAnimation.astro';
 
-const services = [
+const allServices = [
   {
+    id: 'uiux',
     title: 'UI & User Research',
     simple: 'Wir gestalten Apps und Websites, die Nutzer lieben und die den Kaufprozess vereinfachen.',
     icon: '/3D Icons/colour-palette/colour-palette-front-color.png',
@@ -13,6 +14,7 @@ const services = [
     size: 'h-[124px] w-[124px]'
   },
   {
+    id: 'cro',
     title: 'Conversion Optimierung',
     simple: 'Wir finden die Schwachstellen Ihrer Website und beheben sie, um Ihren Umsatz nachhaltig zu steigern.',
     icon: '/3D Icons/target/target-front-color.png',
@@ -20,6 +22,7 @@ const services = [
     size: 'h-[124px] w-[124px]'
   },
   {
+    id: 'access',
     title: 'Accessibility Audits',
     simple: 'Wir stellen sicher, dass Ihre Seite rechtskonform und für alle nutzbar ist – Schutz vor Bußgeldern inklusive.',
     icon: '/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Report.png',
@@ -27,6 +30,7 @@ const services = [
     size: 'h-[148px] w-[148px]'
   },
   {
+    id: 'photo',
     title: 'Digitale Fotos & Video',
     simple: 'Wir erstellen Premium-Content, der Ihr Produkt besser erklärt als tausend Worte.',
     icon: '/3D Icons/camera/camera-front-color.png',
@@ -34,6 +38,7 @@ const services = [
     size: 'h-[124px] w-[124px]'
   },
   {
+    id: 'pricing',
     title: 'Pricing Compliance',
     simple: 'Wir helfen Ihnen bei der Umsetzung der EU-Preisrichtlinien, ohne die Verkaufspsychologie zu opfern.',
     icon: '/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Wallet.png',
@@ -41,6 +46,7 @@ const services = [
     size: 'h-[148px] w-[148px]'
   },
   {
+    id: 'sea',
     title: 'Performance Marketing',
     simple: 'Wir optimieren Ihre Google Ads für maximale Sales bei jedem investierten Euro.',
     icon: '/3D Icons/business-3d-illustration-icons-2025-01-06-22-58-16-utc/Graph_Chart.png',
@@ -48,6 +54,9 @@ const services = [
     size: 'h-[148px] w-[148px]'
   }
 ];
+
+const activeServiceIds = ['cro', 'access', 'pricing'];
+const services = allServices.filter(s => activeServiceIds.includes(s.id));
 
 const team = [
   { name: 'Eric', role: 'Product & Design', avatar: '/Eric_Martinez.jpg' },
