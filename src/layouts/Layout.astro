@@ -73,14 +73,18 @@ const t = {
   }
 };
 
-const services = [
-  { name: t[lang].serviceNames.cro, href: `${localePrefix}/services/conversion-optimization` },
-  { name: t[lang].serviceNames.photo, href: `${localePrefix}/services/digital-photoshoots-video` },
-  { name: t[lang].serviceNames.access, href: `${localePrefix}/services/european-accessibility-compliance` },
-  { name: t[lang].serviceNames.pricing, href: `${localePrefix}/services/european-pricing-compliance` },
-  { name: t[lang].serviceNames.sea, href: `${localePrefix}/services/sea-performance-marketing` },
-  { name: t[lang].serviceNames.uiux, href: `${localePrefix}/services/user-interface-user-research` },
+const allServices = [
+  { id: 'cro', name: t[lang].serviceNames.cro, href: `${localePrefix}/services/conversion-optimization` },
+  { id: 'photo', name: t[lang].serviceNames.photo, href: `${localePrefix}/services/digital-photoshoots-video` },
+  { id: 'access', name: t[lang].serviceNames.access, href: `${localePrefix}/services/european-accessibility-compliance` },
+  { id: 'pricing', name: t[lang].serviceNames.pricing, href: `${localePrefix}/services/european-pricing-compliance` },
+  { id: 'sea', name: t[lang].serviceNames.sea, href: `${localePrefix}/services/sea-performance-marketing` },
+  { id: 'uiux', name: t[lang].serviceNames.uiux, href: `${localePrefix}/services/user-interface-user-research` },
 ];
+
+// Initial launch services
+const activeServiceIds = ['cro', 'access', 'pricing'];
+const services = allServices.filter(s => activeServiceIds.includes(s.id));
 
 // Current path logic for language switcher
 const currentPath = Astro.url.pathname;

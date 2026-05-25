@@ -24,8 +24,11 @@
 
 ## Key Workflows & Conventions
 1. **SSR First:** The project uses `output: 'server'`. API routes are located in `src/pages/api/`.
-2. **Animations:** Prioritize GSAP for complex timelines. See `src/components/HeroAnimation.astro` for video + SVG + CSS animation patterns.
-3. **Audit Engine:** When modifying the audit engine, ensure `src/lib/audit-engine/core/browser.ts` handles headless browser contexts correctly to avoid detection or resource leaks.
+2. **Navigation Filtering:** Service visibility is managed in `src/layouts/Layout.astro` via `activeServiceIds`.
+   - **Active:** `cro`, `access`, `pricing`.
+   - **Hidden (In-project):** `photo`, `sea`, `uiux`.
+3. **Animations:** Prioritize GSAP for complex timelines. See `src/components/HeroAnimation.astro` for video + SVG + CSS animation patterns.
+4. **Audit Engine:** When modifying the audit engine, ensure `src/lib/audit-engine/core/browser.ts` handles headless browser contexts correctly to avoid detection or resource leaks.
 4. **Sanity Integration:** Content is fetched via `src/lib/sanity.ts`. If `PUBLIC_SANITY_PROJECT_ID` is missing, the site gracefully falls back to local placeholder content.
 
 ## Development
