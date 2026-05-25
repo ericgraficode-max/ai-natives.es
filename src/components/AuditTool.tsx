@@ -70,6 +70,13 @@ const AuditTool: React.FC<AuditToolProps> = ({
   const startAudit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!url) return;
+    
+    // Normalize URL
+    let targetUrl = url.trim();
+    if (!targetUrl.startsWith('http://') && !targetUrl.startsWith('https://')) {
+      targetUrl = `https://${targetUrl}`;
+    }
+
     setLoading(true);
     setError(null);
     setReport(null);
@@ -79,7 +86,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
       const response = await fetch('/api/audit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url, type: auditType, lang: currentLang })
+        body: JSON.stringify({ url: targetUrl, type: auditType, lang: currentLang })
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "audit tool isn't available");
@@ -296,7 +303,7 @@ const AuditTool: React.FC<AuditToolProps> = ({
   return (
     <div className="w-full max-w-xl mx-auto mt-8">
       <form onSubmit={startAudit} className="flex flex-col sm:flex-row gap-3">
-        <input type="url" placeholder={placeholderText} required value={url} onChange={(e) => setUrl(e.target.value)} className="flex-1 px-4 py-3 rounded-lg bg-zinc-900/50 border border-zinc-700 text-white focus:outline-none focus:border-cyan-400/50 transition-colors" />
+        <input type="text" placeholder={placeholderText} required value={url} onChange={(e) => setUrl(e.target.value)} className="flex-1 px-4 py-3 rounded-lg bg-zinc-900/50 border border-zinc-700 text-white focus:outline-none focus:border-cyan-400/50 transition-colors" />
         <button type="submit" disabled={loading} className="px-6 py-3 border border-zinc-700 text-zinc-300 hover:border-cyan-400/50 hover:text-cyan-300 font-bold rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap flex items-center justify-center gap-2">
           {loading ? (
             <>
